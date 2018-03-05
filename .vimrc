@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 17:34:45 GMT 2018
+" Last Change       - Mon  5 Mar 19:08:50 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -19,14 +19,23 @@ noremap l gk
 " Set the initial variable values, prior to further processing.
 let g:autoscrollstate="false"
 let g:hardmodestate="false"
-let g:docmodestate="false"
 let g:mousesupportstate="false"
 let g:virtualeditstate="false"
 let g:textwidthmode="false"
 let mapleader=","
 
+" Source TFL Plugins.
+source $HOME/.vim/plugin/moredoc.vim
+source $HOME/.vim/plugin/datepaste.vim
+source $HOME/.vim/plugin/comtog.vim
+source $HOME/.vim/plugin/headup.vim
+source $HOME/.vim/plugin/banger.vim
+
 " Allow recursive fuzzy finding.
 set path+=**
+
+" Disable modelines.
+set modeline
 
 " Stop asking VIM to act like ancient vi.
 set nocompatible
@@ -59,9 +68,6 @@ set listchars=tab:»→,trail:␣,extends:#,nbsp:⊗
 
 " Disable the ruler.
 set noruler
-
-" Set the status line at the bottom of VIM.
-set statusline=\ %F%m%r%h%w\ \ FF=%{&ff}\ \ T=%Y\ \ A=\%03.3b\ \ H=\%02.2B\ \ POS=%04l,%04v\ \ %p%%\ \ LEN=%L
 
 " ???
 set cmdheight=1
@@ -96,25 +102,8 @@ set incsearch
 " Superficially use 8-space tabs; set this for reference.
 set tabstop=8
 
-" Just holds some extra color settings for tfl.
-func! ExtraColorSets()
-	if(g:colors_name == "tfl")
-		hi SpecialKey     ctermfg=darkyellow   ctermbg=NONE
-		hi ColorColumn    ctermbg=235          ctermfg=250
-		hi CursorLine     ctermbg=237          cterm=bold
-		hi StatusLine     ctermbg=white        ctermfg=black
-		hi VertSplit      ctermbg=black        ctermfg=black
-		hi StatusLine     ctermbg=white        ctermfg=black
-		hi StatusLineNC   ctermbg=238          ctermfg=black
-		hi Comment        ctermbg=NONE         ctermfg=241
-		hi TabLineFill    ctermbg=0            ctermfg=0
-	else
-		echo "ERROR: Wrong colorscheme selected -- use tfl."
-	endif
-endfunc
-
 " Function deals with autoscrolling.
-func! AutoScroll()
+func! TFL_AutoScroll()
 	if(g:autoscrollstate == "false")
 		let g:autoscrollstate="true"
 		set sidescrolloff=999
@@ -129,7 +118,7 @@ func! AutoScroll()
 endfunc
 
 " The function for toggling mouse support.
-func! MouseSupport()
+func! TFL_MouseSupport()
 	if(len($DISPLAY) > 0 )
 		set mousehide!
 
@@ -148,7 +137,7 @@ func! MouseSupport()
 endfunc
 
 " The function for toggling virtual editing.
-func! VirtualEdit()
+func! TFL_VirtualEdit()
 	if(g:virtualeditstate == "true")
 		let g:virtualeditstate="false"
 		set virtualedit=
@@ -160,36 +149,8 @@ func! VirtualEdit()
 	endif
 endfunc
 
-" The function for toggling DocMode.
-func! DocMode()
-	set linebreak!
-	set wrap!
-
-	if(g:docmodestate == "false")
-		let g:docmodestate="true"
-		echo "Document Mode is disabled."
-		syntax on
-		silent call ExtraColorSets()
-	elseif(g:docmodestate == "true")
-		let g:docmodestate="false"
-		syntax off
-		silent call ExtraColorSets()
-
-		if(&list == 1)
-			set nolist
-		endif
-
-		if(g:moremodestate == "true")
-			echo "Document Mode is enabled and More Mode is disabled."
-			silent call MoreMode()
-		elseif(g:moremodestate == "false")
-			echo "Document Mode is enabled."
-		endif
-	endif
-endfunc
-
 " The function for toggling ListMode.
-func! ListMode()
+func! TFL_ListMode()
 	set list!
 
 	if(&list == 1 )
@@ -202,7 +163,7 @@ endfunc
 " Alternate between relative and standard line numbers. If both are enabled, then
 " fix this by toggling number, which results in either just the number setting, or
 " only the relativenumber setting.
-func! LineNumAlt()
+func! TFL_LineNumAlt()
 	if(&relativenumber == 1 && &number == 0)
 		set relativenumber!
 		set number
@@ -215,7 +176,7 @@ func! LineNumAlt()
 endfunc
 
 " The function for toggling HardMode. Incomplete.
-func! HardMode()
+func! TFL_HardMode()
 	if(g:hardmodestate == "false")
 		let g:hardmodestate="true"
 		noremap j <Nop>
@@ -234,7 +195,7 @@ func! HardMode()
 endfunc
 
 " Set textwidth to 84.
-func! TextWidth()
+func! TFL_TextWidth()
 	if(g:textwidthmode == "false")
 		let g:textwidthmode="true""
 		set textwidth=84
@@ -258,27 +219,26 @@ else
 endif
 
 " Select different color presets.
-func! ColorPreset(preset)
+func! TFL_ColorPreset(preset)
 	if(a:preset == "default")
 		colorscheme default
 		set background=dark
 	elseif(a:preset == "tfl")
 		colorscheme tfl
 		set background=dark
-		silent call ExtraColorSets()
 	else
 		echo "ERROR: Invalid color preset selected."
 	endif
 endfunc
 
 " Function to insert just the XERR and ERR functions into a shell script.
-func! Err()
+func! TFL_Err()
 	exe "silent normal! 0iXERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; exit 1; }\<CR>"
 	exe "silent normal! 0iERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; }\<CR>"
 endfunc
 
 " ???
-func! ML()
+func! TFL_ML()
 	exe "silent normal! mc"
 
 	if(search("^[#/\"]* vim: ", "p") == 0)
@@ -289,7 +249,7 @@ func! ML()
 endfunc
 
 " Lol. Why didn't I use a snippet file? Oh well, very useful for shell (bash).
-func! Setup()
+func! TFL_Setup()
 	exe "silent normal! 0i_VERSION_=\"\<ESC>\"_\"=strftime(\"%F\")\<CR>pa\"\<CR>\<CR>"
 	exe "silent normal! 0iXERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; exit 1; }\<CR>"
 	exe "silent normal! 0iERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; }\<CR>\<CR>"
@@ -350,47 +310,44 @@ noremap <left> <Nop>
 noremap <right> <Nop>
 
 " Switch to a different color preset.
-noremap <silent> <leader>color1 :call ColorPreset("default")<CR>
-noremap <silent> <leader>color2 :call ColorPreset("tfl")<CR>
+noremap <silent> <leader>color1 :call TFL_ColorPreset("default")<CR>
+noremap <silent> <leader>color2 :call TFL_ColorPreset("tfl")<CR>
 
 " Re-source the .vimrc file; can cause issues.
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
 
 " Toggle between textwidth 84 and textwidth 0.
-noremap <silent> <leader>tw :call TextWidth()<CR>
+noremap <silent> <leader>tw :call TFL_TextWidth()<CR>
 
 " Toggle the display of tabs and spaces.
-noremap <silent> <leader>list :call ListMode()<CR>
+noremap <silent> <leader>list :call TFL_ListMode()<CR>
 
 " Work in progress. Toggles a stricter VIM.
-noremap <silent> <leader>hard :call HardMode()<CR>
-
-" Use VIM as a standard text editor, for non-code.
-noremap <silent> <leader>doc :call DocMode()<CR>
+noremap <silent> <leader>hard :call TFL_HardMode()<CR>
 
 " Toggle moving the cursor and the screen simultaneously.
-noremap <silent> <leader>scroll :call AutoScroll()<CR>
+noremap <silent> <leader>scroll :call TFL_AutoScroll()<CR>
 
 " Toggle the ability to move the cursor anyway.
-noremap <silent> <leader>virt :call VirtualEdit()<CR>
+noremap <silent> <leader>virt :call TFL_VirtualEdit()<CR>
 
 " Toggle the mouse support.
-noremap <silent> <leader>mouse :call MouseSupport()<CR>
+noremap <silent> <leader>mouse :call TFL_MouseSupport()<CR>
 
 " Adds a lot of nice shell (bash) code in preperation.
-noremap <silent> <leader>setup :call Setup()<CR>
+noremap <silent> <leader>setup :call TFL_Setup()<CR>
 
 " Add a VIM modeline to the bottom of the current file.
-noremap <silent> <leader>modeline :call ML()<CR>
+noremap <silent> <leader>modeline :call TFL_ML()<CR>
 
 " Add just the XERR and ERR functions.
-noremap <silent> <leader>err :call Err()<CR>
+noremap <silent> <leader>err :call TFL_Err()<CR>
 
 " Underline below the current; uses the same length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
 
 " Add a header at the current position.
-noremap <silent> <leader>lines :call LineNumAlt()<CR>
+noremap <silent> <leader>lines :call TFL_LineNumAlt()<CR>
 
 " Use VIM's window splitting and switching.
 noremap <silent> <leader>ws :split<CR>
@@ -458,17 +415,8 @@ vnoremap <right> <Nop>
 " Correct stupid typo.
 ab teh the
 
-" Source TFL Plugins.
-source $HOME/.vim/plugin/datepaste.vim
-source $HOME/.vim/plugin/comtog.vim
-source $HOME/.vim/plugin/headup.vim
-source $HOME/.vim/plugin/banger.vim
-source $HOME/.vim/plugin/moremode.vim
-
 " Function Calls
-silent call AutoScroll()
-silent call ExtraColorSets()
-silent call MoreMode()
+silent call TFL_AutoScroll()
 
 " Adds security.
 set secure
