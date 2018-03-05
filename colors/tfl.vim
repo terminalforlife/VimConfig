@@ -12,11 +12,9 @@ let g:colors_name="tfl"
 hi Normal             ctermbg=NONE         ctermfg=255
 hi Boolean            ctermbg=NONE         ctermfg=1
 hi Character          ctermbg=NONE         ctermfg=196
-hi Comment            ctermbg=NONE         ctermfg=240
 hi Condtional         ctermbg=NONE         ctermfg=196
 hi Constant           ctermbg=NONE         ctermfg=252
 hi Cursor             ctermbg=NONE         ctermfg=NONE
-hi ColorColumn        ctermbg=NONE         ctermfg=NONE
 hi CursorColumn       ctermbg=NONE         ctermfg=NONE
 hi Debug              ctermbg=255          ctermfg=NONE
 hi Define             ctermbg=NONE         ctermfg=255
@@ -52,10 +50,7 @@ hi Search             ctermbg=255          ctermfg=0
 hi SpecialChar        ctermbg=NONE         ctermfg=255
 hi SpecialComment     ctermbg=NONE         ctermfg=250
 hi Special            ctermbg=NONE         ctermfg=255
-hi SpecialKey         ctermbg=NONE         ctermfg=70
 hi Statement          ctermbg=NONE         ctermfg=230
-hi StatusLine         ctermbg=NONE         ctermfg=196
-hi StatusLineNC       ctermbg=NONE         ctermfg=250
 hi StorageClass       ctermbg=NONE         ctermfg=255
 hi String             ctermbg=NONE         ctermfg=96
 hi Structure          ctermbg=NONE         ctermfg=255
@@ -64,7 +59,6 @@ hi Title              ctermbg=NONE         ctermfg=250
 hi Todo               ctermbg=NONE         ctermfg=255
 hi Typedef            ctermbg=NONE         ctermfg=255
 hi Type               ctermbg=NONE         ctermfg=255
-hi VertSplit          ctermbg=NONE         ctermfg=250
 hi WarningMsg         ctermbg=NONE         ctermfg=196
 hi WildMenu           ctermbg=NONE         ctermfg=240
 hi Visual             ctermbg=NONE         ctermfg=2
@@ -79,6 +73,15 @@ hi DiffAdd            ctermbg=NONE         ctermfg=255
 hi DiffChange         ctermbg=NONE         ctermfg=700
 hi DiffDelete         ctermbg=NONE         ctermfg=240
 hi DiffText           ctermbg=NONE         ctermfg=250
+
+hi SpecialKey     ctermfg=darkyellow   ctermbg=NONE
+hi ColorColumn    ctermbg=235          ctermfg=250
+hi CursorLine     ctermbg=237          cterm=bold
+hi VertSplit      ctermbg=black        ctermfg=black
+hi StatusLine     ctermbg=white        ctermfg=black
+hi StatusLineNC   ctermbg=238          ctermfg=black
+hi Comment        ctermbg=NONE         ctermfg=241
+hi TabLineFill    ctermbg=0            ctermfg=0
 
 hi def link diffCommon Statement
 hi def link diffRemoved DiffDelet
