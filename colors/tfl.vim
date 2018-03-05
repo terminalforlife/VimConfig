@@ -2,14 +2,13 @@
 
 " 1=red 124=darkred 232-255=black-white 226=yellow
 
-let g:colors_name="tfl"
-
 set background=dark
 highlight clear
 if exists("syntax_on")
 	syntax reset
 endif
 
+let g:colors_name="tfl"
 hi Normal             ctermbg=NONE         ctermfg=255
 hi Boolean            ctermbg=NONE         ctermfg=1
 hi Character          ctermbg=NONE         ctermfg=196
