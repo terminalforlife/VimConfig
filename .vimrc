@@ -1,16 +1,10 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 19:08:50 GMT 2018
+" Last Change       - Mon  5 Mar 20:25:08 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
-
-" Remap to sane, touch-typing standard movement keys.
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
 
 " Useful in DocMode(). Traverse lines normally.
 noremap k gj
@@ -20,16 +14,17 @@ noremap l gk
 let g:autoscrollstate="false"
 let g:hardmodestate="false"
 let g:mousesupportstate="false"
-let g:virtualeditstate="false"
 let g:textwidthmode="false"
 let mapleader=","
 
 " Source TFL Plugins.
+source $HOME/.vim/plugin/sanekeys.vim
 source $HOME/.vim/plugin/moredoc.vim
 source $HOME/.vim/plugin/datepaste.vim
 source $HOME/.vim/plugin/comtog.vim
 source $HOME/.vim/plugin/headup.vim
 source $HOME/.vim/plugin/banger.vim
+source $HOME/.vim/plugin/virtedit.vim
 
 " Allow recursive fuzzy finding.
 set path+=**
@@ -133,19 +128,6 @@ func! TFL_MouseSupport()
 		endif
 	else
 		echo "ERROR: Uknown display -- are you in a TTY?"
-	endif
-endfunc
-
-" The function for toggling virtual editing.
-func! TFL_VirtualEdit()
-	if(g:virtualeditstate == "true")
-		let g:virtualeditstate="false"
-		set virtualedit=
-		echo "Virtual editing is disabled."
-	elseif(g:virtualeditstate == "false")
-		let g:virtualeditstate="true"
-		set virtualedit=all
-		echo "Virtual editing is enabled."
 	endif
 endfunc
 
