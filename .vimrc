@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 22:37:02 GMT 2018
+" Last Change       - Mon  5 Mar 22:40:16 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -11,9 +11,7 @@ noremap k gj
 noremap l gk
 
 " Set the initial variable values, prior to further processing.
-let g:autoscrollstate="false"
 let g:hardmodestate="false"
-let g:textwidthmode="false"
 let mapleader=","
 
 " Source TFL Plugins.
@@ -28,6 +26,7 @@ source $HOME/.vim/plugin/mouseon.vim
 source $HOME/.vim/plugin/autoscroll.vim
 source $HOME/.vim/plugin/listmode.vim
 source $HOME/.vim/plugin/altnums.vim
+source $HOME/.vim/plugin/textwidth.vim
 
 " Function Calls.
 silent call TFL_AutoScroll()
@@ -116,19 +115,6 @@ func! TFL_HardMode()
 		noremap k j
 		noremap j h
 		echo "Hard mode is disabled."
-	endif
-endfunc
-
-" Set textwidth to 84.
-func! TFL_TextWidth()
-	if(g:textwidthmode == "false")
-		let g:textwidthmode="true""
-		set textwidth=84
-		echo "TextWidth() is enabled."
-	elseif(g:textwidthmode == "true")
-		let g:textwidthmode="false"
-		set textwidth=0
-		echo "TextWidth() is disabled."
 	endif
 endfunc
 
@@ -240,9 +226,6 @@ noremap <silent> <leader>color2 :call TFL_ColorPreset("tfl")<CR>
 
 " Re-source the .vimrc file; can cause issues.
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
-
-" Toggle between textwidth 84 and textwidth 0.
-noremap <silent> <leader>tw :call TFL_TextWidth()<CR>
 
 " Work in progress. Toggles a stricter VIM.
 noremap <silent> <leader>hard :call TFL_HardMode()<CR>
