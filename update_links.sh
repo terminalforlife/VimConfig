@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------------
 # Project Name      - miscellaneous/update_links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Mon  5 Mar 16:01:56 GMT 2018
+# Last Change       - Mon  5 Mar 16:11:58 GMT 2018
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #----------------------------------------------------------------------------------
@@ -28,8 +28,8 @@ for DEP in /bin/{ln,rm}; {
 }
 
 for FILE in VimPlugins/*.vim; {
-	/bin/rm -v $HOME/VimPlugins/datepaste.vim 2> /dev/null
-	/bin/ln -v VimPlugins/datepaste.vim $HOME/VimPlugins/datepaste.vim 2> /dev/null
+	/bin/rm -v $HOME/.vim/plugin/datepaste.vim 2> /dev/null
+	/bin/ln -v plugin/datepaste.vim $HOME/.vim/plugin/datepaste.vim 2> /dev/null
 }
 
 /bin/rm -v $HOME/.vim/colors/tfl.vim 2> /dev/null
