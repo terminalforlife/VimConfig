@@ -6,7 +6,7 @@ Various TFL configuration files for the Vi-IMproved (VIM) modal text editor.
 
 ## INTRODUCTION
 
-To be written...
+This is a work in progress. I'm gradually splitting up various functionalities in my .vimrc file, as it's getting bigger than I expected, and I wanted to keep things separate, as I have done with bashconfig and the ShellPlugins directory. With this in mind, absolutely expect bugs until the transition is complete.
 
 ## INSTALLATION
 
