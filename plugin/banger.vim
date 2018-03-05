@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 17:57:41 GMT 2018
+" Last Change       - Mon  5 Mar 19:12:25 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -30,5 +30,3 @@ endfunc
 
 noremap <silent> <leader>bash :call TFL_Banger("bash", "default")<CR>
 noremap <silent> <leader>shell :call TFL_Banger("sh", "default")<CR>
-
-" vim: noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
