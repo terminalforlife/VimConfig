@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 17:58:29 GMT 2018
+" Last Change       - Mon  5 Mar 19:12:36 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -46,5 +46,3 @@ endfunc
 
 noremap <silent> <leader>header :call TFL_HeadUp("place")<CR>
 noremap <silent> <leader>save :call TFL_HeadUp("update")<CR>
-
-" vim: noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
