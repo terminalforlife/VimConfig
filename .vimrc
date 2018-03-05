@@ -13,7 +13,6 @@ noremap l gk
 " Set the initial variable values, prior to further processing.
 let g:autoscrollstate="false"
 let g:hardmodestate="false"
-let g:mousesupportstate="false"
 let g:textwidthmode="false"
 let mapleader=","
 
@@ -25,6 +24,7 @@ source $HOME/.vim/plugin/comtog.vim
 source $HOME/.vim/plugin/headup.vim
 source $HOME/.vim/plugin/banger.vim
 source $HOME/.vim/plugin/virtedit.vim
+source $HOME/.vim/plugin/mouseon.vim
 
 " Allow recursive fuzzy finding.
 set path+=**
@@ -109,25 +109,6 @@ func! TFL_AutoScroll()
 		set sidescrolloff=0
 		set scrolloff=0
 		echo "Automatic scrolling is disabled."
-	endif
-endfunc
-
-" The function for toggling mouse support.
-func! TFL_MouseSupport()
-	if(len($DISPLAY) > 0 )
-		set mousehide!
-
-		if(g:mousesupportstate == "false")
-			let g:mousesupportstate="true"
-			set mouse=a
-			echo "Mouse support enabled."
-		elseif(g:mousesupportstate == "true")
-			let g:mousesupportstate="false"
-			set mouse=
-			echo "Mouse support disabled."
-		endif
-	else
-		echo "ERROR: Uknown display -- are you in a TTY?"
 	endif
 endfunc
 
@@ -312,9 +293,6 @@ noremap <silent> <leader>scroll :call TFL_AutoScroll()<CR>
 
 " Toggle the ability to move the cursor anyway.
 noremap <silent> <leader>virt :call TFL_VirtualEdit()<CR>
-
-" Toggle the mouse support.
-noremap <silent> <leader>mouse :call TFL_MouseSupport()<CR>
 
 " Adds a lot of nice shell (bash) code in preperation.
 noremap <silent> <leader>setup :call TFL_Setup()<CR>
