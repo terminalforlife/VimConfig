@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 20:25:08 GMT 2018
+" Last Change       - Mon  5 Mar 22:32:50 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -25,6 +25,11 @@ source $HOME/.vim/plugin/headup.vim
 source $HOME/.vim/plugin/banger.vim
 source $HOME/.vim/plugin/virtedit.vim
 source $HOME/.vim/plugin/mouseon.vim
+source $HOME/.vim/plugin/autoscroll.vim
+source $HOME/.vim/plugin/listmode.vim
+
+" Function Calls.
+silent call TFL_AutoScroll()
 
 " Allow recursive fuzzy finding.
 set path+=**
@@ -57,9 +62,6 @@ set viewoptions=folds,options,cursor,unix,slash
 
 "Longer command history. Default is apparently 20.
 set history=4000
-
-"set listchars=tab:-,trail:,extends:#,nbsp:.
-set listchars=tab:»→,trail:␣,extends:#,nbsp:⊗
 
 " Disable the ruler.
 set noruler
@@ -96,32 +98,6 @@ set incsearch
 
 " Superficially use 8-space tabs; set this for reference.
 set tabstop=8
-
-" Function deals with autoscrolling.
-func! TFL_AutoScroll()
-	if(g:autoscrollstate == "false")
-		let g:autoscrollstate="true"
-		set sidescrolloff=999
-		set scrolloff=999
-		echo "Automatic scrolling is enabled."
-	elseif(g:autoscrollstate == "true")
-		let g:autoscrollstate="false"
-		set sidescrolloff=0
-		set scrolloff=0
-		echo "Automatic scrolling is disabled."
-	endif
-endfunc
-
-" The function for toggling ListMode.
-func! TFL_ListMode()
-	set list!
-
-	if(&list == 1 )
-		echo "List mode is enabled."
-	elseif(&list == 0 )
-		echo "List mode is disabled."
-	endif
-endfunc
 
 " Alternate between relative and standard line numbers. If both are enabled, then
 " fix this by toggling number, which results in either just the number setting, or
@@ -282,17 +258,8 @@ noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
 " Toggle between textwidth 84 and textwidth 0.
 noremap <silent> <leader>tw :call TFL_TextWidth()<CR>
 
-" Toggle the display of tabs and spaces.
-noremap <silent> <leader>list :call TFL_ListMode()<CR>
-
 " Work in progress. Toggles a stricter VIM.
 noremap <silent> <leader>hard :call TFL_HardMode()<CR>
-
-" Toggle moving the cursor and the screen simultaneously.
-noremap <silent> <leader>scroll :call TFL_AutoScroll()<CR>
-
-" Toggle the ability to move the cursor anyway.
-noremap <silent> <leader>virt :call TFL_VirtualEdit()<CR>
 
 " Adds a lot of nice shell (bash) code in preperation.
 noremap <silent> <leader>setup :call TFL_Setup()<CR>
@@ -374,9 +341,6 @@ vnoremap <right> <Nop>
 
 " Correct stupid typo.
 ab teh the
-
-" Function Calls
-silent call TFL_AutoScroll()
 
 " Adds security.
 set secure
