@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 17:31:11 GMT 2018
+" Last Change       - Mon  5 Mar 17:34:45 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -18,7 +18,6 @@ noremap l gk
 
 " Set the initial variable values, prior to further processing.
 let g:autoscrollstate="false"
-let g:moremodestate="false"
 let g:hardmodestate="false"
 let g:docmodestate="false"
 let g:mousesupportstate="false"
@@ -215,32 +214,6 @@ func! LineNumAlt()
 	endif
 endfunc
 
-" The function for toggling MoreMode.
-func! MoreMode()
-	set showmatch!
-	set ruler!
-	set cursorline!
-
-	if(&relativenumber == 1 || &number == 1)
-		set norelativenumber
-		set nonumber
-	elseif(&relativenumber == 0 && &number == 0)
-		silent call LineNumAlt()
-	endif
-
-	if(g:moremodestate == "false")
-		let g:moremodestate="true"
-		set colorcolumn=84
-		set laststatus=2
-		echo "More mode is enabled."
-	elseif(g:moremodestate == "true")
-		let g:moremodestate="false"
-		set colorcolumn=0
-		set laststatus=1
-		echo "More mode is disabled."
-	endif
-endfunc
-
 " The function for toggling HardMode. Incomplete.
 func! HardMode()
 	if(g:hardmodestate == "false")
@@ -383,9 +356,6 @@ noremap <silent> <leader>color2 :call ColorPreset("tfl")<CR>
 " Re-source the .vimrc file; can cause issues.
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
 
-" Display helpful screen information; good for code.
-noremap <silent> <leader>more :call MoreMode()<CR>
-
 " Toggle between textwidth 84 and textwidth 0.
 noremap <silent> <leader>tw :call TextWidth()<CR>
 
@@ -485,11 +455,6 @@ vnoremap <down> <Nop>
 vnoremap <left> <Nop>
 vnoremap <right> <Nop>
 
-" Function Calls
-silent call AutoScroll()
-silent call ExtraColorSets()
-silent call MoreMode()
-
 " Correct stupid typo.
 ab teh the
 
@@ -498,6 +463,12 @@ source $HOME/.vim/plugin/datepaste.vim
 source $HOME/.vim/plugin/comtog.vim
 source $HOME/.vim/plugin/headup.vim
 source $HOME/.vim/plugin/banger.vim
+source $HOME/.vim/plugin/moremode.vim
+
+" Function Calls
+silent call AutoScroll()
+silent call ExtraColorSets()
+silent call MoreMode()
 
 " Adds security.
 set secure
