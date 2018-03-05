@@ -1,0 +1,25 @@
+"----------------------------------------------------------------------------------
+" Project Name      - vimconfig/plugin/autoscroll.vim
+" Started On        - Mon  5 Mar 17:21:01 GMT 2018
+" Last Change       - Mon  5 Mar 22:14:09 GMT 2018
+" Author E-Mail     - terminalforlife@yahoo.com
+" Author GitHub     - https://github.com/terminalforlife
+"----------------------------------------------------------------------------------
+" Toggle moving the cursor and the screen simultaneously, with <leader>scroll keys.
+"----------------------------------------------------------------------------------
+
+func! TFL_AutoScroll()
+	if(&sidescrolloff == 0 )
+		set sidescrolloff=999
+		set scrolloff=999
+
+		echo "Automatic scrolling is enabled."
+	elseif(&sidescrolloff > 0)
+		set sidescrolloff=0
+		set scrolloff=0
+
+		echo "Automatic scrolling is disabled."
+	endif
+endfunc
+
+noremap <silent> <leader>scroll :call TFL_AutoScroll()<CR>
