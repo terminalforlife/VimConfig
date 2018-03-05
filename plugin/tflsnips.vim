@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/virtedit.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 23:21:18 GMT 2018
+" Last Change       - Mon  5 Mar 23:22:47 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -43,10 +43,10 @@ func! TFL_Snips(action)
 		exe "silent normal! 0i[ \"$BEQUIET\" == \"true\" ] && exec 1> /dev/null\<CR>"
 		exe "silent normal! 0i[ \"$DEBUGME\" == \"true\" ] && set -x\<CR>\<CR>"
 		exe "silent normal! 0i\<CR>\<CR># vim: noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup\<Esc>kk"
-	if(a:action == "error")
+	elseif(a:action == "error")
 		exe "silent normal! 0iXERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; exit 1; }\<CR>"
 		exe "silent normal! 0iERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; }\<CR>"
-	if(a:action == "modeline")
+	elseif(a:action == "modeline")
 		exe "silent normal! mc"
 
 		if(search("^[#/\"]* vim: ", "p") == 0)
