@@ -2,7 +2,7 @@
 
 " 1=red 124=darkred 232-255=black-white 226=yellow
 
-let g:colors_name = "tfl"
+let g:colors_name="tfl"
 
 set background=dark
 highlight clear
