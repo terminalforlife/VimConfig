@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 19:11:10 GMT 2018
+" Last Change       - Mon  5 Mar 20:16:32 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -15,53 +15,24 @@ endif
 
 func! TFL_DocMode()
 	if(exists("g:docmodestate") == 0)
-		if(&linebreak == 0)
-			set linebreak
-		endif
-
-		if(&wrap == 0)
-			set wrap
-		endif
+		set linebreak
+		set wrap
+		syntax off
 
 		let g:docmodestate="true"
-
-		if(exists("syntax_on") == 1)
-			syntax off
-		endif
-
 		echo "Document Mode is enabled."
 	elseif(g:docmodestate == "true")
-		if(&linebreak == 1)
-			set linebreak
-		endif
+		set linebreak
+		set wrap
+		syntax on
+		set nolist
 
-		if(&wrap == 1)
-			set wrap
-		endif
-
-		let g:docmodestate="false"
-
-		if(exists("syntax_on") == 0)
-			syntax on
-		endif
-
-		if(&list == 1)
-			set nolist
-		endif
+		unlet g:docmodestate
+		echo "Document Mode is disabled."
 	endif
 endfunc
 
 func! TFL_MoreMode()
-	func! TFL_ToggleNums(action)
-		if(a:action == "on")
-			set norelativenumber
-			set number
-		else
-			set norelativenumber
-			set nonumber
-		endif
-	endfunc
-
 	if(exists("g:moremodestate") == 0)
 		if(&showmatch == 0)
 			set showmatch
@@ -75,8 +46,8 @@ func! TFL_MoreMode()
 			set cursorline
 		endif
 
-		silent call TFL_ToggleNums("on")
-
+		set norelativenumber
+		set number
 		set colorcolumn=84
 		set laststatus=2
 
@@ -95,8 +66,8 @@ func! TFL_MoreMode()
 			set nocursorline
 		endif
 
-		silent call TFL_ToggleNums("off")
-
+		set norelativenumber
+		set nonumber
 		set colorcolumn=0
 		set laststatus=1
 
