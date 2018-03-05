@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 22:32:50 GMT 2018
+" Last Change       - Mon  5 Mar 22:37:02 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -27,6 +27,7 @@ source $HOME/.vim/plugin/virtedit.vim
 source $HOME/.vim/plugin/mouseon.vim
 source $HOME/.vim/plugin/autoscroll.vim
 source $HOME/.vim/plugin/listmode.vim
+source $HOME/.vim/plugin/altnums.vim
 
 " Function Calls.
 silent call TFL_AutoScroll()
@@ -98,21 +99,6 @@ set incsearch
 
 " Superficially use 8-space tabs; set this for reference.
 set tabstop=8
-
-" Alternate between relative and standard line numbers. If both are enabled, then
-" fix this by toggling number, which results in either just the number setting, or
-" only the relativenumber setting.
-func! TFL_LineNumAlt()
-	if(&relativenumber == 1 && &number == 0)
-		set relativenumber!
-		set number
-	elseif(&relativenumber == 0 && &number == 1)
-		set number!
-		set relativenumber
-	else
-		set nonumber!
-	endif
-endfunc
 
 " The function for toggling HardMode. Incomplete.
 func! TFL_HardMode()
@@ -272,9 +258,6 @@ noremap <silent> <leader>err :call TFL_Err()<CR>
 
 " Underline below the current; uses the same length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
-
-" Add a header at the current position.
-noremap <silent> <leader>lines :call TFL_LineNumAlt()<CR>
 
 " Use VIM's window splitting and switching.
 noremap <silent> <leader>ws :split<CR>
