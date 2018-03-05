@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/comtog.vim
 " Started On        - Mon  5 Mar 17:08:12 GMT 2018
-" Last Change       - Mon  5 Mar 17:10:54 GMT 2018
+" Last Change       - Mon  5 Mar 17:58:00 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -40,5 +40,7 @@ func! TFL_ComTog(action)
 	exe "silent normal! `c"
 endfunc
 
-noremap <silent> <leader>co :call ComTog("comment")<CR>
-noremap <silent> <leader>uc :call ComTog("uncomment")<CR>
+noremap <silent> <leader>co :call TFL_ComTog("comment")<CR>
+noremap <silent> <leader>uc :call TFL_ComTog("uncomment")<CR>
+
+" vim: noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
