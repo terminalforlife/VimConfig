@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 16:11:09 GMT 2018
+" Last Change       - Mon  5 Mar 17:13:19 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -96,36 +96,6 @@ set incsearch
 
 " Superficially use 8-space tabs; set this for reference.
 set tabstop=8
-
-" A function responsible for both un- and commenting lines of text, depending on
-" the laguage the currently edited file is using or marked as.
-func! ComTog(action)
-	exe "silent normal! mc"
-
-	if(a:action == "comment")
-		if(&filetype == "python" || &filetype == "sh")
-			exe "silent normal! 0i#\<Esc>"
-		elseif(&filetype == "vim")
-			exe "silent normal! 0i\"\<Esc>"
-		elseif(len(&filetype) == 0)
-			echo "ERROR: Cannot comment -- missing file type."
-		else
-			echo "ERROR: Cannot comment -- unknown file type."
-		endif
-	elseif(a:action == "uncomment")
-		if(len(&filetype) > 0)
-			exe "silent normal! 0x"
-		elseif(len(&filetype) == 0)
-			echo "ERROR: Cannot comment -- missing file type."
-		else
-			echo "ERROR: Cannot comment -- unknown file type."
-		endif
-	else
-		echo "ERROR: Invalid action at position 1."
-	endif
-
-	exe "silent normal! `c"
-endfunc
 
 " Just holds some extra color settings for tfl.
 func! ExtraColorSets()
@@ -510,10 +480,6 @@ noremap <silent> <leader>header :call Header()<CR>
 " Add a header at the current position.
 noremap <silent> <leader>lines :call LineNumAlt()<CR>
 
-" Toggle comments, depending on the file type.
-noremap <silent> <leader>co :call ComTog("comment")<CR>
-noremap <silent> <leader>uc :call ComTog("uncomment")<CR>
-
 " Use VIM's window splitting and switching.
 noremap <silent> <leader>ws :split<CR>
 noremap <silent> <leader>wvs :vsplit<CR>
@@ -587,6 +553,7 @@ ab teh the
 
 " Source TFL Plugins.
 source $HOME/.vim/plugin/datepaste.vim
+source $HOME/.vim/plugin/comtog.vim
 
 " Adds security.
 set secure
