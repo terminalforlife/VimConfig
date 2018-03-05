@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 17:13:19 GMT 2018
+" Last Change       - Mon  5 Mar 17:31:11 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -298,54 +298,6 @@ func! ColorPreset(preset)
 	endif
 endfunc
 
-" Enter a shell user-specified (position 1) shebang, of method (position 2).
-func! Bang(shell, method)
-	if(a:method == "default")
-		if(a:shell == "bash")
-			exe "normal! ggi#!/bin/bash\<CR>\<CR>\<Esc>G"
-		elseif(a:shell == "sh")
-			exe "normal! ggi#!/bin/sh\<CR>\<CR>\<Esc>G"
-		else
-			echo "ERROR: Invalid shell type."
-		endif
-	elseif(a:method == "env")
-		if(a:shell == "bash")
-			exe "normal! ggi#!/usr/bin/env bash\<CR>\<CR>\<Esc>G"
-		elseif(a:shell == "sh")
-			exe "normal! ggi#!/usr/bin/env sh\<CR>\<CR>\<Esc>G"
-		else
-			echo "ERROR: Invalid shell environment type."
-		endif
-	endif
-endfunc
-
-" Enter a tidy header.
-func! Header()
-	exe "silent normal! i#\<Esc>82a-\<Esc>o"
-	exe "silent normal! i# Project Name      - \<CR>"
-	exe "silent normal! i# Started On        - \<Esc>\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>po"
-	exe "silent normal! i# Last Change       - \<Esc>\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>po"
-	exe "silent normal! i# Author E-Mail     - terminalforlife@yahoo.com\<CR>"
-	exe "silent normal! i# Author GitHub     - https://github.com/terminalforlife\<CR>"
-	exe "silent normal! i#\<Esc>82a-\<Esc>0o"
-endfunc
-
-" Function to update header's timestamp and the _VERSION_ variable datestamp in
-" shell scripts/programs, if this variable is found. Also cleans up spacing.
-func! LastChange()
-	exe "silent normal! mc"
-
-	if(search("^[#/\"]* Last Change\\s*- ", "ep") > 0)
-		exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
-		if(search("^_VERSION_=\"", "ep") > 0)
-			exe "silent normal! da\"\"_\"=strftime(\"\\\"%F\\\"\")\<CR>p"
-		endif
-	endif
-
-	exe "silent normal! :%s/\\s*$//\<CR>"
-	exe "silent normal! :%s/\\t*$//\<CR>`c"
-endfunc
-
 " Function to insert just the XERR and ERR functions into a shell script.
 func! Err()
 	exe "silent normal! 0iXERR(){ printf \"[L%0.4d] ERROR: %s\\n\" \"$1\" \"$2\" 1>&2; exit 1; }\<CR>"
@@ -455,27 +407,17 @@ noremap <silent> <leader>virt :call VirtualEdit()<CR>
 " Toggle the mouse support.
 noremap <silent> <leader>mouse :call MouseSupport()<CR>
 
-" Uses the header to update the modified date and save.
-noremap <silent> <leader>save :call LastChange()<CR>
-
 " Adds a lot of nice shell (bash) code in preperation.
 noremap <silent> <leader>setup :call Setup()<CR>
 
-" ???
+" Add a VIM modeline to the bottom of the current file.
 noremap <silent> <leader>modeline :call ML()<CR>
 
 " Add just the XERR and ERR functions.
 noremap <silent> <leader>err :call Err()<CR>
 
-" Enter hashbangs on the first line.
-noremap <silent> <leader>bash :call Bang("bash", "default")<CR>
-noremap <silent> <leader>shell :call Bang("sh", "default")<CR>
-
 " Underline below the current; uses the same length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
-
-" Add a header at the current position.
-noremap <silent> <leader>header :call Header()<CR>
 
 " Add a header at the current position.
 noremap <silent> <leader>lines :call LineNumAlt()<CR>
@@ -554,6 +496,8 @@ ab teh the
 " Source TFL Plugins.
 source $HOME/.vim/plugin/datepaste.vim
 source $HOME/.vim/plugin/comtog.vim
+source $HOME/.vim/plugin/headup.vim
+source $HOME/.vim/plugin/banger.vim
 
 " Adds security.
 set secure
