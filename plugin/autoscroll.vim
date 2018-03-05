@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/autoscroll.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 22:14:09 GMT 2018
+" Last Change       - Mon  5 Mar 23:14:42 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -21,5 +21,7 @@ func! TFL_AutoScroll()
 		echo "Automatic scrolling is disabled."
 	endif
 endfunc
+
+silent call TFL_AutoScroll()
 
 noremap <silent> <leader>scroll :call TFL_AutoScroll()<CR>
