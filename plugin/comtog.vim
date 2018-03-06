@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/comtog.vim
 " Started On        - Mon  5 Mar 17:08:12 GMT 2018
-" Last Change       - Mon  5 Mar 19:12:29 GMT 2018
+" Last Change       - Tue  6 Mar 20:41:21 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -15,21 +15,33 @@
 func! TFL_ComTog(action)
 	exe "silent normal! mc"
 
+	func! TFL_SearchLine(value)
+		if(search(a:value, "cbnp", line(".")) == 1)
+			return 1
+		endif
+	endfunc
+
 	if(a:action == "comment")
 		if(&filetype == "python" || &filetype == "sh")
-			exe "silent normal! 0i#\<Esc>"
+			if ! TFL_SearchLine("#")
+				exe "silent normal! 0i#\<Esc>"
+			endif
 		elseif(&filetype == "vim")
-			exe "silent normal! 0i\"\<Esc>"
-		elseif(len(&filetype) == 0)
-			echo "ERROR: Cannot comment -- missing file type."
+			if ! TFL_SearchLine("\"")
+				exe "silent normal! 0i\"\<Esc>"
+			endif
 		else
 			echo "ERROR: Cannot comment -- unknown file type."
 		endif
 	elseif(a:action == "uncomment")
-		if(len(&filetype) > 0)
-			exe "silent normal! 0x"
-		elseif(len(&filetype) == 0)
-			echo "ERROR: Cannot comment -- missing file type."
+		if(&filetype == "python" || &filetype == "sh")
+			if TFL_SearchLine("#")
+				exe "silent normal! 0x"
+			endif
+		elseif(&filetype == "vim")
+			if TFL_SearchLine("\"")
+				exe "silent normal! 0x"
+			endif
 		else
 			echo "ERROR: Cannot comment -- unknown file type."
 		endif
