@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/virtedit.vim
+" Project Name      - vimconfig/plugin/altnums.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 22:36:45 GMT 2018
+" Last Change       - Tue  6 Mar 12:59:26 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -9,6 +9,8 @@
 " fix this by toggling number, which results in either just the number setting, or
 " only the relativenumber setting. Use with <leader>lines keys.
 "----------------------------------------------------------------------------------
+
+"TODO - <leader>nolines
 
 func! TFL_LineNumAlt()
 	if(&relativenumber == 1 && &number == 0)
