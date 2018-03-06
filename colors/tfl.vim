@@ -1,15 +1,19 @@
+"----------------------------------------------------------------------------------
+" Project Name      - vimconfig/color/tfl.vim
+" Started On        - Tue  6 Mar 18:26:55 GMT 2018
+" Last Change       - Tue  6 Mar 18:34:11 GMT 2018
+" Author E-Mail     - terminalforlife@yahoo.com
+" Author GitHub     - https://github.com/terminalforlife
+"----------------------------------------------------------------------------------
 " Inspired by 256_noir. Written by terminalforlife. (terminalforlife@yahoo.com)
-
-" 1=red 124=darkred 232-255=black-white 226=yellow
+"----------------------------------------------------------------------------------
 
 set background=dark
 highlight clear
-
-if exists("syntax_on")
-	syntax reset
-endif
+syntax reset
 
 let g:colors_name="tfl"
+
 hi Boolean            ctermbg=NONE         ctermfg=1
 hi Character          ctermbg=NONE         ctermfg=196
 hi ColorColumn        ctermbg=235          ctermfg=250
