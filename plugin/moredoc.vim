@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Wed  7 Mar 18:50:32 GMT 2018
+" Last Change       - Wed  7 Mar 23:48:14 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -73,14 +73,12 @@ func! TFL_MoreMode()
 	endif
 endfunc
 
-echo &ft
-
 "TODO - This won't work; why?
 if (&ft =~? '\(c\|sh\|python\|markdown\|vim\)')
-	silent call TFL_MoreMode()
+	call TFL_MoreMode()
 elseif (&ft == "text")
-	silent call TFL_DocMode()
+	call TFL_DocMode("true")
 endif
 
 noremap <silent> <leader>more :call TFL_MoreMode()<CR>
-noremap <silent> <leader>doc :call TFL_DocMode()<CR>
+noremap <silent> <leader>doc :call TFL_DocMode("true")<CR>
