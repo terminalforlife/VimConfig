@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Wed  7 Mar 01:47:08 GMT 2018
+" Last Change       - Wed  7 Mar 02:10:05 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -63,23 +63,28 @@ func! TFL_MoreMode()
 	endif
 endfunc
 
-let buf1=bufname("%")
-let buf2=string(getbufline("%", 1))
-if(buf1 =~? '\.\(vim\|c\|sh\|py\|md\|conf\|cfg\)$')
+"TODO - Why won't the &ft be detected correctly?
+if (&ft =~? '^\(sh\|python\|markdown\|vim\)$')
 	silent call TFL_MoreMode()
-elseif(buf1 =~? '\.\(txt\|doc\)$')
-	silent call TFL_DocMode()
 else
-	"TODO - Why won't this work?
-	if (buf2 =~ '^#!/bin/\(zsh\|csh\|tcsh\|bash\|sh\)') |
-	|| (buf2 =~ '^#!/usr/bin/env \(bash\|sh\)$') |
-	|| (buf2 =~ '^#!/usr/bin/python\(\|[0-9]*\)') |
-	|| (buf2 =~ '^#!/usr/bin/env python\(\|[0-9]*\)$')
+	let buf1=bufname("%")
+	let buf2=string(getbufline("%", 1))
+	if(buf1 =~? '\.\(vim\|c\|sh\|py\|md\|conf\|cfg\)$')
 		silent call TFL_MoreMode()
+	elseif(buf1 =~? '\.\(txt\|doc\)$')
+		silent call TFL_DocMode()
+	else
+		"TODO - Why won't this work at all?
+		if (buf2 =~ '^#!/bin/\(zsh\|csh\|tcsh\|bash\|sh\)') |
+		|| (buf2 =~ '^#!/usr/bin/env \(bash\|sh\)$') |
+		|| (buf2 =~ '^#!/usr/bin/python\(\|[0-9]*\)') |
+		|| (buf2 =~ '^#!/usr/bin/env python\(\|[0-9]*\)$')
+			silent call TFL_MoreMode()
+		endif
 	endif
+	unlet buf2
+	unlet buf1
 endif
-unlet buf2
-unlet buf1
 
 noremap <silent> <leader>more :call TFL_MoreMode()<CR>
 noremap <silent> <leader>doc :call TFL_DocMode()<CR>
