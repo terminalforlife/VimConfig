@@ -1,11 +1,12 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/simplyhard.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 23:41:40 GMT 2018
+" Last Change       - Wed  7 Mar 23:33:24 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
-" Toggles a stricter VIM, in a simpler way. Use with <leader>hard keys.
+" Toggles a stricter VIM, in a simpler way. Use with <leader>hard keys. This plugin
+" is currently broken, although I suppose some could get something out of it.
 "----------------------------------------------------------------------------------
 
 func! TFL_SimplyHard()
