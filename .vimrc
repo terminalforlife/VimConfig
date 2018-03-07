@@ -1,14 +1,10 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  5 Mar 23:50:00 GMT 2018
+" Last Change       - Wed  7 Mar 15:13:45 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
-
-" Useful in DocMode(). Traverse lines normally.
-noremap k gj
-noremap l gk
 
 " Set the special <leader> key.
 let mapleader=","
