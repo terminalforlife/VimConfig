@@ -1,18 +1,13 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Wed  7 Mar 15:13:45 GMT 2018
+" Last Change       - Wed  7 Mar 23:55:05 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
 
 " Set the special <leader> key.
 let mapleader=","
-
-" Load all of the TFL plugins.
-for p in [globpath(",", "$HOME/.vim/plugin/*.vim")]
-	if filereadable(p) | source p | endif
-endfor
 
 colorscheme tfl
 syntax on
@@ -27,9 +22,9 @@ set matchtime=0
 set nowrap
 set t_Co=256
 set ttimeout
-set ttimeoutlen=10
+set ttimeoutlen=0
 set viewoptions=folds,options,cursor,unix,slash
-set history=4000
+set history=8000
 set noruler
 set cmdheight=1
 set showmode
@@ -42,6 +37,11 @@ set wrapmargin=0
 set nomore
 set incsearch
 set tabstop=8
+
+" Load all of the TFL plugins.
+for p in [globpath(",", "$HOME/.vim/plugin/*.vim")]
+	if filereadable(p) | source p | endif
+endfor
 
 noremap <silent> <SPACE> :noh<CR>
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
