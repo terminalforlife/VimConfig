@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/tflstatus.vim
 " Started On        - Thu  8 Mar 08:53:56 GMT 2018
-" Last Change       - Thu  8 Mar 09:59:18 GMT 2018
+" Last Change       - Thu  8 Mar 10:03:18 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -22,10 +22,10 @@ if(len(&statusline) == 0)
 		if ! (a:bytes == "-1")
 			if(a:bytes < 1024)
 				let a:bytes=a:bytes . "B"
-			elseif(a:bytes >= 1024)
+			elseif(a:bytes >= 1024 && a:bytes < 1048576)
 				let a:bytes=a:bytes/1024 . "K"
 			elseif(a:bytes >= 1048576)
-				let a:bytes=a:bytes/1024/1024 . "M"
+				let a:bytes=(a:bytes/1024)/1024 . "M"
 			endif
 		else
 			let a:bytes="N/A"
