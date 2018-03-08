@@ -28,6 +28,7 @@ plugin/simplyhard.vim
 plugin/sudosave.vim
 plugin/textwidth.vim
 plugin/tflsnips.vim
+plugin/tflstatus.vim
 plugin/togtrans.vim
 plugin/virtedit.vim
 ```
