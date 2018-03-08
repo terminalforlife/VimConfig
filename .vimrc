@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Wed  7 Mar 23:55:05 GMT 2018
+" Last Change       - Thu  8 Mar 09:17:44 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -10,7 +10,13 @@
 let mapleader=","
 
 colorscheme tfl
+filetype on
 syntax on
+
+" Load all of the TFL plugins.
+for p in [globpath(",", "$HOME/.vim/plugin/*.vim")]
+	if filereadable(p) | source p | endif
+endfor
 
 set ttyfast
 set path+=**
@@ -37,11 +43,6 @@ set wrapmargin=0
 set nomore
 set incsearch
 set tabstop=8
-
-" Load all of the TFL plugins.
-for p in [globpath(",", "$HOME/.vim/plugin/*.vim")]
-	if filereadable(p) | source p | endif
-endfor
 
 noremap <silent> <SPACE> :noh<CR>
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
