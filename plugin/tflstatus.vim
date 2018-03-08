@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/tflstatus.vim
 " Started On        - Thu  8 Mar 08:53:56 GMT 2018
-" Last Change       - Thu  8 Mar 10:17:32 GMT 2018
+" Last Change       - Thu  8 Mar 10:20:59 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -17,6 +17,7 @@ if(len(&statusline) == 0)
 
 		let a:mod=&modified
 		let a:wc=wordcount().words
+		let a:lns=line("$")
 
 		let a:bytes=getfsize(expand("%"))
 		if ! (a:bytes == "-1")
@@ -36,10 +37,15 @@ if(len(&statusline) == 0)
 			let a:ft="N/A"
 		endif
 
-		let a:lns=line("$")
+		if(filewritable("%") == 1)
+			let a:rwro="RW"
+		else
+			let a:rwro="RO"
+		endif
 
 		let a:final="FILE{'" . a:fn . "'} "
 		let a:final=a:final . "MOD{'" . a:mod . "'} "
+		let a:final=a:final . "ATTR{'" . a:rwro . "'} "
 		let a:final=a:final . "TYPE{'" . a:ft . "'} "
 		let a:final=a:final . "WC{'" . a:wc . "'} "
 		let a:final=a:final . "LINES{'" . a:lns . "'} "
