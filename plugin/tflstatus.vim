@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/tflstatus.vim
 " Started On        - Thu  8 Mar 08:53:56 GMT 2018
-" Last Change       - Thu  8 Mar 09:04:35 GMT 2018
+" Last Change       - Thu  8 Mar 09:59:18 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -10,25 +10,37 @@
 
 if(len(&statusline) == 0)
 	func! StatusLine()
-		" Grab the filename, if available.
-		let a:fn=expand("%")
+		let a:fn=expand("%:t")
 		if(len(a:fn) == 0)
 			let a:fn="N/A"
 		endif
 
-		" Get the status of whether modified or not.
 		let a:mod=&modified
-
-		" Get the total word count.
 		let a:wc=wordcount().words
 
-		" Initiating this variable for easy organising.
-		let a:final=""
+		let a:bytes=getfsize(expand("%"))
+		if ! (a:bytes == "-1")
+			if(a:bytes < 1024)
+				let a:bytes=a:bytes . "B"
+			elseif(a:bytes >= 1024)
+				let a:bytes=a:bytes/1024 . "K"
+			elseif(a:bytes >= 1048576)
+				let a:bytes=a:bytes/1024/1024 . "M"
+			endif
+		else
+			let a:bytes="N/A"
+		endif
 
-		" These will be concatenated and sent to statusline.
+		let a:ft=&ft
+		if(len(a:ft) == 0)
+			let a:ft="N/A"
+		endif
+
 		let a:final="FILE{'" . a:fn . "'} "
 		let a:final=a:final . "MOD{'" . a:mod . "'} "
+		let a:final=a:final . "TYPE{'" . a:ft . "'} "
 		let a:final=a:final . "WC{'" . a:wc . "'} "
+		let a:final=a:final . "SIZE{'" . a:bytes . "'} "
 
 		return a:final
 	endfunc
