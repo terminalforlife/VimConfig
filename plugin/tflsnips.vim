@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/virtedit.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 23:22:47 GMT 2018
+" Last Change       - Fri  9 Mar 13:50:49 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -58,6 +58,6 @@ func! TFL_Snips(action)
 endfunc
 
 noremap <silent> <leader>setup :call TFL_Snips("setup")<CR>
-noremap <silent> <leader>modeline :call TFL_ML()<CR>
-noremap <silent> <leader>err :call TFL_Err()<CR>
+noremap <silent> <leader>modeline :call TFL_Snips("modeline")<CR>
+noremap <silent> <leader>err :call TFL_Snips("error")<CR>
 noremap <silent> <leader>bar 0i#<Esc>82a-<Esc>0
