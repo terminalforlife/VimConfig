@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Thu  8 Mar 08:51:44 GMT 2018
+" Last Change       - Fri  9 Mar 13:27:28 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -11,6 +11,7 @@
 
 func! TFL_DocMode(...)
 	if(a:0 == "true")
+		" If this is executed before noarrow.vim, it won't work.
 		if exists("$HOME/.vim/plugin/noarrow.vim")
 			noremap k gj
 			noremap l gk
