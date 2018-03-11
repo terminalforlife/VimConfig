@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Thu  8 Mar 09:17:44 GMT 2018
+" Last Change       - Sun 11 Mar 09:36:22 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -20,6 +20,7 @@ endfor
 
 set ttyfast
 set path+=**
+set equalalways
 set nomodeline
 set nocompatible
 set noswapfile
