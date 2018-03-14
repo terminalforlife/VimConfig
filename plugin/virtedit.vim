@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/virtedit.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 20:26:55 GMT 2018
+" Last Change       - Tue 13 Mar 23:07:40 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -9,6 +9,11 @@
 "----------------------------------------------------------------------------------
 
 func! TFL_VirtualEdit()
+	if has("virtualedit")
+		echo "ERROR: Unable to toggle virtual editing."
+		finish
+	endif
+
 	if(exists("g:virtualeditstate") == 0)
 		set virtualedit=all
 
