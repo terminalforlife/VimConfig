@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun 11 Mar 09:40:41 GMT 2018
+" Last Change       - Tue 13 Mar 22:59:46 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -39,10 +39,19 @@ func! TFL_DocMode(...)
 endfunc
 
 func! TFL_MoreMode()
+	if ! has("statusline")
+		echo "ERROR: One or more missing features."
+		finish
+	endif
+
 	if(exists("g:moremodestate") == 0)
 		set showmatch
 		set ruler
-		set cursorline
+
+		if ! has("gui_running")
+			set cursorline
+		endif
+
 		set norelativenumber
 		set number
 		set colorcolumn=84
