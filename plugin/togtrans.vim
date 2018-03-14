@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/togtrans.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Wed  7 Mar 23:25:08 GMT 2018
+" Last Change       - Tue 13 Mar 22:51:06 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -9,15 +9,19 @@
 "----------------------------------------------------------------------------------
 
 func! TFL_TogTrans()
-	let a:buffer = synIDattr(hlID("Normal"), "bg")
+	if ! has("gui_running")
+		let a:buffer = synIDattr(hlID("Normal"), "bg")
 
-	if(len(a:buffer) == 0)
-		hi Normal ctermbg=0
+		if(len(a:buffer) == 0)
+			hi Normal ctermbg=0
+		else
+			hi Normal ctermbg=NONE
+		endif
+
+		unlet a:buffer
 	else
-		hi Normal ctermbg=NONE
+		echo "ERROR: Cannot toggle transparency in a GUI."
 	endif
-
-	unlet a:buffer
 endfunc
 
 noremap <silent> <leader>tt :call TFL_TogTrans()<CR>
