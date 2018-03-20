@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/mouseon.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Tue 13 Mar 22:59:29 GMT 2018
+" Last Change       - Tue 20 Mar 15:05:31 GMT 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -37,5 +37,6 @@ func! TFL_MouseSupport()
 	endif
 endfunc
 
-noremap <silent> <leader>mouse :call TFL_MouseSupport()<CR>
+silent call TFL_MouseSupport()
 
+noremap <silent> <leader>mouse :call TFL_MouseSupport()<CR>
