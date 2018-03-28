@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 23 Mar 15:57:58 GMT 2018
+" Last Change       - Wed 28 Mar 07:01:43 BST 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -73,19 +73,26 @@ func! TFL_MoreMode()
 	endif
 endfunc
 
-"TODO - This won't work; why?
-if(&ft =~? '\(rb\|htm\|html\|css\|xml\|c\|sh\|python\|vim\)')
-	call TFL_MoreMode()
-elseif(&ft =~? '\(text\|markdown\)')
-	call TFL_DocMode("true")
-else
-	" If all else fails, go by the file extension.
-	if(expand("%:e") =~? '^\(c\|htm\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
-		silent call TFL_MoreMode()
-	elseif(expand("%:e") =~? '^\(txt\|md\)$')
-		silent call TFL_DocMode("true")
+func! TFL_ReadFileFT()
+	if did_filetype()
+		if(&ft =~? '^\(rb\|htm\|html\|css\|xml\|c\|sh\|python\|vim\)$')
+			silent call TFL_MoreMode()
+		elseif(&ft =~? '^\(text\|markdown\)$')
+			silent call TFL_DocMode("true")
+		endif
+	else
+		" If all else fails, go by the file extension.
+		if(expand("%:e") =~? '^\(c\|htm\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
+			silent call TFL_MoreMode()
+		elseif(expand("%:e") =~? '^\(txt\|md\)$')
+			silent call TFL_DocMode("true")
+		endif
 	endif
-endif
+endfunc
+
+" This seems to be the only way to have the filetype detection work correctly from
+" within this script, otherwise it refuses to detect it, at this point.
+autocmd BufRead * call TFL_ReadFileFT()
 
 noremap <silent> <leader>more :call TFL_MoreMode()<CR>
 noremap <silent> <leader>doc :call TFL_DocMode("true")<CR>
