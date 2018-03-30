@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------------
 # Project Name      - miscellaneous/update_links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Thu  8 Mar 06:01:03 GMT 2018
+# Last Change       - Fri 30 Mar 01:57:47 BST 2018
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #----------------------------------------------------------------------------------
@@ -30,6 +30,11 @@ fi
 for FILE in plugin/*.vim; {
 	/bin/rm -v $HOME/.vim/plugin/${FILE//*\/} 2> /dev/null
 	/bin/ln -v "$FILE" $HOME/.vim/plugin/${FILE//*\/} 2> /dev/null
+}
+
+for FILE in snippet/*; {
+	/bin/rm -v $HOME/.vim/snippet/${FILE//*\/} 2> /dev/null
+	/bin/ln -v "$FILE" $HOME/.vim/snippet/${FILE//*\/} 2> /dev/null
 }
 
 /bin/rm -v $HOME/.vim/colors/tfl.vim 2> /dev/null
