@@ -1,0 +1,58 @@
+_VERSION_="2018-03-30"
+
+XERR(){ printf "[L%0.4d] ERROR: %s\n" "$1" "$2" 1>&2; exit 1; }
+ERR(){ printf "[L%0.4d] ERROR: %s\n" "$1" "$2" 1>&2; }
+
+USAGE(){
+	while read -r; do
+		printf "%s\n" "$REPLY"
+	done <<-EOF
+		            EXAMPLE ($_VERSION_)
+		            Written by terminalforlife (terminalforlife@yahoo.com)
+		
+		            Dummy description for this template.
+
+		SYNTAX:     example [OPTS]
+		
+		OPTS:       --help|-h|-?            - Displays this help information.
+		            --version|-v            - Output only the version datestamp.
+		            --quiet|-q              - Runs in quiet mode. Errors still output.
+		            --debug|-D              - Enables the built-in bash debugging.
+	EOF
+}
+
+while [ "$1" ]; do
+	case "$1" in
+		--help|-h|-\?)
+			USAGE; exit 0 ;;
+		--version|-v)
+			printf "%s\n" "$_VERSION_"
+			exit 0 ;;
+		--quiet|-q)
+			BEQUIET="true" ;;
+		--debug|-D)
+			DEBUGME="true" ;;
+		*)
+			XERR "$LINENO" "Incorrect argument(s) specified." ;;
+	esac
+	shift
+done
+
+declare -i DEPCOUNT=0
+for DEP in PATH; {
+	[ -x "$DEP" ] || {
+		ERR "$LINENO" "Dependency '$DEP' not met."
+		DEPCOUNT+=1
+	}
+}
+
+[ $DEPCOUNT -eq 0 ] || exit 1
+
+#[ $UID -eq 0 ] && XERR "$LINENO" "Root access is required."
+
+[ "$BEQUIET" == "true" ] && exec 1> /dev/null
+[ "$DEBUGME" == "true" ] && set -x
+
+
+
+# vim: ft=sh noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
