@@ -9,11 +9,11 @@ USAGE(){
 	done <<-EOF
 		            EXAMPLE ($_VERSION_)
 		            Written by terminalforlife (terminalforlife@yahoo.com)
-		
+
 		            Dummy description for this template.
 
 		SYNTAX:     example [OPTS]
-		
+
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
 		            --quiet|-q              - Runs in quiet mode. Errors still output.
@@ -40,10 +40,10 @@ done
 
 declare -i DEPCOUNT=0
 for DEP in PATH; {
-	[ -x "$DEP" ] || {
+	if ! [ -x "$DEP" ]; then
 		ERR "$LINENO" "Dependency '$DEP' not met."
 		DEPCOUNT+=1
-	}
+	fi
 }
 
 [ $DEPCOUNT -eq 0 ] || exit 1
@@ -52,7 +52,3 @@ for DEP in PATH; {
 
 [ "$BEQUIET" == "true" ] && exec 1> /dev/null
 [ "$DEBUGME" == "true" ] && set -x
-
-
-
-# vim: ft=sh noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
