@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Wed 28 Mar 07:01:43 BST 2018
+" Last Change       - Mon  2 Apr 04:00:40 BST 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -75,14 +75,14 @@ endfunc
 
 func! TFL_ReadFileFT()
 	if did_filetype()
-		if(&ft =~? '^\(rb\|htm\|html\|css\|xml\|c\|sh\|python\|vim\)$')
+		if(&ft =~? '^\(conf\|rb\|htm\|html\|css\|xml\|c\|sh\|python\|vim\)$')
 			silent call TFL_MoreMode()
 		elseif(&ft =~? '^\(text\|markdown\)$')
 			silent call TFL_DocMode("true")
 		endif
 	else
 		" If all else fails, go by the file extension.
-		if(expand("%:e") =~? '^\(c\|htm\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
+		if(expand("%:e") =~? '^\(conf\|c\|htm\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
 			silent call TFL_MoreMode()
 		elseif(expand("%:e") =~? '^\(txt\|md\)$')
 			silent call TFL_DocMode("true")
