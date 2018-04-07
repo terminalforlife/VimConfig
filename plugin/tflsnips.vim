@@ -24,4 +24,8 @@ if filereadable(expand("$HOME") . "/.vim/snippet/wgetchk")
 	noremap <silent> <leader>wget :r $HOME/.vim/snippet/wgetchk<CR>
 endif
 
+if filereadable(expand("$HOME") . "/.vim/snippet/updatechk")
+	noremap <silent> <leader>update :r $HOME/.vim/snippet/updatechk<CR>
+endif
+
 noremap <silent> <leader>bar 0i#<Esc>82a-<Esc>0
