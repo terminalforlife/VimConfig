@@ -1,0 +1,29 @@
+#----------------------------------------------------------------------------------
+
+DOM="https://github.com"
+
+		            --update|-U             - Check for updates to simplify-ubuntu.
+
+		--update|-U)
+			UPDATE="true" ;;
+
+if [ "$UPDATE" == "true" ]; then
+	VERSION_URL="$DOM/terminalforlife/miscellaneous/raw/master/rmne-version"
+	LATEST=`/usr/bin/wget $NOWARC -q "$VERSION_URL" -O -`
+	if [[ "${LATEST//-}" =~ ^[0-9]{8}$ ]]; then
+		if [ ${LATEST//-} -gt ${_VERSION_//-} ]; then
+			while read -r; do
+				printf "%s\n" "$REPLY"
+			done <<-EOF
+				New version available:    $LATEST
+				Current version:          $_VERSION_
+			EOF
+		fi
+	else
+		XERR "$LINENO" "Failed to check for available updates."
+	fi
+
+	exit 0
+fi
+
+#----------------------------------------------------------------------------------
