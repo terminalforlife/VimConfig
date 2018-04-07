@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/virtedit.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 30 Mar 02:04:58 BST 2018
+" Last Change       - Sat  7 Apr 03:53:33 BST 2018
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -18,6 +18,10 @@ endif
 
 if filereadable(expand("$HOME") . "/.vim/snippet/error")
 	noremap <silent> <leader>err :r $HOME/.vim/snippet/error<CR>
+endif
+
+if filereadable(expand("$HOME") . "/.vim/snippet/wgetchk")
+	noremap <silent> <leader>wget :r $HOME/.vim/snippet/wgetchk<CR>
 endif
 
 noremap <silent> <leader>bar 0i#<Esc>82a-<Esc>0
