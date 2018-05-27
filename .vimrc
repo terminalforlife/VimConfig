@@ -30,9 +30,9 @@ if has("syntax")
 endif
 
 " Load all of the TFL plugins. (also: set loadplugins)
-for p in [globpath(",", "$HOME/.vim/plugin/*.vim")]
-	if filereadable(p) | source p | endif
-endfor
+"for p in [globpath(",", "$HOME/.vim/plugin/*.vim")]
+"	if filereadable(p) | source p | endif
+"endfor
 
 set nowrap
 set showmode
