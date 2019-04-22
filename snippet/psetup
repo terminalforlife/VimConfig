@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-my $_VERSION_ = "2019-04-22";
+my $_VERSION_ = "";
 
 sub XERR{printf("[L%0.4d] ERROR: %s\n", $_[0], "$_[1]"); exit 1}
 sub XERR{printf("[L%0.4d] ERROR: %s\n", $_[0], "$_[1]")}
@@ -29,17 +29,17 @@ while($ARGV[0]){
 		say "$_VERSION_";
 		exit 0
 	}else{
-		die "Incorrect argument(s) specified"
+		XERR(__LINE__, "Incorrect argument(s) specified")
 	}
 
 	shift(@ARGV)
 }
 
 my $DEPCOUNT = 0;
-foreach("/usr/bin/apt-get", "/bin/ls", "/bin/sleep"){
+foreach("", "", ""){
 	unless(-x $_){
 		ERR(__LINE__, "Dependency '$_' not met");
-		my $DEPCOUNT += 1
+		$DEPCOUNT += 1
 	}
 }
 
