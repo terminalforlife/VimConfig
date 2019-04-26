@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------------
 # Project Name      - miscellaneous/update_links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Fri 30 Mar 01:57:47 BST 2018
+# Last Change       - Fri 26 Apr 14:49:18 BST 2019
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #----------------------------------------------------------------------------------
@@ -28,19 +28,19 @@ if ! [ "${PWD//*\/}" == "vimconfig" ]; then
 fi
 
 for FILE in plugin/*.vim; {
-	/bin/rm -v $HOME/.vim/plugin/${FILE//*\/} 2> /dev/null
-	/bin/ln -v "$FILE" $HOME/.vim/plugin/${FILE//*\/} 2> /dev/null
+	/bin/rm -v $HOME/.vim/plugin/${FILE//*\/} 2>&-
+	/bin/ln -v "$FILE" $HOME/.vim/plugin/${FILE//*\/} 2>&-
 }
 
 for FILE in snippet/*; {
-	/bin/rm -v $HOME/.vim/snippet/${FILE//*\/} 2> /dev/null
-	/bin/ln -v "$FILE" $HOME/.vim/snippet/${FILE//*\/} 2> /dev/null
+	/bin/rm -v $HOME/.vim/snippet/${FILE//*\/} 2>&-
+	/bin/ln -v "$FILE" $HOME/.vim/snippet/${FILE//*\/} 2>&-
 }
 
-/bin/rm -v $HOME/.vim/colors/tfl.vim 2> /dev/null
-/bin/ln -v colors/tfl.vim $HOME/.vim/colors/ 2> /dev/null
+/bin/rm -v $HOME/.vim/colors/tfl.vim 2>&-
+/bin/ln -v colors/tfl.vim $HOME/.vim/colors/ 2>&-
 
-/bin/rm -v $HOME/.vimrc 2> /dev/null
-/bin/ln -v .vimrc $HOME/ 2> /dev/null
+/bin/rm -v $HOME/.vimrc 2>&-
+/bin/ln -v .vimrc $HOME/ 2>&-
 
 # vim: noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
