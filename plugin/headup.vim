@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  5 Mar 19:12:36 GMT 2018
+" Last Change       - Fri  3 May 23:35:39 BST 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -32,7 +32,11 @@ func! TFL_HeadUp(action)
 			if(search("^[#/\"]* Last Change\\s*- ", "ep") > 0)
 				exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
 				if(search("^_VERSION_=\"", "ep") > 0)
-					exe "silent normal! da\"\"_\"=strftime(\"\\\"%F\\\"\")\<CR>p"
+					" Shell syntax support.
+					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
+				elseif(search("^my $_VERSION_ = \"", "ep") > 0)
+					" Perl syntax support.
+					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
 				endif
 			endif
 
