@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
 " Project Name      - vimconfig/plugin/comtog.vim
 " Started On        - Mon  5 Mar 17:08:12 GMT 2018
-" Last Change       - Fri 30 Mar 01:41:21 BST 2018
+" Last Change       - Tue  7 May 23:46:13 BST 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ func! TFL_ComTog()
 		endif
 	endfunc
 
-	if(&ft == "python" || &ft == "sh")
+	if(&ft == "python" || &ft == "sh" || &ft == "perl")
 		if ! TFL_SearchLine('^\(\|[ \t]\+\)#')
 			exe "silent normal! 0i#"
 		else
