@@ -5,11 +5,6 @@ use TFL; # <-- libtfl-perl
 
 my $_VERSION_ = "";
 
-sub TFL::FAIL{
-	printf("[L%0.4d] ERROR: %s\n", $_[1], $_[2]);
-	exit(1) if $_[0]
-}
-
 sub USAGE{
 	my $INFO = qq{            @{[uc($0)]} ($_VERSION_)
 		            Written by terminalforlife (terminalforlife\@yahoo.com)
