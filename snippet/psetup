@@ -5,14 +5,15 @@ use File::Basename 'basename';
 use TFL; # <-- libtfl-perl
 
 my $_VERSION_ = "";
+my $_PROJECT_ = @{[basename($0)]};
 
 sub USAGE{
-	my $INFO = qq{            @{[uc(basename($0))]} ($_VERSION_)
+	my $INFO = qq{            @{[uc($_PROJECT_)]} ($_VERSION_)
 		            Written by terminalforlife (terminalforlife\@yahoo.com)
 
 		            ...
 
-		SYNTAX:     @{[basename($0)]} [OPTS]
+		SYNTAX:     $_PROJECT_ [OPTS]
 
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
