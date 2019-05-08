@@ -1,17 +1,18 @@
 use strict;
 use warnings;
 use autodie;
+use File::Basename 'basename';
 use TFL; # <-- libtfl-perl
 
 my $_VERSION_ = "";
 
 sub USAGE{
-	my $INFO = qq{            @{[uc($0)]} ($_VERSION_)
+	my $INFO = qq{            @{[uc(basename($0))]} ($_VERSION_)
 		            Written by terminalforlife (terminalforlife\@yahoo.com)
 
 		            ...
 
-		SYNTAX:     $0 [OPTS]
+		SYNTAX:     @{[basename($0)]} [OPTS]
 
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
