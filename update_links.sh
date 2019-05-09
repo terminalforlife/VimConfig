@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #----------------------------------------------------------------------------------
-# Project Name      - miscellaneous/update_links.sh
+# Project Name      - VimConfig/update_links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Fri 26 Apr 14:49:18 BST 2019
+# Last Change       - Thu  9 May 13:56:22 BST 2019
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #----------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ for DEP in /bin/{ln,rm}; {
 
 [ $DEPCOUNT -eq 0 ] || exit 1
 
-if ! [ "${PWD//*\/}" == "vimconfig" ]; then
+if ! [ "${PWD//*\/}" == "VimConfig" ]; then
 	XERR "$LINENO" "Not in the repository's root directory."
 fi
 
