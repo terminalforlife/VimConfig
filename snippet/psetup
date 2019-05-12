@@ -5,7 +5,7 @@ use File::Basename 'basename';
 use TFL; # <-- libtfl-perl
 
 my $_VERSION_ = "";
-my $_PROJECT_ = @{[basename($0)]};
+my $_PROJECT_ = basename($0);
 
 sub USAGE{
 	my $INFO = qq{            @{[uc($_PROJECT_)]} ($_VERSION_)
