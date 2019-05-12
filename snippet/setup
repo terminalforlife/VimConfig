@@ -1,18 +1,21 @@
 _VERSION_=""
+_PROJECT_="${0##*/}"
 
-XERR(){ printf "[L%0.4d] ERROR: %s\n" "$1" "$2" 1>&2; exit 1; }
-ERR(){ printf "[L%0.4d] ERROR: %s\n" "$1" "$2" 1>&2; }
+FAIL(){
+	printf "[L%0.4d] ERROR: %s\n" "$2" "$3" 1>&2
+	[ $1 -eq 1 ] && exit 1
+}
 
 USAGE(){
 	while read -r; do
 		printf "%s\n" "$REPLY"
 	done <<-EOF
-		            EXAMPLE ($_VERSION_)
+		            ${_PROJECT_^^} ($_VERSION_)
 		            Written by terminalforlife (terminalforlife@yahoo.com)
 
 		            Dummy description for this template.
 
-		SYNTAX:     example [OPTS]
+		SYNTAX:     $_PROJECT_ [OPTS]
 
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
@@ -26,14 +29,13 @@ while [ "$1" ]; do
 		--help|-h|-\?)
 			USAGE; exit 0 ;;
 		--version|-v)
-			printf "%s\n" "$_VERSION_"
-			exit 0 ;;
+			printf "%s\n" "$_VERSION_"; exit 0 ;;
 		--quiet|-q)
 			BEQUIET="true" ;;
 		--debug|-D)
 			DEBUGME="true" ;;
 		*)
-			XERR "$LINENO" "Incorrect argument(s) specified." ;;
+			FAIL 1 "$LINENO" "Incorrect argument(s) specified." ;;
 	esac
 	shift
 done
@@ -41,14 +43,19 @@ done
 declare -i DEPCOUNT=0
 for DEP in PATH; {
 	if ! [ -x "$DEP" ]; then
-		ERR "$LINENO" "Dependency '$DEP' not met."
+		FAIL 0 "$LINENO" "Dependency '$DEP' not met."
 		DEPCOUNT+=1
 	fi
 }
 
 [ $DEPCOUNT -eq 0 ] || exit 1
 
-#[ $UID -eq 0 ] && XERR "$LINENO" "Root access is required."
+#[ $UID -eq 0 ] && FAIL 1 "$LINENO" "Root access is required."
 
-[ "$BEQUIET" == "true" ] && exec >&-
+if [ -f '/dev/null' ]; then
+	[ "$BEQUIET" == "true" ] && exec > /dev/null
+else
+	FAIL 1 "$LINENO" "File '/dev/null' missing -- unable to be quiet."
+fi
+
 [ "$DEBUGME" == "true" ] && set -x
