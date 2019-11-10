@@ -6,6 +6,8 @@ FAIL(){
 	[ $1 -eq 1 ] && exit 1
 }
 
+DOM="https://github.com"
+
 USAGE(){
 	while read -r; do
 		printf "%s\n" "$REPLY"
@@ -20,7 +22,10 @@ USAGE(){
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
 		            --quiet|-q              - Runs in quiet mode. Errors still output.
+		            --update|-U             - Check for updates to $_PROJECT_.
 		            --debug|-D              - Enables the built-in bash debugging.
+
+		SITE:       $DOM/terminalforlife/Extra
 	EOF
 }
 
@@ -32,6 +37,8 @@ while [ "$1" ]; do
 			printf "%s\n" "$_VERSION_"; exit 0 ;;
 		--quiet|-q)
 			BEQUIET="true" ;;
+		--update|-U)
+			UPDATE="true" ;;
 		--debug|-D)
 			DEBUGME="true" ;;
 		*)
@@ -41,7 +48,7 @@ while [ "$1" ]; do
 done
 
 declare -i DEPCOUNT=0
-for DEP in FILE; {
+for DEP in :; {
 	if ! type -fP "$DEP" > /dev/null 2>&1; then
 		FAIL 0 "$LINENO" "Dependency '$DEP' not met."
 		DEPCOUNT+=1
@@ -49,6 +56,34 @@ for DEP in FILE; {
 }
 
 [ $DEPCOUNT -eq 0 ] || exit 1
+
+if [ "$UPDATE" == "true" ]; then
+	if ! type -fP wget > /dev/null 2>&1; then
+		FAIL 1 "$LINENO" "Dependency 'wget' not met."
+	fi
+
+	VERSION_URL="$DOM/terminalforlife/Extra/raw/master/versions"
+	while IFS='=' read -a LINE; do
+		if  [ "${LINE[0]}" == "$_PROJECT_" ]; then
+			LATEST="${LINE[1]}"
+
+			if [[ "${LATEST//-}" =~ ^[0-9]{8}$ ]]; then
+				if [ ${LATEST//-} -gt ${_VERSION_//-} ]; then
+					while read -r; do
+						printf "%s\n" "$REPLY"
+					done <<-EOF
+						New version available:    $LATEST
+						Current version:          $_VERSION_
+					EOF
+				fi
+			else
+				FAIL 1 "$LINENO" "Failed to check for available updates."
+			fi
+		fi
+	done <<< "$(wget -q "$VERSION_URL" -O -)"
+
+	exit 0
+fi
 
 #[ $UID -eq 0 ] && FAIL 1 "$LINENO" "Root access is required."
 

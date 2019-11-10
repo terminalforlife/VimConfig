@@ -1,4 +1,4 @@
-#----------------------------------------------------------------------------------
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 DOM="https://github.com"
 
@@ -8,22 +8,31 @@ DOM="https://github.com"
 			UPDATE="true" ;;
 
 if [ "$UPDATE" == "true" ]; then
-	VERSION_URL="$DOM/terminalforlife/miscellaneous/raw/master/rmne-version"
-	LATEST=`/usr/bin/wget $NOWARC -q "$VERSION_URL" -O -`
-	if [[ "${LATEST//-}" =~ ^[0-9]{8}$ ]]; then
-		if [ ${LATEST//-} -gt ${_VERSION_//-} ]; then
-			while read -r; do
-				printf "%s\n" "$REPLY"
-			done <<-EOF
-				New version available:    $LATEST
-				Current version:          $_VERSION_
-			EOF
-		fi
-	else
-		XERR "$LINENO" "Failed to check for available updates."
+	if ! type -fP wget > /dev/null 2>&1; then
+		FAIL 1 "$LINENO" "Dependency 'wget' not met."
 	fi
+
+	VERSION_URL="$DOM/terminalforlife/Extra/raw/master/versions"
+	while IFS='=' read -a LINE; do
+		if  [ "${LINE[0]}" == "$_PROJECT_" ]; then
+			LATEST="${LINE[1]}"
+
+			if [[ "${LATEST//-}" =~ ^[0-9]{8}$ ]]; then
+				if [ ${LATEST//-} -gt ${_VERSION_//-} ]; then
+					while read -r; do
+						printf "%s\n" "$REPLY"
+					done <<-EOF
+						New version available:    $LATEST
+						Current version:          $_VERSION_
+					EOF
+				fi
+			else
+				FAIL 1 "$LINENO" "Failed to check for available updates."
+			fi
+		fi
+	done <<< "$(wget -q "$VERSION_URL" -O -)"
 
 	exit 0
 fi
 
-#----------------------------------------------------------------------------------
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
