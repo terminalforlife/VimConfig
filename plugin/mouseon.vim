@@ -37,6 +37,4 @@ func! TFL_MouseSupport()
 	endif
 endfunc
 
-silent call TFL_MouseSupport()
-
 noremap <silent> <leader>mouse :call TFL_MouseSupport()<CR>
