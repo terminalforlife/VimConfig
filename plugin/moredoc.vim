@@ -75,14 +75,14 @@ endfunc
 
 func! TFL_ReadFileFT()
 	if did_filetype()
-		if(&ft =~? '^\(perl\|conf\|rb\|htm\|xhtml\|html\|css\|xml\|c\|sh\|python\|vim\)$')
+		if(&ft =~? '^\(awk\|perl\|conf\|rb\|htm\|xhtml\|html\|css\|xml\|c\|sh\|python\|vim\)$')
 			silent call TFL_MoreMode()
 		elseif(&ft =~? '^\(text\|markdown\)$')
 			silent call TFL_DocMode("true")
 		endif
 	else
 		" If all else fails, go by the file extension.
-		if(expand("%:e") =~? '^\(pl\|conf\|c\|htm\|xhtml\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
+		if(expand("%:e") =~? '^\(pl\|awk\|conf\|c\|htm\|xhtml\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
 			silent call TFL_MoreMode()
 		elseif(expand("%:e") =~? '^\(txt\|md\)$')
 			silent call TFL_DocMode("true")
