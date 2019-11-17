@@ -43,4 +43,3 @@ for FILE in snippet/*; {
 /bin/rm -v $HOME/.vimrc 2>&-
 /bin/ln -v .vimrc $HOME/ 2>&-
 
-# vim: noexpandtab colorcolumn=84 tabstop=8 noswapfile nobackup
