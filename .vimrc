@@ -49,7 +49,7 @@ set history=10000
 set wrapmargin=0
 set cmdheight=1
 set nohlsearch
-set tabstop=8
+set tabstop=4
 set incsearch
 set t_Co=256
 set nobackup
