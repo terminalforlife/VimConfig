@@ -6,18 +6,6 @@ FAIL(){
 	[ $1 -eq 1 ] && exit 1
 }
 
-DEBUG(){
-	if [ "$DEBUGME" == "true" ]; then
-		if [ $# -eq 3 ]; then
-			printf "[L%0.4d] DEBUG(\$%s): '%s'\n" "$1" "$2" "$3"
-		elif [ $# -eq 2 ]; then
-			printf "[L%0.4d] DEBUG: %s\n" "$1" "$2"
-		else
-			FAIL 1 "$LINENO" "Invalid 'DEBUG()' argument(s)."
-		fi
-	fi
-}
-
 DOM="https://github.com"
 
 USAGE(){
@@ -35,7 +23,7 @@ USAGE(){
 		            --version|-v            - Output only the version datestamp.
 		            --quiet|-q              - Runs in quiet mode. Errors still output.
 		            --update|-U             - Check for updates to $_PROJECT_.
-		            --debug|-D              - Enables debugging information.
+		            --debug|-D              - Enables the built-in bash debugging.
 
 		SITE:       $DOM/terminalforlife/Extra
 	EOF
@@ -48,31 +36,18 @@ while [ "$1" ]; do
 		--version|-v)
 			printf "%s\n" "$_VERSION_"; exit 0 ;;
 		--quiet|-q)
-			BEQUIET="true" ;;
-		--update|-U)
-			UPDATE="true" ;;
-
-			DEBUG "$LINENO" "UPDATE" "$UPDATE" ;;
+			BEQUIET='true' ;;
 		--debug|-D)
-			DEBUGME="true" ;;
-
-			DEBUG "$LINENO" "DEBUGME" "$DEBUGME" ;;
+			DEBUGME='true' ;;
+		--update|-U)
+			UPDATE='true' ;;
 		#-*)
 		#	FAIL 1 "$LINENO" "Incorrect argument(s) specified." ;;
 		#*)
-		#	DEBUG "$LINENO" "1" "$1"
-		#	DEBUG "$LINENO" "Breaking from parameter while loop."
-		#
 		#	break ;;
 		*)
-			DEBUG "$LINENO" "1" "$1"
-
-			FAIL 1 "$LINENO" "Incorrect argument(s) specified." ;;
+			FAIL 1 $LINENO "Incorrect argument(s) specified." ;;
 	esac
-
-	DEBUG "$LINENO" "*" "$*"
-	DEBUG "$LINENO" "Shifting positional parameters."
-
 	shift
 done
 
@@ -87,8 +62,6 @@ for DEP in :; {
 [ $DEPCOUNT -eq 0 ] || exit 1
 
 if [ "$UPDATE" == "true" ]; then
-	DEBUG "$LINENO" "Beginning procedure to check for an update."
-
 	if ! type -fP wget > /dev/null 2>&1; then
 		FAIL 1 "$LINENO" "Dependency 'wget' not met."
 	fi
@@ -97,11 +70,7 @@ if [ "$UPDATE" == "true" ]; then
 	while IFS='=' read -a LINE; do
 		if  [ "${LINE[0]}" == "$_PROJECT_" ]; then
 			LATEST="${LINE[1]}"
-			DEBUG "$LINENO" "LATEST" "$LATEST"
-
 			if [[ "${LATEST//-}" =~ ^[0-9]{8}$ ]]; then
-				DEBUG "$LINENO" "Self version detection successful."
-
 				if [ ${LATEST//-} -gt ${_VERSION_//-} ]; then
 					while read -r; do
 						printf "%s\n" "$REPLY"
