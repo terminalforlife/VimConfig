@@ -30,17 +30,17 @@ if ! [ "${PWD//*\/}" == "VimConfig" ]; then
 fi
 
 for FILE in plugin/*.vim; {
-	rm -v $HOME/.vim/plugin/${FILE//*\/} 2>&-
-	ln -v "$FILE" $HOME/.vim/plugin/${FILE//*\/} 2>&-
+	rm -v $HOME/.vim/plugin/${FILE//*\/} 2> /dev/null
+	ln -v "$FILE" $HOME/.vim/plugin/${FILE//*\/} 2> /dev/null
 }
 
 for FILE in snippet/*; {
-	rm -v $HOME/.vim/snippet/${FILE//*\/} 2>&-
-	ln -v "$FILE" $HOME/.vim/snippet/${FILE//*\/} 2>&-
+	rm -v $HOME/.vim/snippet/${FILE//*\/} 2> /dev/null
+	ln -v "$FILE" $HOME/.vim/snippet/${FILE//*\/} 2> /dev/null
 }
 
-rm -v $HOME/.vim/colors/tfl.vim 2>&-
-ln -v colors/tfl.vim $HOME/.vim/colors/ 2>&-
+rm -v $HOME/.vim/colors/tfl.vim 2> /dev/null
+ln -v colors/tfl.vim $HOME/.vim/colors/ 2> /dev/null
 
-rm -v $HOME/.vimrc 2>&-
-ln -v .vimrc $HOME/ 2>&-
+rm -v $HOME/.vimrc 2> /dev/null
+ln -v .vimrc $HOME/ 2> /dev/null
