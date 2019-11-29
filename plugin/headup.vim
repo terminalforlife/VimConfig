@@ -1,19 +1,19 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/headup.vim
+" Project Name      - VimConfig/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri  3 May 23:35:39 BST 2019
+" Last Change       - Fri 29 Nov 14:27:10 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
-" Add and update header and its timestamp, including any instalce of the _VERSION_
-" variable (assignment) datestamp in shell scripts/programs, if this variable is
-" found. Also cleans up spacing. Does not save; that's up to you.
+" Add and update header and its timestamp, including any instance of `CurVer=''` or
+" `_VERSION_=""` variable (assignment) datestamp in shell scripts/programs, if this
+" variable is found. Also cleans up spacing. Does not save; that's up to you.
 "
 " For now, you'll have to change the header information (E-Mail and GitHub entries)
 " to match your own; this will hopefully be more user-friendly in the future.
 "
 " To use, enter <leader>header to place it, and <leader>save to update it and the
-" _VERSION_ variable's value, if it's found.
+" aforementioned variable's value, if it's found at the very start of a line.
 "----------------------------------------------------------------------------------
 
 func! TFL_HeadUp(action)
@@ -32,9 +32,12 @@ func! TFL_HeadUp(action)
 			if(search("^[#/\"]* Last Change\\s*- ", "ep") > 0)
 				exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
 				if(search("^_VERSION_=\"", "ep") > 0)
-					" Shell syntax support.
+					" Shell syntax support. (pre: 2019-11-29)
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
-				elseif(search("^my $_VERSION_ = \"", "ep") > 0)
+				elseif(search("^CurVer='", "ep") > 0)
+					" Alternative shell syntax support. (post: 2019-11-29)
+					exe "silent normal! di'\"=strftime(\"%F\")\<CR>P"
+				elseif(search("^my $CurVer = \"", "ep") > 0)
 					" Perl syntax support.
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
 				endif
