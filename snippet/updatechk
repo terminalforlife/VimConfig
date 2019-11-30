@@ -1,36 +1,35 @@
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-DOM="https://github.com"
+Domain="https://github.com"
 
-		            --update|-U             - Check for updates to simplify-ubuntu.
+		            --update|-U             - Check for updates to $Progrm
 
 		--update|-U)
-			UPDATE="true" ;;
+			DoUpdate="true" ;;
 
-if [ "$UPDATE" == "true" ]; then
+if [ "$DoUpdate" == 'true' ]; then
 	if ! type -fP wget > /dev/null 2>&1; then
-		FAIL 1 "$LINENO" "Dependency 'wget' not met."
+		Err 1 $LINENO 'Dependency 'wget' not met.'
 	fi
 
-	VERSION_URL="$DOM/terminalforlife/Extra/raw/master/versions"
-	while IFS='=' read -a LINE; do
-		if  [ "${LINE[0]}" == "$_PROJECT_" ]; then
-			LATEST="${LINE[1]}"
-
-			if [[ "${LATEST//-}" =~ ^[0-9]{8}$ ]]; then
-				if [ ${LATEST//-} -gt ${_VERSION_//-} ]; then
-					while read -r; do
+	VerURL="$Domain/terminalforlife/Extra/raw/master/versions"
+	while IFS='=' read -a CurLine; do
+		if  [ "${CurLine[0]}" == "$Progrm" ]; then
+			NewVer=${CurLine[1]}
+			if [[ ${NewVer//-} =~ ^[0-9]{8}$ ]]; then
+				if [ ${NewVer//-} -gt ${CurVer//-} ]; then
+					while read; do
 						printf "%s\n" "$REPLY"
 					done <<-EOF
-						New version available:    $LATEST
-						Current version:          $_VERSION_
+						New version available:    $NewVer
+						Current version:          $CurVer
 					EOF
 				fi
 			else
-				FAIL 1 "$LINENO" "Failed to check for available updates."
+				Err 1 $LINENO 'Failed to check for available updates.'
 			fi
 		fi
-	done <<< "$(wget -q "$VERSION_URL" -O -)"
+	done <<< "$(wget -qO - "$VerURL")"
 
 	exit 0
 fi
