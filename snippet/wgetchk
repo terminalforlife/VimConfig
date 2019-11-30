@@ -1,5 +1,5 @@
-read -a WGET_VER_LINE <<< "$(/usr/bin/wget --version)"
-WGET_VERSION=0${WGET_VER_LINE[2]//[!0-9]}
-if [ $WGET_VERSION -ge 01192 -a $WGET_VERSION -lt 01194 ]; then
-	NOWARC="--no-warc-compression"
+read -a WgetVerRaw <<< "$(/usr/bin/wget --version)"
+WgetVer=0${WgetVerRaw[2]//[!0-9]}
+if [ $WgetVer -ge 01192 -a $WgetVer -lt 01194 ]; then
+	NoWarc="--no-warc-compression"
 fi
