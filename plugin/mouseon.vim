@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/mouseon.vim
+" Project Name      - VimConfig/plugin/mouseon.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Tue 20 Mar 15:05:31 GMT 2018
+" Last Change       - Sun  8 Dec 21:13:21 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/virtedit.vim
+" Project Name      - VimConfig/plugin/virtedit.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Tue 13 Mar 23:07:40 GMT 2018
+" Last Change       - Sun  8 Dec 21:13:43 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------

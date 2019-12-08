@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/tflstatus.vim
+" Project Name      - VimConfig/plugin/tflstatus.vim
 " Started On        - Thu  8 Mar 08:53:56 GMT 2018
-" Last Change       - Thu  8 Mar 10:20:59 GMT 2018
+" Last Change       - Sun  8 Dec 21:13:37 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------

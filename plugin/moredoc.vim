@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/moredoc.vim
+" Project Name      - VimConfig/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Wed 17 Apr 15:38:11 BST 2019
+" Last Change       - Sun  8 Dec 21:13:20 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
@@ -12,7 +12,7 @@
 func! TFL_DocMode(...)
 	if(a:0 == "true")
 		"TODO - Not sure why this won't work.
-		if filereadable("$HOME/.vim/plugin/sanekeys.vim")
+		if filereadable("$HOME/.vim/plugin/moredoc.vim")
 			noremap k gj
 			noremap l gk
 		else

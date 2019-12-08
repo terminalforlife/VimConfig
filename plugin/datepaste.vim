@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/VimPlugins/datepaste
+" Project Name      - VimConfig/plugin/datepaste.vim
 " Started On        - Mon  5 Mar 15:34:45 GMT 2018
-" Last Change       - Mon  5 Mar 17:07:00 GMT 2018
+" Last Change       - Sun  8 Dec 21:13:10 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------

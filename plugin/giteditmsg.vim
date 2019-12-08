@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/plugin/giteditmsg.vim
+" Project Name      - VimConfig/plugin/giteditmsg.vim
 " Started On        - Tue  5 Nov 17:44:41 GMT 2019
-" Last Change       - Sat  9 Nov 01:29:34 GMT 2019
+" Last Change       - Sun  8 Dec 21:13:14 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
