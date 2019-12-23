@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - VimConfig/plugin/autoscroll.vim
+" Project Name      - VimConfig/source/plugin/autoscroll.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun  8 Dec 21:12:50 GMT 2019
+" Last Change       - Mon 23 Dec 00:05:45 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------

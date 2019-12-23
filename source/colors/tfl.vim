@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------------------
-" Project Name      - vimconfig/color/tfl.vim
+" Project Name      - VimConfig/source/color/tfl.vim
 " Started On        - Tue  6 Mar 18:26:55 GMT 2018
-" Last Change       - Tue  6 Mar 18:34:11 GMT 2018
+" Last Change       - Mon 23 Dec 00:05:23 GMT 2019
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "----------------------------------------------------------------------------------
