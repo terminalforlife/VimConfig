@@ -1,37 +1,41 @@
 use strict;
 use warnings;
 use autodie;
-use File::Basename 'basename';
-use TFL; # <-- libtfl-perl
+use TFL 'Err'; # <-- libtfl-perl (>= 2020-01-03)
 
-my $_VERSION_ = "";
-my $_PROJECT_ = basename($0);
+my $CurVer = "";
 
-sub USAGE{
-	my $INFO = qq{            @{[uc($_PROJECT_)]} ($_VERSION_)
-		            Written by terminalforlife (terminalforlife\@yahoo.com)
+sub Usage{
+	my $Info = qq{            @{[uc($TFL::PROGNAME)]} ($CurVer)
+		            $TFL::AUTHOR
 
 		            ...
 
-		SYNTAX:     $_PROJECT_ [OPTS]
+		SYNTAX:     $TFL::PROGNAME [OPTS]
 
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
 	};
 
-	print($INFO =~ tr/\t//dr)
+	print($Info =~ tr/\t//dr)
 }
 
-while(defined($ARGV[0])){
-	if($ARGV[0] =~ /^(--help|-h|-\?)$/){
-		USAGE(1); exit 0
-	}elsif($ARGV[0] =~ /^(--version|-v)$/){
-		print("$_VERSION_\n"); exit 0
+while (defined($ARGV[0])){
+	my $Arg = $ARGV[0];
+
+	if ($Arg =~ '^(--help|-h|-\?)$'){
+		Usage(1); exit(0)
+	}elsif ($Arg =~ '^(--version|-v)$'){
+		print("$CurVer\n"); exit(0)
+	#}elsif ($Arg =~ '^-'){
+	#	Err(1, "Incorrect argument(s) specified.")
+	#}else{
+	#	last
 	}else{
-		TFL::FAIL(1, __LINE__, "Incorrect argument(s) specified")
+		Err(1, "Incorrect argument(s) specified.")
 	}
 
 	shift(@ARGV)
 }
 
-#TFL::FAIL(1, __LINE__, "Root access is required") unless $> == 0;
+#Err(1, "Root access is required.") unless $< == 0;
