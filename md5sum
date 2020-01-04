@@ -1,3 +1,4 @@
+deec4f8e0032cfecc479565aafc29d03  source/.vimrc
 d2f39e73681a77ef71ac0acc1c22f670  source/colors/tfl.vim
 de6b17bfaaa4fa4c7a28a11d20325a4c  source/plugin/altnums.vim
 6664784a333ef6a7a3cebc784d9924ea  source/plugin/autoscroll.vim
@@ -24,8 +25,7 @@ f59b86641af1612c1b59d5c8d4a782fb  source/plugin/togtrans.vim
 71a89efdbc7e9fca055275e912cfef6e  source/snippet/bsetup
 8f8665436aa2de3a2d3c5534877f85d8  source/snippet/error
 d41d8cd98f00b204e9800998ecf8427e  source/snippet/modeline
-1c6079afc1bf6912241e7ce8546ff174  source/snippet/psetup
+7d762aa44824b015474a58955a16b66a  source/snippet/psetup
 9aaa6473234365ebe1136f696ff6744f  source/snippet/setup
 196b8f49a8d448b799da9070f7bbb716  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
-deec4f8e0032cfecc479565aafc29d03  source/.vimrc
