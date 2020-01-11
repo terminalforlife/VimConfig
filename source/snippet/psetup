@@ -3,10 +3,12 @@ use warnings;
 use autodie;
 use TFL 'Err'; # <-- libtfl-perl (>= 2020-01-03)
 
+#no warnings 'uninitialized';
+
 my $CurVer = "";
 
 sub Usage{
-	my $Info = qq{            @{[uc($TFL::PROGNAME)]} ($CurVer)
+	print(qq{            @{[uc($TFL::PROGNAME)]} ($CurVer)
 		            $TFL::AUTHOR
 
 		            ...
@@ -15,24 +17,20 @@ sub Usage{
 
 		OPTS:       --help|-h|-?            - Displays this help information.
 		            --version|-v            - Output only the version datestamp.
-	};
-
-	print($Info =~ tr/\t//dr)
+	} =~ tr/\t//dr)
 }
 
 while (defined($ARGV[0])){
-	my $Arg = $ARGV[0];
-
-	if ($Arg =~ '^(--help|-h|-\?)$'){
+	if ($ARGV[0] =~ '^(--help|-h|-\?)$'){
 		Usage(1); exit(0)
-	}elsif ($Arg =~ '^(--version|-v)$'){
+	}elsif ($ARGV[0] =~ '^(--version|-v)$'){
 		print("$CurVer\n"); exit(0)
-	#}elsif ($Arg =~ '^-'){
-	#	Err(1, "Incorrect argument(s) specified.")
+	#}elsif ($ARGV[0] =~ '^-'){
+	#	Err(1, "Incorrect option(s) specified.")
 	#}else{
 	#	last
 	}else{
-		Err(1, "Incorrect argument(s) specified.")
+		Err(1, "Incorrect option(s) specified.")
 	}
 
 	shift(@ARGV)
