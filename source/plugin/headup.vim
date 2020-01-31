@@ -1,20 +1,20 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 23 Dec 00:06:18 GMT 2019
+" Last Change       - Fri 31 Jan 22:06:22 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Add and update header and its timestamp, including any instance of `CurVer=''` or
-" `_VERSION_=""` variable (assignment) datestamp in shell scripts/programs, if this
+"------------------------------------------------------------------------------
+" Add and update header and its timestamp, including instances of `CurVer=''`
+" or `_VERSION_=""` variable (assignment) datestamp in shell scripts, if this
 " variable is found. Also cleans up spacing. Does not save; that's up to you.
 "
-" For now, you'll have to change the header information (E-Mail and GitHub entries)
-" to match your own; this will hopefully be more user-friendly in the future.
+" For now, you'll have to change header information (E-Mail and GitHub entries)
+" to match your own; it'll hopefully be more user-friendly in the future.
 "
-" To use, enter <leader>header to place it, and <leader>save to update it and the
+" To use, enter <leader>header to place it, and <leader>save to update it & the
 " aforementioned variable's value, if it's found at the very start of a line.
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 func! TFL_HeadUp(action)
 	if(exists("*strftime") == 1)

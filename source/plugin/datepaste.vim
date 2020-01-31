@@ -1,13 +1,13 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/datepaste.vim
 " Started On        - Mon  5 Mar 15:34:45 GMT 2018
-" Last Change       - Mon 23 Dec 00:06:01 GMT 2019
+" Last Change       - Fri 31 Jan 22:04:09 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Display the date or time using <leader>date or <leader>time, respectively. The
-" date and time are shown using the %F and %X parameters.
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" Display the date or time using <leader>date or <leader>time, respectively.
+" The date and time are shown using the %F and %X parameters.
+"------------------------------------------------------------------------------
 
 if(exists("*strftime") == 1)
 	func! TFL_DatePaste(type)

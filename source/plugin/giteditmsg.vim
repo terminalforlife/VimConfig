@@ -1,12 +1,12 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/giteditmsg.vim
 " Started On        - Tue  5 Nov 17:44:41 GMT 2019
-" Last Change       - Mon 23 Dec 00:06:10 GMT 2019
+" Last Change       - Fri 31 Jan 22:04:41 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Dynamically encourages 'proper' form when using vim to commit changes with git.
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" Dynamically encourages 'proper' form when committing changes with git.
+"------------------------------------------------------------------------------
 
 func! TFL_GitEditMSG()
 	if(&ft == "gitcommit")

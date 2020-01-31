@@ -1,12 +1,12 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/togtrans.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 23 Dec 00:07:19 GMT 2019
+" Last Change       - Fri 31 Jan 22:08:10 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " [T]oggle background [t]ransparency. (for the terminal) Use with: <leader>tt
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 func! TFL_TogTrans()
 	if ! has("gui_running")

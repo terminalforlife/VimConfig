@@ -1,14 +1,14 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/mvline.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 23 Dec 00:06:37 GMT 2019
+" Last Change       - Fri 31 Jan 22:07:13 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Move the current line up or down with Ctrl + l (up) and Ctrl + k (down). These
-" bindings only work if you're using the noarrows plugin, otherwise it'll use the
-" default VIM Ctrl + k (up) and Ctrl + j (down) keybindings.
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" Move the current line up or down with Ctrl + l (up) and Ctrl + k (down).
+" These bindings only work if you're using the noarrows plugin, otherwise it'll
+" use the default VIM Ctrl + k (up) and Ctrl + j (down) keybindings.
+"------------------------------------------------------------------------------
 
 func! TFL_MVLine(where)
 	if(a:where == "up")

@@ -1,12 +1,12 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/color/tfl.vim
 " Started On        - Tue  6 Mar 18:26:55 GMT 2018
-" Last Change       - Mon 23 Dec 00:05:23 GMT 2019
+" Last Change       - Fri 31 Jan 22:00:02 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Inspired by 256_noir. Written by terminalforlife. (terminalforlife@yahoo.com)
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" Inspired by 256_noir.
+"------------------------------------------------------------------------------
 
 set background=dark
 highlight clear

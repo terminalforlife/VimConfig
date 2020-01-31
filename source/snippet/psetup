@@ -1,7 +1,12 @@
+# Dependencies:
+#
+#   libtfl-perl (>= 2020-01-03)
+#----------------------------------------------------------------------------------
+
 use strict;
 use warnings;
 use autodie;
-use TFL 'Err'; # <-- libtfl-perl (>= 2020-01-03)
+use TFL 'Err';
 
 #no warnings 'uninitialized';
 
@@ -15,8 +20,8 @@ sub Usage{
 
 		SYNTAX:     $TFL::PROGNAME [OPTS]
 
-		OPTS:       --help|-h|-?            - Displays this help information.
-		            --version|-v            - Output only the version datestamp.
+		OPTS:       --help|-h|-?            - Display this help information.
+		            --version|-v            - Output the version datestamp.
 	} =~ tr/\t//dr)
 }
 

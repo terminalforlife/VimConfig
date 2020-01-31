@@ -1,13 +1,14 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 23 Dec 00:06:29 GMT 2019
+" Last Change       - Fri 31 Jan 22:06:46 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Display helpful screen information; good for code. Use <leader>more to toggle.
-" Use VIM as a standard text editor, for non-code. Use with <leader>doc to toggle.
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" Display helpful screen information; good for code. Use <leader>more to
+" toggle. Use VIM as a standard text editor, for non-code. Use with <leader>doc
+" to toggle.
+"------------------------------------------------------------------------------
 
 func! TFL_DocMode(...)
 	if(a:0 == "true")
@@ -54,7 +55,7 @@ func! TFL_MoreMode()
 
 		set norelativenumber
 		set number
-		set colorcolumn=84
+		set colorcolumn=80 " <-- Previously 84. (2020-01-29)
 		set laststatus=2
 
 		let g:moremodestate="true"

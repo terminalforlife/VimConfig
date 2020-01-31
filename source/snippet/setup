@@ -1,3 +1,10 @@
+# Dependencies:
+#
+#   bash (>= 4.3-14)
+#   libtflbp-sh (>= 2019-12-10)
+#   wget (>= 1.17.1-1)
+#----------------------------------------------------------------------------------
+
 set -e
 . /usr/lib/tflbp-sh/Err
 . /usr/lib/tflbp-sh/ChkDep
@@ -10,20 +17,20 @@ Domain='https://github.com/terminalforlife/Extra'
 
 Usage(){
 	while read; do
-		printf "%s\n" "$REPLY"
+		printf '%s\n' "$REPLY"
 	done <<-EOF
 		            ${Progrm^^} ($CurVer)
-		            Written by terminalforlife (terminalforlife@yahoo.com)
+		            Written by terminalforlife <terminalforlife@yahoo.com>
 
 		            ...
 
 		SYNTAX:     $Progrm [OPTS]
 
-		OPTS:       --help|-h|-?            - Displays this help information.
-		            --version|-v            - Output only the version datestamp.
-		            --quiet|-q              - Runs in quiet mode. Errors still output.
-		            --update|-U             - Check for updates to $Progrm.
-		            --debug|-D              - Enables the built-in Bash debugging.
+		OPTS:       --help|-h|-?            - Display this help information.
+		            --version|-v            - Output the version datestamp.
+		            --quiet|-q              - Quieter operation, with errors.
+		            --update|-U             - Query GitHub for a newer version.
+		            --debug|-D              - Enables built-in Bash debugging.
 
 		SITE:       $Domain
 	EOF

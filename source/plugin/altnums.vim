@@ -1,14 +1,14 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/altnums.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 23 Dec 00:05:34 GMT 2019
+" Last Change       - Fri 31 Jan 22:00:28 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
-" Alternate between relative and standard line numbers. If both are enabled, then
-" fix this by toggling number, which results in either just the number setting, or
-" only the relativenumber setting. Use with <leader>lines keys.
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" Alternate between relative and standard line numbers. If both are enabled, -
+" then fix this by toggling number, which results in either just the number
+" setting, or only the relativenumber setting. Use with <leader>lines keys.
+"------------------------------------------------------------------------------
 
 func! TFL_LineNumAlt(...)
 	if(&relativenumber == 1 && &number == 0)

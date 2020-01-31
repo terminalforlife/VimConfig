@@ -11,15 +11,15 @@ Usage(){
 		printf '%b\n' "$CurLine"
 	done <<EOF
 		\r            : ($CurVer)
-		\r            Written by terminalforlife (terminalforlife@yahoo.com)
+		\r            Written by terminalforlife <terminalforlife@yahoo.com>
 
 		\r            ...
 
 		\rSYNTAX:     $Progrm [OPTS]
 
-		\rOPTS:       --help|-h|-?            - Displays this help information.
-		\r            --version|-v            - Output only the version datestamp.
-		\r            --quiet|-q              - Runs in quiet mode. Errors still output.
+		\rOPTS:       --help|-h|-?            - Display this help information.
+		\r            --version|-v            - Output the version datestamp.
+		\r            --quiet|-q              - Quieter operation, with errors.
 	EOF
 }
 

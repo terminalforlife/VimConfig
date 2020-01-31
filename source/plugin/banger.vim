@@ -1,12 +1,12 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/banger.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 23 Dec 00:05:51 GMT 2019
+" Last Change       - Fri 31 Jan 22:01:02 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Enter a shell user-specified (position 1) shebang, of method (position 2).
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 func! TFL_Banger(shell, method)
 	exe "silent normal! mc"
