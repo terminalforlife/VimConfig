@@ -1,4 +1,3 @@
-deec4f8e0032cfecc479565aafc29d03  source/.vimrc
 3e72b7f40fd941f647c4e86b2048ac07  source/colors/tfl.vim
 a053c2f1ed875cd26ef1a1a00c13ee3a  source/plugin/altnums.vim
 db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
@@ -9,7 +8,7 @@ db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
 836b4419828df5e0acb746440b0ca69a  source/plugin/giteditmsg.vim
 87a49389e12f4670b474b94357906fd3  source/plugin/headup.vim
 92f9ffef388c4a3db648aa1519423fa2  source/plugin/listmode.vim
-9b10a5d4b0717f34b6cb85c1b220a861  source/plugin/moredoc.vim
+16c33a3916e3f6a4dadb218b314a51d9  source/plugin/moredoc.vim
 5f09a2ee8579bc8f0c3bcee101a68fc9  source/plugin/mouseon.vim
 44000bfd0918435dc8ff82da28ba71ff  source/plugin/mvline.vim
 a9e48c45b418206c9dec85e98c09dbaa  source/plugin/noarrows.vim
@@ -30,3 +29,4 @@ d41d8cd98f00b204e9800998ecf8427e  source/snippet/modeline
 1400632bb7167c608e5322c96f252f52  source/snippet/setup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
+734035096694c4df5f180af39d1bd71d  source/.vimrc

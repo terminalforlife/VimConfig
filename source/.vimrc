@@ -1,10 +1,10 @@
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Project Name      - vimconfig/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Tue 13 Mar 23:12:06 GMT 2018
+" Last Change       - Sat  1 Feb 15:07:36 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"----------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 " Set the special <leader> key.
 let mapleader=","
