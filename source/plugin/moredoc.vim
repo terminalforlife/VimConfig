@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 31 Jan 22:06:46 GMT 2020
+" Last Change       - Sun  2 Feb 23:38:00 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -74,26 +74,26 @@ func! TFL_MoreMode()
 	endif
 endfunc
 
-func! TFL_ReadFileFT()
-	if did_filetype()
-		if(&ft =~? '^\(awk\|perl\|conf\|rb\|htm\|xhtml\|html\|css\|xml\|c\|sh\|python\|vim\)$')
-			silent call TFL_MoreMode()
-		elseif(&ft =~? '^\(text\|markdown\)$')
-			silent call TFL_DocMode("true")
-		endif
-	else
-		" If all else fails, go by the file extension.
-		if(expand("%:e") =~? '^\(pl\|awk\|conf\|c\|htm\|xhtml\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
-			silent call TFL_MoreMode()
-		elseif(expand("%:e") =~? '^\(txt\|md\)$')
-			silent call TFL_DocMode("true")
-		endif
-	endif
-endfunc
+"func! TFL_ReadFileFT()
+"	if did_filetype()
+"		if(&ft =~? '^\(awk\|perl\|conf\|rb\|htm\|xhtml\|html\|css\|xml\|c\|sh\|python\|vim\)$')
+"			silent call TFL_MoreMode()
+"		elseif(&ft =~? '^\(text\|markdown\)$')
+"			silent call TFL_DocMode("true")
+"		endif
+"	else
+"		" If all else fails, go by the file extension.
+"		if(expand("%:e") =~? '^\(pl\|awk\|conf\|c\|htm\|xhtml\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
+"			silent call TFL_MoreMode()
+"		elseif(expand("%:e") =~? '^\(txt\|md\)$')
+"			silent call TFL_DocMode("true")
+"		endif
+"	endif
+"endfunc
 
-" This seems to be the only way to have the filetype detection work correctly from
-" within this script, otherwise it refuses to detect it, at this point.
-autocmd BufRead * call TFL_ReadFileFT()
+" This seems to be the only way to have the filetype detection work correctly
+" from within this script, otherwise it refuses to detect it, at this point.
+"autocmd BufRead * call TFL_ReadFileFT()
 
 noremap <silent> <leader>more :call TFL_MoreMode()<CR>
 noremap <silent> <leader>doc :call TFL_DocMode("true")<CR>
