@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun  2 Feb 23:38:00 GMT 2020
+" Last Change       - Sun  2 Feb 23:42:06 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -49,7 +49,8 @@ func! TFL_MoreMode()
 		set showmatch
 		set ruler
 
-		if ! has("gui_running")
+		" If on laptop, don't use this, as it's too slow.
+		if ! has("gui_running") && hostname() != 'Sam'
 			set cursorline
 		endif
 

@@ -6,12 +6,13 @@ db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
 49b2bdc6f8cbc6413c346355997f319c  source/plugin/datepaste.vim
 8b25b1befeafc84aa2ec62e6c1f43783  source/plugin/exefile.vim
 836b4419828df5e0acb746440b0ca69a  source/plugin/giteditmsg.vim
-87a49389e12f4670b474b94357906fd3  source/plugin/headup.vim
+9b8ded54db3eae5cffe11364324b1df2  source/plugin/headup.vim
 92f9ffef388c4a3db648aa1519423fa2  source/plugin/listmode.vim
-926fe3fbb7962b5e7b2eb23749a2c679  source/plugin/moredoc.vim
+deb30623c63326ca3c3331b9e6038449  source/plugin/moredoc.vim
 5f09a2ee8579bc8f0c3bcee101a68fc9  source/plugin/mouseon.vim
-44000bfd0918435dc8ff82da28ba71ff  source/plugin/mvline.vim
+906ef7978eb5b2be5200d31df888fe19  source/plugin/mvline.vim
 a9e48c45b418206c9dec85e98c09dbaa  source/plugin/noarrows.vim
+56744b7dcf9fc9cd901667ec98d0d53b  source/plugin/psnips.vim
 f0fbab935e8d7385247d30516e2e2b3b  source/plugin/sanekeys.vim
 9ba0fc131c80ce0f6f9a2a3c664bbbf5  source/plugin/simplyhard.vim
 a66f70ef00404ade5d9f1594553e9c33  source/plugin/sudosave.vim
@@ -29,4 +30,4 @@ d41d8cd98f00b204e9800998ecf8427e  source/snippet/modeline
 1400632bb7167c608e5322c96f252f52  source/snippet/setup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
-f8cf1ab170693758ff0d404f8f1b64a4  source/.vimrc
+7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
