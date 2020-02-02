@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 31 Jan 22:06:22 GMT 2020
+" Last Change       - Sun  2 Feb 02:08:56 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -19,13 +19,13 @@
 func! TFL_HeadUp(action)
 	if(exists("*strftime") == 1)
 		if(a:action == "place")
-			exe "silent normal! i#\<Esc>82a-\<Esc>o"
+			exe "silent normal! i#\<Esc>78a-\<Esc>o"
 			exe "silent normal! i# Project Name      - \<CR>"
 			exe "silent normal! i# Started On        - \<Esc>\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>po"
 			exe "silent normal! i# Last Change       - \<Esc>\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>po"
 			exe "silent normal! i# Author E-Mail     - terminalforlife@yahoo.com\<CR>"
 			exe "silent normal! i# Author GitHub     - https://github.com/terminalforlife\<CR>"
-			exe "silent normal! i#\<Esc>82a-\<Esc>0o"
+			exe "silent normal! i#\<Esc>78a-\<Esc>0o"
 		elseif(a:action == "update")
 			exe "silent normal! mc"
 
@@ -40,6 +40,9 @@ func! TFL_HeadUp(action)
 				elseif(search("^my $CurVer = \"", "ep") > 0)
 					" Perl syntax support.
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
+				elseif(search("^my $CurVer = '", "ep") > 0)
+					" Alternative Perl syntax support. (post: 2020-02-02)
+					exe "silent normal! di'\"=strftime('%F')\<CR>P"
 				endif
 			endif
 

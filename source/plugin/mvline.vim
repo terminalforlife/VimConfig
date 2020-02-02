@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/mvline.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 31 Jan 22:07:13 GMT 2020
+" Last Change       - Sun  2 Feb 02:13:51 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ func! TFL_MVLine(where)
 	endif
 endfunc
 
-if(exists("$HOME/.vim/plugin/mvline.vim") == 1)
+if(exists("$HOME/.vim/plugin/sanekeys.vim"))
 	noremap <silent> <C-l> :call TFL_MVLine("up")<CR>
 	noremap <silent> <C-k> :call TFL_MVLine("down")<CR>
 
