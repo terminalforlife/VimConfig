@@ -1,6 +1,7 @@
 # Dependencies:
 #
 #   libtfl-perl (>= 2020-01-03)
+#   perl (>= 5.22.1-9)
 #----------------------------------------------------------------------------------
 
 use strict;
@@ -10,7 +11,7 @@ use TFL 'Err';
 
 #no warnings 'uninitialized';
 
-my $CurVer = "";
+my $CurVer = '';
 
 sub Usage{
 	print(qq{            @{[uc($TFL::PROGNAME)]} ($CurVer)
@@ -38,7 +39,7 @@ while (defined($ARGV[0])){
 		Err(1, "Incorrect option(s) specified.")
 	}
 
-	shift(@ARGV)
+	shift()
 }
 
 #Err(1, "Root access is required.") unless $< == 0;

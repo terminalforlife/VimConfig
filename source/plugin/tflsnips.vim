@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/tflsnips.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 31 Jan 22:07:58 GMT 2020
+" Last Change       - Mon  3 Feb 18:58:18 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -38,6 +38,10 @@ endif
 
 if filereadable(expand("$HOME") . "/.vim/snippet/args")
 	noremap <silent> <leader>args :r $HOME/.vim/snippet/args<CR>
+endif
+
+if filereadable(expand("$HOME") . "/.vim/snippet/pcsetup")
+	noremap <silent> <leader>pcsetup :r $HOME/.vim/snippet/pcsetup<CR>
 endif
 
 noremap <silent> <leader>bar 0i#<Esc>82a-<Esc>0

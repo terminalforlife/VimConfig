@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/giteditmsg.vim
 " Started On        - Tue  5 Nov 17:44:41 GMT 2019
-" Last Change       - Fri 31 Jan 22:04:41 GMT 2020
+" Last Change       - Fri  7 Feb 02:08:14 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -33,7 +33,10 @@ func! TFL_GitEditMSG()
 
 		exe "silent normal! ggdG"
 		exe "silent normal! i# Enter subject in under fifty characters:\<Enter>\<Enter>"
-		exe "silent normal! i\<Enter># Enter main body of Markdown text:\<Enter>\<Esc>2G"
+		exe "silent normal! i\<Enter># Enter main body of Markdown text:\<Enter>\<Esc>"
+		exe "silent normal! iBugFixes:\<Enter>\<Enter>  * \<Enter>\<Enter>\<Esc>"
+		exe "silent normal! iFeatures:\<Enter>\<Enter>  * \<Enter>\<Enter>\<Esc>"
+		exe "silent normal! iCodeBits:\<Enter>\<Enter>  * \<Esc>2G"
 
 		autocmd CursorMoved * call TFL_CursorMoved()
 	endif

@@ -1,3 +1,4 @@
+7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
 3e72b7f40fd941f647c4e86b2048ac07  source/colors/tfl.vim
 a053c2f1ed875cd26ef1a1a00c13ee3a  source/plugin/altnums.vim
 db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
@@ -5,7 +6,7 @@ db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
 17b6ab7ffca3937667c3ae254a7c99e1  source/plugin/comtog.vim
 49b2bdc6f8cbc6413c346355997f319c  source/plugin/datepaste.vim
 8b25b1befeafc84aa2ec62e6c1f43783  source/plugin/exefile.vim
-836b4419828df5e0acb746440b0ca69a  source/plugin/giteditmsg.vim
+6b19844082f254b36c0e0787a77a681b  source/plugin/giteditmsg.vim
 9b8ded54db3eae5cffe11364324b1df2  source/plugin/headup.vim
 92f9ffef388c4a3db648aa1519423fa2  source/plugin/listmode.vim
 deb30623c63326ca3c3331b9e6038449  source/plugin/moredoc.vim
@@ -17,7 +18,7 @@ f0fbab935e8d7385247d30516e2e2b3b  source/plugin/sanekeys.vim
 9ba0fc131c80ce0f6f9a2a3c664bbbf5  source/plugin/simplyhard.vim
 a66f70ef00404ade5d9f1594553e9c33  source/plugin/sudosave.vim
 34cd6870bdf759886e65d141f1871fbc  source/plugin/textwidth.vim
-ee4bf3bd40d65b81db5df5a87b8dc164  source/plugin/tflsnips.vim
+a72adcdb8770fb8952b822d1cb2a671a  source/plugin/tflsnips.vim
 6b96b4aaeb52f9b9ee9fcd63f197e63f  source/plugin/tflstatus.vim
 65eae407081e11c08caa9b41a8c0cf43  source/plugin/togtrans.vim
 0d900fdc33442120e590ac22870b1702  source/plugin/virtedit.vim
@@ -26,8 +27,7 @@ ee4bf3bd40d65b81db5df5a87b8dc164  source/plugin/tflsnips.vim
 b18802aa1fc336e05b08654b7f788b65  source/snippet/die
 78b2371fd3c3b843cb42bedd21617942  source/snippet/disclaimer
 d41d8cd98f00b204e9800998ecf8427e  source/snippet/modeline
-1349a9687703350d1ee6e447b09e09dd  source/snippet/psetup
-1400632bb7167c608e5322c96f252f52  source/snippet/setup
+56e8eaa4ac1dd759559332bd598d52c3  source/snippet/psetup
+cd5b4d2d19fd2ac2b649171ef6b8b3ba  source/snippet/setup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
-7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
