@@ -1,4 +1,4 @@
-7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
+dd058cd77c6285c5a3470ef871d9964b  devutils/links.sh
 3e72b7f40fd941f647c4e86b2048ac07  source/colors/tfl.vim
 a053c2f1ed875cd26ef1a1a00c13ee3a  source/plugin/altnums.vim
 db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
@@ -31,3 +31,4 @@ d41d8cd98f00b204e9800998ecf8427e  source/snippet/modeline
 cd5b4d2d19fd2ac2b649171ef6b8b3ba  source/snippet/setup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
+7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
