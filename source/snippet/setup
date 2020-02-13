@@ -19,26 +19,19 @@ Usage(){
 	while read; do
 		printf '%s\n' "$REPLY"
 	done <<-EOF
-		            ${Progrm^^} ($CurVer)
-		            Written by terminalforlife <terminalforlife@yahoo.com>
+		Usage: $Progrm [OPTS]
 
-		            ...
-
-		SYNTAX:     $Progrm [OPTS]
-
-		OPTS:       --help|-h|-?            - Display this help information.
-		            --version|-v            - Output the version datestamp.
-		            --quiet|-q              - Quieter operation, with errors.
-		            --update|-U             - Query GitHub for a newer version.
-		            --debug|-D              - Enables built-in Bash debugging.
-
-		SITE:       $Domain
+		  -h, --help               - Display this help information.
+		  -v, --version            - Output the version datestamp.
+		  -D, --debug              - Enable built-in Bash debugging.
+		  -U, --update             - Query GitHub for a newer version.
+		  -q, --quiet              - Quieter operation, with errors.
 	EOF
 }
 
 while [ "$1" ]; do
 	case $1 in
-		--help|-h|-\?)
+		--help|-h)
 			Usage; exit 0 ;;
 		--version|-v)
 			printf '%s\n' "$CurVer"; exit 0 ;;

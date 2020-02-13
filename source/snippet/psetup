@@ -1,3 +1,11 @@
+# Features:
+#
+# N/A
+#
+# Bugs:
+#
+# N/A
+#
 # Dependencies:
 #
 #   libtfl-perl (>= 2020-01-03)
@@ -14,21 +22,16 @@ use TFL 'Err';
 my $CurVer = '';
 
 sub Usage{
-	print(qq{            @{[uc($TFL::PROGNAME)]} ($CurVer)
-		            $TFL::AUTHOR
+	print(qq{Usage: $TFL::PROGNAME [OPTS]
 
-		            ...
-
-		SYNTAX:     $TFL::PROGNAME [OPTS]
-
-		OPTS:       --help|-h|-?            - Display this help information.
-		            --version|-v            - Output the version datestamp.
+		  -h, --help               - Display this help information.
+		  -v, --version            - Output the version datestamp.
 	} =~ tr/\t//dr)
 }
 
 while (defined($ARGV[0])){
-	if ($ARGV[0] =~ '^(--help|-h|-\?)$'){
-		Usage(1); exit(0)
+	if ($ARGV[0] =~ '^(--help|-h)$'){
+		Usage(); exit(0)
 	}elsif ($ARGV[0] =~ '^(--version|-v)$'){
 		print("$CurVer\n"); exit(0)
 	#}elsif ($ARGV[0] =~ '^-'){

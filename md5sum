@@ -27,8 +27,8 @@ a72adcdb8770fb8952b822d1cb2a671a  source/plugin/tflsnips.vim
 b18802aa1fc336e05b08654b7f788b65  source/snippet/die
 78b2371fd3c3b843cb42bedd21617942  source/snippet/disclaimer
 d41d8cd98f00b204e9800998ecf8427e  source/snippet/modeline
-56e8eaa4ac1dd759559332bd598d52c3  source/snippet/psetup
-cd5b4d2d19fd2ac2b649171ef6b8b3ba  source/snippet/setup
+ee7474d6e67ab72c454ba113a143ba4d  source/snippet/psetup
+c4d35e4b4cf5163763cf6e2f04f24ea5  source/snippet/setup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
 7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
