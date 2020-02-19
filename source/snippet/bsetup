@@ -10,16 +10,10 @@ Usage(){
 	while read -r CurLine; do
 		printf '%b\n' "$CurLine"
 	done <<EOF
-		\r            : ($CurVer)
-		\r            Written by terminalforlife <terminalforlife@yahoo.com>
+		\rUsage: $Progrm [OPTS]
 
-		\r            ...
-
-		\rSYNTAX:     $Progrm [OPTS]
-
-		\rOPTS:       --help|-h|-?            - Display this help information.
-		\r            --version|-v            - Output the version datestamp.
-		\r            --quiet|-q              - Quieter operation, with errors.
+		\r  -h, --help               - Display this help information.
+		\r  -v, --version            - Output the version datestamp.
 	EOF
 }
 
@@ -29,8 +23,6 @@ while [ "$1" ]; do
 			Usage; exit 0 ;;
 		--version|-v)
 			printf '%s\n' "$CurVer"; exit 0 ;;
-		--quiet|-q)
-			BeQuiet='true' ;;
 		#-*)
 		#	Err 1 'Incorrect option(s) specified.' ;;
 		#*)
@@ -41,8 +33,6 @@ while [ "$1" ]; do
 	shift
 done
 
-ChkDep id
+#ChkDep id
 
 #[ `id -u` -eq 0 ] || Err 1 'Root access is required.'
-
-[ "$BeQuiet" = 'true' ] && exec 1> /dev/null

@@ -13,34 +13,23 @@ set +e
 CurVer=''
 Progrm=${0##*/}
 
-Domain='https://github.com/terminalforlife/Extra'
-
 Usage(){
 	while read; do
 		printf '%s\n' "$REPLY"
-	done <<-EOF
+	done <<EOF
 		Usage: $Progrm [OPTS]
 
 		  -h, --help               - Display this help information.
 		  -v, --version            - Output the version datestamp.
-		  -D, --debug              - Enable built-in Bash debugging.
-		  -U, --update             - Query GitHub for a newer version.
-		  -q, --quiet              - Quieter operation, with errors.
 	EOF
 }
 
 while [ "$1" ]; do
 	case $1 in
-		--help|-h)
+		--help|-h|-\?)
 			Usage; exit 0 ;;
 		--version|-v)
 			printf '%s\n' "$CurVer"; exit 0 ;;
-		--quiet|-q)
-			BeQuiet='true' ;;
-		--debug|-D)
-			DebugMe='true' ;;
-		--update|-U)
-			DoUpdate='true' ;;
 		#-*)
 		#	Err 1 'Incorrect option(s) specified.' ;;
 		#*)
@@ -51,32 +40,4 @@ while [ "$1" ]; do
 	shift
 done
 
-ChkDep wget
-
-if [ "$DoUpdate" == 'true' ]; then
-	VerURL="$Domain/terminalforlife/Extra/raw/master/versions"
-	while IFS='=' read -a CurLine; do
-		if  [ "${CurLine[0]}" == "$Progrm" ]; then
-			NewVer=${CurLine[1]}
-			if [[ ${NewVer//-} =~ ^[0-9]{8}$ ]]; then
-				if [ ${NewVer//-} -gt ${CurVer//-} ]; then
-					while read; do
-						printf '%s\n' "$REPLY"
-					done <<-EOF
-						New version available:    $NewVer
-						Current version:          $CurVer
-					EOF
-				fi
-			else
-				Err 1 'Failed to check for available updates.'
-			fi
-		fi
-	done <<< "$(wget -qO - "$VerURL")"
-
-	exit 0
-fi
-
 #[ $UID -eq 0 ] || Err 1 'Root access is required.'
-
-[ "$BeQuiet" == 'true' ] && exec > /dev/null
-[ "$DebugMe" == 'true' ] && set -x
