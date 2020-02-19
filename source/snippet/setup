@@ -16,7 +16,7 @@ Progrm=${0##*/}
 Usage(){
 	while read; do
 		printf '%s\n' "$REPLY"
-	done <<EOF
+	done <<-EOF
 		Usage: $Progrm [OPTS]
 
 		  -h, --help               - Display this help information.

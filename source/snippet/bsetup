@@ -9,7 +9,7 @@ Progrm=${0##*/}
 Usage(){
 	while read -r CurLine; do
 		printf '%b\n' "$CurLine"
-	done <<EOF
+	done <<-EOF
 		\rUsage: $Progrm [OPTS]
 
 		\r  -h, --help               - Display this help information.
