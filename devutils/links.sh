@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - VimConfig/devutils/links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Fri 31 Jan 21:59:23 GMT 2020
+# Last Change       - Fri  6 Mar 14:06:24 GMT 2020
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -33,6 +33,9 @@ cd "$HOME/GitHub/terminalforlife/Personal/VimConfig/source"
 
 		rm -v $HOME/.vim/colors/tfl.vim &&
 			ln -v colors/tfl.vim $HOME/.vim/colors/
+
+		rm -v $HOME/.vim/colors/tfl-subtle.vim &&
+			ln -v colors/tfl-subtle.vim $HOME/.vim/colors/
 
 		rm -v $HOME/.vimrc && ln -v .vimrc $HOME/
 	fi

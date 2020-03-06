@@ -1,4 +1,5 @@
-dd058cd77c6285c5a3470ef871d9964b  devutils/links.sh
+1c098d4fbcbf435df7940abb999938a8  devutils/links.sh
+a2f628b02678bf6b937923acf491c5b4  source/colors/tfl-subtle.vim
 3e72b7f40fd941f647c4e86b2048ac07  source/colors/tfl.vim
 a053c2f1ed875cd26ef1a1a00c13ee3a  source/plugin/altnums.vim
 db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
@@ -31,4 +32,4 @@ ee7474d6e67ab72c454ba113a143ba4d  source/snippet/psetup
 368faec2d354e7c9afe24aa05c05f80f  source/snippet/setup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
-7b5bd1451ecd868335dbcad595368ffa  source/.vimrc
+670d41e31363504337aa9dd0367c7642  source/.vimrc

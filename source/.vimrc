@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Sun  2 Feb 23:41:47 GMT 2020
+" Last Change       - Fri  6 Mar 13:59:39 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ if has('gui_running')
 		set winaltkeys=no
 	endif
 else
-	colorscheme tfl
+	colorscheme tfl-subtle
 	set ttyfast
 endif
 
