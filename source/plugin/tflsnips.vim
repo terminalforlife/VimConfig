@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/tflsnips.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Fri 13 Mar 22:00:02 GMT 2020
+" Last Change       - Fri 16 Oct 18:10:54 BST 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -52,4 +52,4 @@ if filereadable(expand("$HOME") . "/.vim/snippet/libtflbp")
 	noremap <silent> <leader>libtflbp :r $HOME/.vim/snippet/libtflbp<CR>
 endif
 
-noremap <silent> <leader>bar 0i#<Esc>82a-<Esc>0
+noremap <silent> <leader>bar 0i#<Esc>78a-<Esc>0
