@@ -1,8 +1,3 @@
-set -e
-. /usr/lib/tflbp-sh/Err
-. /usr/lib/tflbp-sh/ChkDep
-set +e
-
 CurVer=''
 Progrm=${0##*/}
 
@@ -15,6 +10,11 @@ Usage(){
 		\r  -h, --help               - Display this help information.
 		\r  -v, --version            - Output the version datestamp.
 	EOF
+}
+
+Err(){
+	printf 'ERROR: %s\n' "$2" 1>&2
+	[ $1 -eq 1 ] && exit 1
 }
 
 while [ "$1" ]; do
@@ -33,6 +33,14 @@ while [ "$1" ]; do
 	shift
 done
 
-#ChkDep id
+DepCount=0
+for Dep in id; do
+	if ! command -V 1> /dev/null 2>&1; then
+		Err 0 "Dependency '$Dep' not met."
+		DepCount=$((DepCount + 1))
+	fi
+done
+
+[ $DepCount -gt 0 ] && exit 1
 
 #[ `id -u` -eq 0 ] || Err 1 'Root access is required.'
