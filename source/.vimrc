@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Fri  6 Mar 13:59:39 GMT 2020
+" Last Change       - Tue 10 Nov 13:48:12 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -30,22 +30,13 @@ if has('syntax')
 	syntax on
 endif
 
-source $HOME/.vim/plugin/autoscroll.vim
-source $HOME/.vim/plugin/banger.vim
-source $HOME/.vim/plugin/comtog.vim
-source $HOME/.vim/plugin/datepaste.vim
-source $HOME/.vim/plugin/exefile.vim
-source $HOME/.vim/plugin/giteditmsg.vim
-source $HOME/.vim/plugin/headup.vim
-source $HOME/.vim/plugin/listmode.vim
-source $HOME/.vim/plugin/moredoc.vim
-source $HOME/.vim/plugin/mvline.vim
-source $HOME/.vim/plugin/noarrows.vim
-source $HOME/.vim/plugin/sanekeys.vim
-source $HOME/.vim/plugin/sudosave.vim
-source $HOME/.vim/plugin/textwidth.vim
-source $HOME/.vim/plugin/tflsnips.vim
-source $HOME/.vim/plugin/virtedit.vim
+let Plugs = ['autoscroll', 'banger', 'comtog', 'datepaste', 'exefile',
+	\ 'giteditmsg', 'headup', 'listmode', 'moredoc', 'mvline', 'noarrows',
+	\ 'sanekeys', 'sudosave', 'textwidth', 'tflsnips', 'virtedit']
+
+for Plug in Plugs
+	exe 'source' . "$HOME/.vim/plugin/" . Plug . '.vim'
+endfor
 
 set nowrap
 set showmode

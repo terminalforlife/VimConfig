@@ -1,4 +1,4 @@
-1c098d4fbcbf435df7940abb999938a8  devutils/links.sh
+3c82a05446ec2aeceefd4fea8dbe6e12  devutils/links.sh
 a2f628b02678bf6b937923acf491c5b4  source/colors/tfl-subtle.vim
 3e72b7f40fd941f647c4e86b2048ac07  source/colors/tfl.vim
 a053c2f1ed875cd26ef1a1a00c13ee3a  source/plugin/altnums.vim
@@ -34,4 +34,4 @@ ee7474d6e67ab72c454ba113a143ba4d  source/snippet/psetup
 b4f4233942489779103448ff2a6ee51b  source/snippet/updatechk
 0e35e9ae864534253db402cb11d15043  source/snippet/usage
 173fd3fa664e97eb47ef7600fe4f72e4  source/snippet/wgetchk
-670d41e31363504337aa9dd0367c7642  source/.vimrc
+3e97615ca566817d6ecf3e7ad03eb466  source/.vimrc
