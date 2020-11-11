@@ -8,41 +8,40 @@
 #
 # Dependencies:
 #
-#   libtfl-perl (>= 2020-01-03)
 #   perl (>= 5.22.1-9)
-#----------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 use strict;
 use warnings;
 use autodie;
-use TFL 'Err';
 
 #no warnings 'uninitialized';
 
 my $CurVer = '';
+my $Progrm = ($0 =~ m{(?:.*/)?([^/].*)})[0];
 
-sub Usage{
-	print(qq{Usage: $TFL::PROGNAME [OPTS]
+sub Usage {
+	print(qq{Usage: $Progrm [OPTS]
 
 		  -h, --help               - Display this help information.
 		  -v, --version            - Output the version datestamp.
 	} =~ tr/\t//dr)
 }
 
-while (defined($ARGV[0])){
-	if ($ARGV[0] =~ '^(--help|-h)$'){
+while (defined($ARGV[0])) {
+	if ($ARGV[0] =~ '^(--help|-h)$') {
 		Usage(); exit(0)
-	}elsif ($ARGV[0] =~ '^(--version|-v)$'){
+	} elsif ($ARGV[0] =~ '^(--version|-v)$') {
 		print("$CurVer\n"); exit(0)
-	#}elsif ($ARGV[0] =~ '^-'){
-	#	Err(1, "Incorrect option(s) specified.")
-	#}else{
+	#} elsif ($ARGV[0] =~ '^-') {
+	#	die("Incorrect option(s) specified")
+	#} else {
 	#	last
-	}else{
-		Err(1, "Incorrect option(s) specified.")
+	} else {
+		die("Incorrect option(s) specified")
 	}
 
 	shift()
 }
 
-#Err(1, "Root access is required.") unless $< == 0;
+#$< == 0 or die("Root access is required");
