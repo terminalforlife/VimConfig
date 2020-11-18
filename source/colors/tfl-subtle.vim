@@ -1,11 +1,9 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/color/tfl-subtle.vim
 " Started On        - Thu  5 Mar 00:09:14 GMT 2020
-" Last Change       - Fri  6 Mar 14:03:07 GMT 2020
+" Last Change       - Wed 18 Nov 12:42:53 GMT 2020
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"------------------------------------------------------------------------------
-" For when you need a (sort of) blank slate to write a new theme.
 "------------------------------------------------------------------------------
 
 set background=dark
