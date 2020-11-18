@@ -1,5 +1,5 @@
 de58b4335307bb1b36712fc22dc7679b  devutils/links.sh
-a2f628b02678bf6b937923acf491c5b4  source/colors/tfl-subtle.vim
+338ddb353440d1681bc4279200673501  source/colors/tfl-subtle.vim
 3e72b7f40fd941f647c4e86b2048ac07  source/colors/tfl.vim
 a053c2f1ed875cd26ef1a1a00c13ee3a  source/plugin/altnums.vim
 db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
@@ -7,7 +7,7 @@ db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
 17b6ab7ffca3937667c3ae254a7c99e1  source/plugin/comtog.vim
 49b2bdc6f8cbc6413c346355997f319c  source/plugin/datepaste.vim
 8b25b1befeafc84aa2ec62e6c1f43783  source/plugin/exefile.vim
-6b19844082f254b36c0e0787a77a681b  source/plugin/giteditmsg.vim
+12ab78631ce32243ecec7df62e9a0555  source/plugin/giteditmsg.vim
 9b8ded54db3eae5cffe11364324b1df2  source/plugin/headup.vim
 92f9ffef388c4a3db648aa1519423fa2  source/plugin/listmode.vim
 c7c4834210836bb0ffeab6fb7d48b4c8  source/plugin/moredoc.vim
