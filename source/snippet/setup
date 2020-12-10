@@ -1,3 +1,11 @@
+# Features:
+#
+# N/A
+#
+# Bugs:
+#
+# N/A
+#
 # Dependencies:
 #
 #   bash (>= 4.3-14)
@@ -37,5 +45,15 @@ while [ "$1" ]; do
 	esac
 	shift
 done
+
+DepCount=0
+for Dep in :; do
+	if ! type -P "$Dep" &> /dev/null; then
+		Err 0 "Dependency '$Dep' not met."
+		let DepCount++
+	fi
+done
+
+[ $DepCount -gt 0 ] && exit 1
 
 #[ $UID -eq 0 ] || Err 1 'Root access is required.'

@@ -24,11 +24,11 @@ e61bc6663d7e93c7701254f37d4100a0  source/plugin/tflsnips.vim
 65eae407081e11c08caa9b41a8c0cf43  source/plugin/togtrans.vim
 0d900fdc33442120e590ac22870b1702  source/plugin/virtedit.vim
 805d4cd4b5858b10741c986540f57163  source/snippet/args
-a1395964e142d545d3431c0adb791bc9  source/snippet/bsetup
+33c5fb8ccaea4bab6a1f9a55f2efc774  source/snippet/bsetup
 b18802aa1fc336e05b08654b7f788b65  source/snippet/die
 78b2371fd3c3b843cb42bedd21617942  source/snippet/disclaimer
 ca6a0235ddba5aa31e9415f6ad8d1537  source/snippet/libtflbp
 91776962c077ce1646edb0554d9bc403  source/snippet/psetup
-44ae17c0e5e9f82d515daa874f8e1cab  source/snippet/setup
+20d49f70065c5cb8b253719284c367c9  source/snippet/setup
 0e35e9ae864534253db402cb11d15043  source/snippet/usage
 3e97615ca566817d6ecf3e7ad03eb466  source/.vimrc
