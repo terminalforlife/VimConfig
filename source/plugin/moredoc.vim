@@ -50,9 +50,9 @@ func! TFL_MoreMode()
 		set ruler
 
 		" If on laptop, don't use this, as it's too slow.
-		if ! has("gui_running") && hostname() !~ '^\(Sam\|server-pc\)$'
-			set cursorline
-		endif
+		"if ! has("gui_running") && hostname() !~ '^\(Sam\|server-pc\)$'
+		"	set cursorline
+		"endif
 
 		set norelativenumber
 		set number

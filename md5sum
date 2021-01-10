@@ -10,7 +10,7 @@ db32ba487f808b52aa40cb135462cde1  source/plugin/autoscroll.vim
 12ab78631ce32243ecec7df62e9a0555  source/plugin/giteditmsg.vim
 9b8ded54db3eae5cffe11364324b1df2  source/plugin/headup.vim
 92f9ffef388c4a3db648aa1519423fa2  source/plugin/listmode.vim
-c7c4834210836bb0ffeab6fb7d48b4c8  source/plugin/moredoc.vim
+d26ee807aa5f3897ac70ba69f4662b42  source/plugin/moredoc.vim
 5f09a2ee8579bc8f0c3bcee101a68fc9  source/plugin/mouseon.vim
 906ef7978eb5b2be5200d31df888fe19  source/plugin/mvline.vim
 a9e48c45b418206c9dec85e98c09dbaa  source/plugin/noarrows.vim
