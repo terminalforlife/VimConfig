@@ -15,7 +15,6 @@ d26ee807aa5f3897ac70ba69f4662b42  source/plugin/moredoc.vim
 906ef7978eb5b2be5200d31df888fe19  source/plugin/mvline.vim
 a9e48c45b418206c9dec85e98c09dbaa  source/plugin/noarrows.vim
 56744b7dcf9fc9cd901667ec98d0d53b  source/plugin/psnips.vim
-f0fbab935e8d7385247d30516e2e2b3b  source/plugin/sanekeys.vim
 9ba0fc131c80ce0f6f9a2a3c664bbbf5  source/plugin/simplyhard.vim
 a66f70ef00404ade5d9f1594553e9c33  source/plugin/sudosave.vim
 34cd6870bdf759886e65d141f1871fbc  source/plugin/textwidth.vim
@@ -31,4 +30,4 @@ ca6a0235ddba5aa31e9415f6ad8d1537  source/snippet/libtflbp
 91776962c077ce1646edb0554d9bc403  source/snippet/psetup
 20d49f70065c5cb8b253719284c367c9  source/snippet/setup
 0e35e9ae864534253db402cb11d15043  source/snippet/usage
-3e97615ca566817d6ecf3e7ad03eb466  source/.vimrc
+c0b9baf28a9c372d9616a87b0a922686  source/.vimrc

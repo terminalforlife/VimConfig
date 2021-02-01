@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Tue 10 Nov 13:48:12 GMT 2020
+" Last Change       - Fri 15 Jan 02:01:12 GMT 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -9,6 +9,11 @@
 set noloadplugins
 
 let mapleader=','
+
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
 
 if has('gui_running')
 	colorscheme desert
@@ -32,7 +37,7 @@ endif
 
 let Plugs = ['autoscroll', 'banger', 'comtog', 'datepaste', 'exefile',
 	\ 'giteditmsg', 'headup', 'listmode', 'moredoc', 'mvline', 'noarrows',
-	\ 'sanekeys', 'sudosave', 'textwidth', 'tflsnips', 'virtedit']
+	\ 'sudosave', 'textwidth', 'tflsnips', 'virtedit']
 
 for Plug in Plugs
 	exe 'source' . "$HOME/.vim/plugin/" . Plug . '.vim'
