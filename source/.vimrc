@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon 22 Mar 15:43:34 GMT 2021
+" Last Change       - Mon 22 Mar 15:50:11 GMT 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -116,5 +116,9 @@ if has('spell')
 endif
 
 ab teh the
+
+if executable('/usr/bin/sudo') && executable('/usr/bin/tee')
+	noremap <silent> <leader>sudosave :w !/usr/bin/sudo /usr/bin/tee %<CR>
+endif
 
 set secure
