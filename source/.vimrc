@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Fri 15 Jan 02:01:12 GMT 2021
+" Last Change       - Mon 22 Mar 15:16:52 GMT 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -35,8 +35,8 @@ if has('syntax')
 	syntax on
 endif
 
-let Plugs = ['autoscroll', 'banger', 'comtog', 'datepaste', 'exefile',
-	\ 'giteditmsg', 'headup', 'listmode', 'moredoc', 'mvline', 'noarrows',
+let Plugs = ['banger', 'comtog', 'datepaste', 'exefile',
+	\ 'giteditmsg', 'headup', 'moredoc', 'mvline', 'noarrows',
 	\ 'sudosave', 'textwidth', 'tflsnips', 'virtedit']
 
 for Plug in Plugs
@@ -64,6 +64,9 @@ set t_Co=256
 set nobackup
 set path+=**
 set nomore
+set listchars=tab:»→,trail:␣,extends:#,nbsp:⊗
+set sidescrolloff=999
+set scrolloff=999
 
 if has('folding')
 	set foldmethod=marker
@@ -80,18 +83,23 @@ if has('cmdline_info')
 	set noruler
 endif
 
-noremap <silent> <SPACE> :noh<CR>
-noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
-noremap <silent> <leader>ul mmyypVr-<Esc>`m
 noremap <silent> <leader>ac :center<CR>
 noremap <silent> <leader>ar :right<CR>
 noremap <silent> <leader>al :left<CR>
+
 noremap <silent> <leader>nn :next<CR>
 noremap <silent> <leader>pp :prev<CR>
+
+noremap <silent> <SPACE> :noh<CR>
+noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
+noremap <silent> <leader>ul mmyypVr-<Esc>`m
 noremap <silent> <leader>hl :set hlsearch!<CR>
+noremap <silent> <leader>ls :set list!<CR>
+
 noremap <silent> <leader>rdq mmF"xf"x`m
 noremap <silent> <leader>rsq mmF'xf'x`m
 noremap <silent> <leader>rg mmF`xf`x`m
+
 noremap <silent> K 10j
 noremap <silent> L 10k
 
