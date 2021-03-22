@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/datepaste.vim
 " Started On        - Mon  5 Mar 15:34:45 GMT 2018
-" Last Change       - Fri 31 Jan 22:04:09 GMT 2020
+" Last Change       - Mon 22 Mar 15:03:19 GMT 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -9,23 +9,21 @@
 " The date and time are shown using the %F and %X parameters.
 "------------------------------------------------------------------------------
 
-if(exists("*strftime") == 1)
-	func! TFL_DatePaste(type)
+if (exists("*strftime"))
+	func! TFL_DatePaste(Type)
 		exe "silent normal! mc"
 
-		if(a:type == "date")
+		if (a:Type == 'date')
 			exe "silent normal! \"_\"=strftime(\"%F\")\<CR>p"
-		elseif(a:type == "time")
+		elseif (a:Type == 'time')
 			exe "silent normal! \"_\"=strftime(\"%X\")\<CR>p"
-		else
-			echo "ERROR: Invalid type selected."
 		endif
 
-		exe "silent normal! `c"
+		exe 'silent normal! `c'
 	endfun
 else
-	echom "ERROR: Unable to load datepaste plugin."
+	echom 'ERROR: Unable to load datepaste plugin.'
 endif
 
-noremap <silent> <leader>date :silent call TFL_DatePaste("date")\<CR>
-noremap <silent> <leader>time :silent call TFL_DatePaste("time")\<CR>
+noremap <silent> <leader>date :silent call TFL_DatePaste('date')<CR>
+noremap <silent> <leader>time :silent call TFL_DatePaste('time')<CR>
