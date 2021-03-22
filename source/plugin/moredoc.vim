@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun 16 Feb 17:53:55 GMT 2020
+" Last Change       - Mon 22 Mar 15:47:16 GMT 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -11,57 +11,40 @@
 "------------------------------------------------------------------------------
 
 func! TFL_DocMode(...)
-	if(a:0 == "true")
-		"TODO - Not sure why this won't work.
-		if filereadable("$HOME/.vim/plugin/moredoc.vim")
-			noremap k gj
-			noremap l gk
-		else
-			noremap j gj
-			noremap k gk
-		endif
-	endif
-
-	if(exists("g:docmodestate") == 0)
+	if ! (exists("g:docmodestate"))
 		set linebreak
 		set wrap
 		syntax off
 
-		let g:docmodestate="true"
-		echo "Document Mode is enabled."
-	elseif(g:docmodestate == "true")
+		let g:docmodestate='true'
+		echo 'Document Mode is enabled.'
+	elseif (g:docmodestate == 'true')
 		set nolinebreak
 		set nowrap
 		syntax on
 
 		unlet g:docmodestate
-		echo "Document Mode is disabled."
+		echo 'Document Mode is disabled.'
 	endif
 endfunc
 
 func! TFL_MoreMode()
-	if ! has("statusline")
-		echo "ERROR: One or more missing features."
+	if ! has('statusline')
+		echo 'ERROR: One or more missing features.'
 		finish
 	endif
 
-	if(exists("g:moremodestate") == 0)
+	if (exists("g:moremodestate") == 0)
 		set showmatch
 		set ruler
-
-		" If on laptop, don't use this, as it's too slow.
-		"if ! has("gui_running") && hostname() !~ '^\(Sam\|server-pc\)$'
-		"	set cursorline
-		"endif
-
 		set norelativenumber
 		set number
-		set colorcolumn=80 " <-- Previously 84. (2020-01-29)
+		set colorcolumn=80
 		set laststatus=2
 
-		let g:moremodestate="true"
-		echo "More mode is enabled."
-	elseif(g:moremodestate == "true")
+		let g:moremodestate='true'
+		echo 'More mode is enabled.'
+	elseif (g:moremodestate == 'true')
 		set noshowmatch
 		set noruler
 		set nocursorline
@@ -71,30 +54,9 @@ func! TFL_MoreMode()
 		set laststatus=1
 
 		unlet g:moremodestate
-		echo "More mode is disabled."
+		echo 'More mode is disabled.'
 	endif
 endfunc
 
-"func! TFL_ReadFileFT()
-"	if did_filetype()
-"		if(&ft =~? '^\(awk\|perl\|conf\|rb\|htm\|xhtml\|html\|css\|xml\|c\|sh\|python\|vim\)$')
-"			silent call TFL_MoreMode()
-"		elseif(&ft =~? '^\(text\|markdown\)$')
-"			silent call TFL_DocMode("true")
-"		endif
-"	else
-"		" If all else fails, go by the file extension.
-"		if(expand("%:e") =~? '^\(pl\|awk\|conf\|c\|htm\|xhtml\|html\|css\|xml\|rb\|py\|sh\|vim\)$')
-"			silent call TFL_MoreMode()
-"		elseif(expand("%:e") =~? '^\(txt\|md\)$')
-"			silent call TFL_DocMode("true")
-"		endif
-"	endif
-"endfunc
-
-" This seems to be the only way to have the filetype detection work correctly
-" from within this script, otherwise it refuses to detect it, at this point.
-"autocmd BufRead * call TFL_ReadFileFT()
-
 noremap <silent> <leader>more :call TFL_MoreMode()<CR>
-noremap <silent> <leader>doc :call TFL_DocMode("true")<CR>
+noremap <silent> <leader>doc :call TFL_DocMode('true')<CR>
