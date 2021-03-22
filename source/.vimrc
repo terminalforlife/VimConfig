@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon 22 Mar 15:16:52 GMT 2021
+" Last Change       - Mon 22 Mar 15:33:50 GMT 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -57,7 +57,6 @@ set undolevels=3000
 set history=10000
 set wrapmargin=0
 set cmdheight=1
-set nohlsearch
 set tabstop=4
 set incsearch
 set t_Co=256
