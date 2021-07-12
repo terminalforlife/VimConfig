@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon 22 Mar 15:50:11 GMT 2021
+" Last Change       - Mon 12 Jul 12:27:10 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ if has('syntax')
 endif
 
 let Plugs = ['banger', 'comtog', 'datepaste', 'exefile',
-	\ 'giteditmsg', 'headup', 'moredoc', 'mvline', 'noarrows',
+	\ 'giteditmsg', 'headup', 'moredoc', 'noarrows',
 	\ 'sudosave', 'textwidth', 'tflsnips', 'virtedit']
 
 for Plug in Plugs
@@ -120,5 +120,10 @@ ab teh the
 if executable('/usr/bin/sudo') && executable('/usr/bin/tee')
 	noremap <silent> <leader>sudosave :w !/usr/bin/sudo /usr/bin/tee %<CR>
 endif
+
+noremap <silent> <leader>rl :.w !bash<CR>
+
+noremap <silent> <C-l> :move -2<CR>
+noremap <silent> <C-k> :move +1<CR>
 
 set secure
