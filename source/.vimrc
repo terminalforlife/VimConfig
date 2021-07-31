@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon 12 Jul 12:38:27 BST 2021
+" Last Change       - Sat 31 Jul 23:02:01 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -130,5 +130,20 @@ noremap <silent> <leader>rpl :!perl %<CR>
 noremap <silent> <leader>rpy :!python %<CR>
 noremap <silent> <leader>rb :!bash %<CR>
 noremap <silent> <leader>rs :!sh %<CR>
+
+noremap <up> <Nop>
+noremap <down> <Nop>
+noremap <left> <Nop>
+noremap <right> <Nop>
+
+inoremap <up> <Nop>
+inoremap <down> <Nop>
+inoremap <left> <Nop>
+inoremap <right> <Nop>
+
+vnoremap <up> <Nop>
+vnoremap <down> <Nop>
+vnoremap <left> <Nop>
+vnoremap <right> <Nop>
 
 set secure
