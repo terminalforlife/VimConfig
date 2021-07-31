@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Sat 31 Jul 23:02:01 BST 2021
+" Last Change       - Sat 31 Jul 23:14:33 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -38,9 +38,8 @@ if has('syntax')
 	syntax on
 endif
 
-let Plugs = ['banger', 'comtog', 'datepaste', 'exefile',
-	\ 'giteditmsg', 'headup', 'moredoc', 'noarrows',
-	\ 'sudosave', 'textwidth', 'tflsnips', 'virtedit']
+let Plugs = ['banger', 'comtog', 'giteditmsg', 'headup',
+	\ 'moredoc', 'textwidth', 'tflsnips', 'virtedit']
 
 for Plug in Plugs
 	exe 'source' . "$HOME/.vim/plugin/" . Plug . '.vim'
@@ -119,6 +118,11 @@ ab teh the
 
 if executable('/usr/bin/sudo') && executable('/usr/bin/tee')
 	noremap <silent> <leader>sudosave :w !/usr/bin/sudo /usr/bin/tee %<CR>
+endif
+
+if (exists("*strftime"))
+	noremap <silent> <leader>date "_"=strftime("%F")<CR>p9h
+	noremap <silent> <leader>time "_"=strftime("%X")<CR>p7h
 endif
 
 noremap <silent> <leader>rl :.w !bash<CR>
