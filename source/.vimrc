@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Sun  1 Aug 10:48:54 BST 2021
+" Last Change       - Sun  1 Aug 20:54:37 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ if has('syntax')
 	syntax on
 endif
 
-let Plugs = ['banger', 'comtog', 'giteditmsg', 'headup',
+let Plugs = ['comtog', 'giteditmsg', 'headup',
 	\ 'moredoc', 'textwidth', 'tflsnips', 'virtedit']
 
 for Plug in Plugs
