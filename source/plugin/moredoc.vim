@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 22 Mar 15:47:16 GMT 2021
+" Last Change       - Sun  1 Aug 20:36:11 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -42,16 +42,21 @@ func! TFL_MoreMode()
 		set colorcolumn=80
 		set laststatus=2
 
+		" Disabled because `cursorline` is too slow.
+		"set cursorline
+
 		let g:moremodestate='true'
 		echo 'More mode is enabled.'
 	elseif (g:moremodestate == 'true')
 		set noshowmatch
 		set noruler
-		set nocursorline
 		set norelativenumber
 		set nonumber
 		set colorcolumn=0
 		set laststatus=1
+
+		" Disabled because `cursorline` is too slow.
+		"set nocursorline
 
 		unlet g:moremodestate
 		echo 'More mode is disabled.'
