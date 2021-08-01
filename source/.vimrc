@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Sat 31 Jul 23:14:33 BST 2021
+" Last Change       - Sun  1 Aug 10:48:54 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -14,9 +14,6 @@ noremap j h
 noremap k j
 noremap l k
 noremap ; l
-
-noremap k gj
-noremap l gk
 
 if has('gui_running')
 	colorscheme desert
@@ -42,7 +39,7 @@ let Plugs = ['banger', 'comtog', 'giteditmsg', 'headup',
 	\ 'moredoc', 'textwidth', 'tflsnips', 'virtedit']
 
 for Plug in Plugs
-	exe 'source' . "$HOME/.vim/plugin/" . Plug . '.vim'
+	exe 'source $HOME/.vim/plugin/' . Plug . '.vim'
 endfor
 
 set nowrap
@@ -52,7 +49,7 @@ set nomodeline
 set noswapfile
 set equalalways
 set matchtime=0
-set nocompatible
+"set nocompatible
 set ttimeoutlen=0
 set helpheight=30
 set undolevels=3000
