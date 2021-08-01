@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Sun  1 Aug 20:54:37 BST 2021
+" Last Change       - Sun  1 Aug 23:12:29 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -107,8 +107,11 @@ if has('windows')
 	noremap <silent> <leader>wc :close<CR>
 endif
 
+"NOTE: If spelling is enabled, you can use `z=` over an incorrect word, to
+"      display a menu of possible corrections from which you can choose.
 if has('spell')
 	noremap <silent> <leader>spell :set spell!<CR>
+	noremap <silent> <leader>fix mc1z=`c<CR>
 endif
 
 ab teh the
