@@ -10,7 +10,7 @@
 
 func! TFL_TextWidth()
 	if ! (exists("g:TextWidthMode"))
-		set textwidth=84
+		set textwidth=80
 
 		let g:TextWidthMode='true'
 		echo 'TextWidth() is enabled.'
