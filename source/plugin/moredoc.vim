@@ -1,13 +1,17 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun  1 Aug 20:36:11 BST 2021
+" Last Change       - Sun  1 Aug 23:39:10 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
 " Display helpful screen information; good for code. Use <leader>more to
 " toggle. Use VIM as a standard text editor, for non-code. Use with <leader>doc
 " to toggle.
+"
+" Will also animate open and close the `colorcolumn`.
+"
+" Regarding `redraw`: must force Vim to redraw, as it otherwise doesn't work.
 "------------------------------------------------------------------------------
 
 func! TFL_DocMode(...)
@@ -39,7 +43,14 @@ func! TFL_MoreMode()
 		set ruler
 		set norelativenumber
 		set number
-		set colorcolumn=80
+
+		" Sexy wee open animation.
+		while &colorcolumn < 80
+			redraw
+			let &colorcolumn = &colorcolumn + 1
+			sleep 1m
+		endwhile
+
 		set laststatus=2
 
 		" Disabled because `cursorline` is too slow.
@@ -52,8 +63,14 @@ func! TFL_MoreMode()
 		set noruler
 		set norelativenumber
 		set nonumber
-		set colorcolumn=0
 		set laststatus=1
+
+		" Sexy wee close animation.
+		while &colorcolumn > 0
+			redraw
+			let &colorcolumn = &colorcolumn - 1
+			sleep 1m
+		endwhile
 
 		" Disabled because `cursorline` is too slow.
 		"set nocursorline
