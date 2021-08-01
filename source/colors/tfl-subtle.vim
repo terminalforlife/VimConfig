@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/color/tfl-subtle.vim
 " Started On        - Thu  5 Mar 00:09:14 GMT 2020
-" Last Change       - Wed 18 Nov 12:42:53 GMT 2020
+" Last Change       - Sun  1 Aug 11:18:21 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ let g:colors_name='tfl-subtle'
 
 hi Boolean            ctermbg=NONE       ctermfg=255
 hi Character          ctermbg=NONE       ctermfg=255
-hi ColorColumn        ctermbg=233        ctermfg=255
+hi ColorColumn        ctermbg=234        ctermfg=255
 hi Comment            ctermbg=NONE       ctermfg=240
 hi Condtional         ctermbg=NONE       ctermfg=255
 hi Constant           ctermbg=NONE       ctermfg=255
