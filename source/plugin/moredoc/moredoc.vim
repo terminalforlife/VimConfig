@@ -1,19 +1,11 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  2 Aug 15:47:25 BST 2021
+" Last Change       - Mon  2 Aug 15:57:01 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
-" Display helpful screen information; good for code. Use <leader>more to
-" toggle. Use VIM as a standard text editor, for non-code. Use with <leader>doc
-" to toggle.
-"
-" Will also animate open and close the `colorcolumn`.
-"
-" Regarding `redraw`: must force Vim to redraw, as it otherwise doesn't work.
-"
-" Set `g:MoreDoc_Animate` to `0` to disable the goofy `colorcolumn` animation.
+" For information, refer to 'readme.txt' in this directory.
 "------------------------------------------------------------------------------
 
 if !exists('g:MoreDoc_Animate') | let g:MoreDoc_Animate = 1 | endif
