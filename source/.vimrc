@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  2 Aug 13:14:09 BST 2021
+" Last Change       - Mon  2 Aug 15:37:14 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -11,6 +11,9 @@ set noloadplugins
 
 " I know `<SPACE>` is probably more common, but I find a comma more convenient.
 let mapleader=','
+
+" Set the goofy animation from the `moredoc.vim` plugin.
+let g:MoreDoc_Animate = 1
 
 " I prefer 'jkl;' VS 'hjkl', because it's the touch-typing standard.
 noremap j h
@@ -34,13 +37,13 @@ if has('syntax')
 endif
 
 " The plugins I wish to source.
-let Plugs = ['comtog', 'giteditmsg', 'headup',
-	\ 'moredoc', 'textwidth', 'tflsnips', 'virtedit']
-
-" Source the plugins listed above.
-for Plug in Plugs
-	exe 'source $HOME/.vim/plugin/' . Plug . '.vim'
-endfor
+source $HOME/.vim/plugin/moredoc/moredoc.vim
+source $HOME/.vim/plugin/comtog.vim
+source $HOME/.vim/plugin/giteditmsg.vim
+source $HOME/.vim/plugin/headup.vim
+source $HOME/.vim/plugin/textwidth.vim
+source $HOME/.vim/plugin/tflsnips.vim
+source $HOME/.vim/plugin/virtedit.vim
 
 " Miscellaneous settings.
 set ttimeout

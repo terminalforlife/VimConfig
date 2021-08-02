@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  2 Aug 11:43:13 BST 2021
+" Last Change       - Mon  2 Aug 15:22:21 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -12,7 +12,11 @@
 " Will also animate open and close the `colorcolumn`.
 "
 " Regarding `redraw`: must force Vim to redraw, as it otherwise doesn't work.
+"
+" Set `g:MoreDoc_Animate` to `0` to disable the goofy `colorcolumn` animation.
 "------------------------------------------------------------------------------
+
+if !exists('g:MoreDoc_Animate') | let g:MoreDoc_Animate = 1 | endif
 
 func! TFL_DocMode(...)
 	if ! (exists("g:docmodestate"))
@@ -55,11 +59,15 @@ func! TFL_MoreMode()
 		set number
 
 		" Sexy wee open animation.
-		while &colorcolumn < 80
-			redraw
-			let &colorcolumn = &colorcolumn + 1
-			sleep 1m
-		endwhile
+		if g:MoreDoc_Animate
+			while &colorcolumn < 80
+				redraw
+				let &colorcolumn = &colorcolumn + 1
+				sleep 1m
+			endwhile
+		else
+			set colorcolumn=80
+		endif
 
 		set laststatus=2
 
@@ -80,11 +88,15 @@ func! TFL_MoreMode()
 		set laststatus=1
 
 		" Sexy wee close animation.
-		while &colorcolumn > 0
-			redraw
-			let &colorcolumn = &colorcolumn - 1
-			sleep 1m
-		endwhile
+		if g:MoreDoc_Animate
+			while &colorcolumn > 0
+				redraw
+				let &colorcolumn = &colorcolumn - 1
+				sleep 1m
+			endwhile
+		else
+			set colorcolumn=0
+		endif
 
 		" Disabled because `cursorline` is too slow.
 		"set nocursorline
