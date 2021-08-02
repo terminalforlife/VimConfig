@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  2 Aug 15:37:14 BST 2021
+" Last Change       - Mon  2 Aug 17:21:04 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -37,9 +37,9 @@ if has('syntax')
 endif
 
 " The plugins I wish to source.
+source $HOME/.vim/plugin/gcmsg/gcmsg.vim
 source $HOME/.vim/plugin/moredoc/moredoc.vim
 source $HOME/.vim/plugin/comtog.vim
-source $HOME/.vim/plugin/giteditmsg.vim
 source $HOME/.vim/plugin/headup.vim
 source $HOME/.vim/plugin/textwidth.vim
 source $HOME/.vim/plugin/tflsnips.vim
