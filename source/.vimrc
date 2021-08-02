@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Sun  1 Aug 23:12:29 BST 2021
+" Last Change       - Mon  2 Aug 12:40:24 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -15,17 +15,12 @@ noremap k j
 noremap l k
 noremap ; l
 
-if has('gui_running')
-	colorscheme desert
-	set linespace=4
-	set lines=40 columns=160
-	set guifont=Monospace
-	set guioptions=aegitM
+" Ignore wrapping. You can move to the visual start of end of a line with `g0`
+" and `g$`, respectively.
+noremap k gj
+noremap l gk
 
-	if has('winaltkeys')
-		set winaltkeys=no
-	endif
-else
+if !has('gui_running')
 	colorscheme tfl-subtle
 	set ttyfast
 endif
@@ -49,7 +44,7 @@ set nomodeline
 set noswapfile
 set equalalways
 set matchtime=0
-"set nocompatible
+set nocompatible
 set ttimeoutlen=0
 set helpheight=30
 set undolevels=3000
@@ -88,10 +83,11 @@ noremap <silent> <leader>al :left<CR>
 noremap <silent> <leader>nn :next<CR>
 noremap <silent> <leader>pp :prev<CR>
 
+noremap <silent> <leader>hl :set hlsearch!<CR>
 noremap <silent> <SPACE> :noh<CR>
+
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
-noremap <silent> <leader>hl :set hlsearch!<CR>
 noremap <silent> <leader>ls :set list!<CR>
 
 noremap <silent> <leader>rdq mmF"xf"x`m
@@ -107,8 +103,8 @@ if has('windows')
 	noremap <silent> <leader>wc :close<CR>
 endif
 
-"NOTE: If spelling is enabled, you can use `z=` over an incorrect word, to
-"      display a menu of possible corrections from which you can choose.
+" If spelling is enabled, you can use `z=` over an incorrect word, to display a
+" menu of possible corrections from which you can choose.
 if has('spell')
 	noremap <silent> <leader>spell :set spell!<CR>
 	noremap <silent> <leader>fix mc1z=`c<CR>
@@ -121,8 +117,8 @@ if executable('/usr/bin/sudo') && executable('/usr/bin/tee')
 endif
 
 if (exists("*strftime"))
-	noremap <silent> <leader>date "_"=strftime("%F")<CR>p9h
-	noremap <silent> <leader>time "_"=strftime("%X")<CR>p7h
+	noremap <silent> <leader>date "=strftime("%F")<CR>p9h
+	noremap <silent> <leader>time "=strftime("%X")<CR>p7h
 endif
 
 noremap <silent> <leader>rl :.w !bash<CR>
@@ -149,5 +145,9 @@ vnoremap <up> <Nop>
 vnoremap <down> <Nop>
 vnoremap <left> <Nop>
 vnoremap <right> <Nop>
+
+" Automatically clear whitespaces when you write a file/buffer. For some reason
+" you have to use BufWrite* not FileWrite* for this to work.
+autocmd BufWritePre * exe "silent normal! mc:%s/[\\t ]*$//\<CR>`c"
 
 set secure

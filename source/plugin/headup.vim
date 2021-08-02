@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sat 31 Jul 22:52:41 BST 2021
+" Last Change       - Mon  2 Aug 12:34:41 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -45,9 +45,9 @@ func! TFL_HeadUp(action)
 					exe "silent normal! di'\"=strftime('%F')\<CR>P"
 				endif
 			endif
-
-			exe "silent normal! :%s/[\\t ]*$//\<CR>`c"
 		endif
+
+		exe "silent normal! `c"
 	else
 		echo "ERROR: Unable to find strftime() builtin."
 	endif

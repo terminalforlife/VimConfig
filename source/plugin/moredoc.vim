@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun  1 Aug 23:39:10 BST 2021
+" Last Change       - Mon  2 Aug 11:43:13 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -18,14 +18,20 @@ func! TFL_DocMode(...)
 	if ! (exists("g:docmodestate"))
 		set linebreak
 		set wrap
-		syntax off
+
+		if has('syntax')
+			syntax off
+		endif
 
 		let g:docmodestate='true'
 		echo 'Document Mode is enabled.'
 	elseif (g:docmodestate == 'true')
 		set nolinebreak
 		set nowrap
-		syntax on
+
+		if has('syntax')
+			syntax on
+		endif
 
 		unlet g:docmodestate
 		echo 'Document Mode is disabled.'
@@ -40,7 +46,11 @@ func! TFL_MoreMode()
 
 	if (exists("g:moremodestate") == 0)
 		set showmatch
-		set ruler
+
+		if has('cmdline_info')
+			set ruler
+		endif
+
 		set norelativenumber
 		set number
 
@@ -60,7 +70,11 @@ func! TFL_MoreMode()
 		echo 'More mode is enabled.'
 	elseif (g:moremodestate == 'true')
 		set noshowmatch
-		set noruler
+
+		if has('cmdline_info')
+			set noruler
+		endif
+
 		set norelativenumber
 		set nonumber
 		set laststatus=1
