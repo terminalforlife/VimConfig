@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/color/tfl-subtle.vim
 " Started On        - Thu  5 Mar 00:09:14 GMT 2020
-" Last Change       - Sun  1 Aug 11:18:21 BST 2021
+" Last Change       - Mon  2 Aug 16:50:12 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ hi Number             ctermbg=NONE       ctermfg=216
 hi Operator           ctermbg=NONE       ctermfg=255
 hi Pmenu              ctermbg=NONE       ctermfg=255
 hi PmenuSbar          ctermbg=NONE       ctermfg=255
-hi PmenuSel           ctermbg=NONE       ctermfg=255
+hi PmenuSel           ctermbg=NONE       ctermfg=45       cterm=bold
 hi PmenuThumb         ctermbg=NONE       ctermfg=255
 hi PreCondit          ctermbg=NONE       ctermfg=255
 hi PreProc            ctermbg=NONE       ctermfg=255
