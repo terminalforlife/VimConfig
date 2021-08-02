@@ -1,15 +1,18 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  2 Aug 12:40:24 BST 2021
+" Last Change       - Mon  2 Aug 13:14:09 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
 
+" Don't load all plugins; I do this more specifically below.
 set noloadplugins
 
+" I know `<SPACE>` is probably more common, but I find a comma more convenient.
 let mapleader=','
 
+" I prefer 'jkl;' VS 'hjkl', because it's the touch-typing standard.
 noremap j h
 noremap k j
 noremap l k
@@ -30,43 +33,64 @@ if has('syntax')
 	syntax on
 endif
 
+" The plugins I wish to source.
 let Plugs = ['comtog', 'giteditmsg', 'headup',
 	\ 'moredoc', 'textwidth', 'tflsnips', 'virtedit']
 
+" Source the plugins listed above.
 for Plug in Plugs
 	exe 'source $HOME/.vim/plugin/' . Plug . '.vim'
 endfor
 
-set nowrap
-set showmode
+" Miscellaneous settings.
 set ttimeout
 set nomodeline
-set noswapfile
-set equalalways
 set matchtime=0
 set nocompatible
 set ttimeoutlen=0
 set helpheight=30
 set undolevels=3000
 set history=10000
-set wrapmargin=0
 set cmdheight=1
-set tabstop=4
-set incsearch
 set t_Co=256
-set nobackup
 set path+=**
 set nomore
+
+" Disable line-wrapping; I use this with 'docmode'.
+set nowrap
+set wrapmargin=0
+
+" When splitting, always have the windows be 50% the size.
+set equalalways
+
+" Show which mode I'm in, such as `-- INSERT --`.
+set showmode
+
+" I disable Vim swap & backup files, because they bug me.
+set noswapfile
+set nobackup
+
+" The width of my tabs. The default is 8, which I hate.
+set tabstop=4
+
+" The characters shown when `<leader>list` (`set list`) is used.
 set listchars=tab:»→,trail:␣,extends:#,nbsp:⊗
+
+" Temporarily highlights the currently searched string.
+set incsearch
+
+" Affords me a far, far better peripheral, vertically and horizontally.
 set sidescrolloff=999
 set scrolloff=999
 
+" I don't bother with folding, but it's here if I need it.
 if has('folding')
 	set foldmethod=marker
 	set foldmarker=#\ {{{,#\ }}}
 	set viewoptions=folds,options,cursor,unix,slash
 endif
 
+" The cool menu you see when you press <TAB> in `:` mode.
 if has('wildmenu')
 	set wildmenu
 	set wildchar=<TAB>
@@ -76,27 +100,38 @@ if has('cmdline_info')
 	set noruler
 endif
 
+" Center-, right-, or left-align one or more lines.
 noremap <silent> <leader>ac :center<CR>
 noremap <silent> <leader>ar :right<CR>
 noremap <silent> <leader>al :left<CR>
 
+" Go to the next or previous file in the queue.
 noremap <silent> <leader>nn :next<CR>
 noremap <silent> <leader>pp :prev<CR>
 
+" Toggle the highlighting or searches. Use the spacebar to clear the highlight.
 noremap <silent> <leader>hl :set hlsearch!<CR>
 noremap <silent> <SPACE> :noh<CR>
 
+" Source this file again.
 noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
+
+" Underline the current line, based on its length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
+
+" Show the 'list' characters.
 noremap <silent> <leader>ls :set list!<CR>
 
+" Remove double- or single-quotes, or graves wrapped around a string.
 noremap <silent> <leader>rdq mmF"xf"x`m
 noremap <silent> <leader>rsq mmF'xf'x`m
 noremap <silent> <leader>rg mmF`xf`x`m
 
+" Jump up or down by 10 lines.
 noremap <silent> K 10j
 noremap <silent> L 10k
 
+" Split the window horizontally or vertically, or close the window.
 if has('windows')
 	noremap <silent> <leader>ws :split<CR>
 	noremap <silent> <leader>wvs :vsplit<CR>
@@ -106,41 +141,53 @@ endif
 " If spelling is enabled, you can use `z=` over an incorrect word, to display a
 " menu of possible corrections from which you can choose.
 if has('spell')
+	" Toggle spell-checking.
 	noremap <silent> <leader>spell :set spell!<CR>
+
+	" Try to lazily fix the current spelling mistake.
 	noremap <silent> <leader>fix mc1z=`c<CR>
 endif
 
+" Autocorrect 'teh' to 'the'.
 ab teh the
 
+" Save with 'root' access, using sudo(8) and tee(1), for when I forget.
 if executable('/usr/bin/sudo') && executable('/usr/bin/tee')
 	noremap <silent> <leader>sudosave :w !/usr/bin/sudo /usr/bin/tee %<CR>
 endif
 
+" Place timestamps, be it date (YYYY-MM-DD) or time (HH:MM:SS).
 if (exists("*strftime"))
 	noremap <silent> <leader>date "=strftime("%F")<CR>p9h
 	noremap <silent> <leader>time "=strftime("%X")<CR>p7h
 endif
 
+" Execute the current line with BASH.
 noremap <silent> <leader>rl :.w !bash<CR>
 
+" Move the current line up or down.
 noremap <silent> <C-l> :move -2<CR>
 noremap <silent> <C-k> :move +1<CR>
 
+" Run the current file with PERL, Python, BASH, or a Bourne Shell derivative.
 noremap <silent> <leader>rpl :!perl %<CR>
 noremap <silent> <leader>rpy :!python %<CR>
 noremap <silent> <leader>rb :!bash %<CR>
 noremap <silent> <leader>rs :!sh %<CR>
 
+" Disable arrow keys for normal mode.
 noremap <up> <Nop>
 noremap <down> <Nop>
 noremap <left> <Nop>
 noremap <right> <Nop>
 
+" Disable arrow keys for insert mode.
 inoremap <up> <Nop>
 inoremap <down> <Nop>
 inoremap <left> <Nop>
 inoremap <right> <Nop>
 
+" Disable arrow keys for visual mode.
 vnoremap <up> <Nop>
 vnoremap <down> <Nop>
 vnoremap <left> <Nop>
@@ -150,4 +197,8 @@ vnoremap <right> <Nop>
 " you have to use BufWrite* not FileWrite* for this to work.
 autocmd BufWritePre * exe "silent normal! mc:%s/[\\t ]*$//\<CR>`c"
 
+" A line I always want to go to when I open this file to add to my notes.
+autocmd BufReadPost Useful_Commands call search('#END', 'bep')
+
+" Prohibit certain unsecure VimScript.
 set secure
