@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/moredoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  2 Aug 15:22:21 BST 2021
+" Last Change       - Mon  2 Aug 15:47:25 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -18,7 +18,7 @@
 
 if !exists('g:MoreDoc_Animate') | let g:MoreDoc_Animate = 1 | endif
 
-func! TFL_DocMode(...)
+func! TFL_DocMode(...) abort
 	if ! (exists("g:docmodestate"))
 		set linebreak
 		set wrap
@@ -42,7 +42,7 @@ func! TFL_DocMode(...)
 	endif
 endfunc
 
-func! TFL_MoreMode()
+func! TFL_MoreMode() abort
 	if ! has('statusline')
 		echo 'ERROR: One or more missing features.'
 		finish
@@ -55,7 +55,6 @@ func! TFL_MoreMode()
 			set ruler
 		endif
 
-		set norelativenumber
 		set number
 
 		" Sexy wee open animation.
@@ -83,7 +82,6 @@ func! TFL_MoreMode()
 			set noruler
 		endif
 
-		set norelativenumber
 		set nonumber
 		set laststatus=1
 

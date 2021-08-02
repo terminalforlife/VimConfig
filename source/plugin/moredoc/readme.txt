@@ -11,6 +11,25 @@ Description
     respectively. Think of these 'modes' as a set of presets I consider
     appropriate to use for each task.
 
+    - More Mode
+
+        This mode will toggle the following settings:
+
+                   ruler / noruler
+                  number / nonumber
+               showmatch / noshowmatch
+            laststatus=1 / laststatus=2
+
+    - Document Mode
+
+        This mode will toggle the following settings:
+
+                    wrap / nowrap
+               linebreak / nolinebreak
+               syntax on / syntax off
+
+    The modes can be combined.
+
 Variables
 
     Where `*` in the variable name is `g:MoreDoc_`.
