@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon  2 Aug 17:21:04 BST 2021
+" Last Change       - Tue  3 Aug 17:57:28 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -25,6 +25,10 @@ noremap ; l
 " and `g$`, respectively.
 noremap k gj
 noremap l gk
+
+" Use EMACS-style mappings for command mode.
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
 
 if !has('gui_running')
 	colorscheme tfl-subtle
@@ -59,6 +63,10 @@ set t_Co=256
 set path+=**
 set nomore
 
+" I disable this to begin with, but More Mode ('modedoc.vim') uses it. Note
+" that it's possible to set multiple columns. IE: `set colorcolumn=80,82,84`
+set colorcolumn=0
+
 " Disable line-wrapping; I use this with 'docmode'.
 set nowrap
 set wrapmargin=0
@@ -77,7 +85,7 @@ set nobackup
 set tabstop=4
 
 " The characters shown when `<leader>list` (`set list`) is used.
-set listchars=tab:»→,trail:␣,extends:#,nbsp:⊗
+set listchars=tab:»→,trail:␣
 
 " Temporarily highlights the currently searched string.
 set incsearch
@@ -134,7 +142,9 @@ noremap <silent> <leader>rg mmF`xf`x`m
 noremap <silent> K 10j
 noremap <silent> L 10k
 
-" Split the window horizontally or vertically, or close the window.
+" Split the window horizontally or vertically, or close the window. To switch
+" windows, use <C-W> followed by <C-H> for left, <C-L> for right, <C-J> for
+" down, and <C-K> for up. Or tap <C-W><C-W> to switch between each.
 if has('windows')
 	noremap <silent> <leader>ws :split<CR>
 	noremap <silent> <leader>wvs :vsplit<CR>
