@@ -18,6 +18,8 @@
 
 func! TFL_HeadUp(action)
 	if (exists("*strftime") == 1)
+		exe 'silent normal! mc'
+
 		if (a:action == "place")
 			exe "silent normal! i#\<Esc>78a-\<Esc>o"
 			exe "silent normal! i# Project Name      - \<CR>"
@@ -27,8 +29,6 @@ func! TFL_HeadUp(action)
 			exe "silent normal! i# Author GitHub     - https://github.com/terminalforlife\<CR>"
 			exe "silent normal! i#\<Esc>78a-\<Esc>0o"
 		elseif (a:action == 'update')
-			exe 'silent normal! mc'
-
 			if (search("^[#/\"]* Last Change\\s*- ", 'ep') > 0)
 				exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
 				if (search('^_VERSION_="', 'ep') > 0)
