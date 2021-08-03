@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Tue  3 Aug 17:57:28 BST 2021
+" Last Change       - Tue  3 Aug 18:41:53 BST 2021
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -26,9 +26,15 @@ noremap ; l
 noremap k gj
 noremap l gk
 
-" Use EMACS-style mappings for command mode.
+" Use EMACS-style mappings for command mode. Just missing the ALT mappings, but
+" Vim is refusing to let the ALT key be mapped, which is apparently a common
+" problem; how has this not been fixed?!
+"
+" Although <C-E> is already defined, I included it anyway.
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
+cnoremap <C-E> <End>
+cnoremap <C-A> <Home>
 
 if !has('gui_running')
 	colorscheme tfl-subtle
@@ -183,10 +189,10 @@ noremap <silent> <C-l> :move -2<CR>
 noremap <silent> <C-k> :move +1<CR>
 
 " Run the current file with PERL, Python, BASH, or a Bourne Shell derivative.
-noremap <silent> <leader>rpl :!perl %<CR>
-noremap <silent> <leader>rpy :!python %<CR>
-noremap <silent> <leader>rb :!bash %<CR>
-noremap <silent> <leader>rs :!sh %<CR>
+noremap <silent> <leader>rpl :!clear; perl %<CR>
+noremap <silent> <leader>rpy :!clear; python %<CR>
+noremap <silent> <leader>rb :!clear; bash %<CR>
+noremap <silent> <leader>rs :!clear; sh %<CR>
 
 " Disable arrow keys for normal mode.
 noremap <up> <Nop>
@@ -205,6 +211,12 @@ vnoremap <up> <Nop>
 vnoremap <down> <Nop>
 vnoremap <left> <Nop>
 vnoremap <right> <Nop>
+
+" Disable arrow keys for command mode.
+cnoremap <up> <Nop>
+cnoremap <down> <Nop>
+cnoremap <left> <Nop>
+cnoremap <right> <Nop>
 
 " Automatically clear whitespaces when you write a file/buffer. For some reason
 " you have to use BufWrite* not FileWrite* for this to work.
