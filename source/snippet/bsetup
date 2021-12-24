@@ -26,11 +26,11 @@ Usage(){
 }
 
 Err(){
-	printf 'ERROR: %s\n' "$2" 1>&2
+	printf 'Err: %s\n' "$2" 1>&2
 	[ $1 -eq 1 ] && exit 1
 }
 
-while [ "$1" ]; do
+while [ -n "$1" ]; do
 	case $1 in
 		--help|-h|-\?)
 			Usage; exit 0 ;;
@@ -50,7 +50,7 @@ DepCount=0
 for Dep in id; do
 	if ! command -V 1> /dev/null 2>&1; then
 		Err 0 "Dependency '$Dep' not met."
-		DepCount=$((DepCount + 1))
+		DepCount=$(( DepCount + 1 ))
 	fi
 done
 
