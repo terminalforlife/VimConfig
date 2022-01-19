@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Tue  3 Aug 18:41:53 BST 2021
+" Last Change       - Fri 14 Jan 19:20:12 GMT 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ endif
 ab teh the
 
 " Save with 'root' access, using sudo(8) and tee(1), for when I forget.
-if executable('/usr/bin/sudo') && executable('/usr/bin/tee')
+if executable('sudo') && executable('tee')
 	noremap <silent> <leader>sudosave :w !/usr/bin/sudo /usr/bin/tee %<CR>
 endif
 
