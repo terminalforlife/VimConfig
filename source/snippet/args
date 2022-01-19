@@ -1,6 +1,6 @@
-while [ -n "$1" ]; do
+while [[ -n $1 ]]; do
 	case $1 in
-		--help|-h|-\?)
+		--help|-h)
 			Usage; exit 0 ;;
 		--version|-v)
 			printf '%s\n' "$CurVer"; exit 0 ;;

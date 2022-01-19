@@ -14,7 +14,7 @@
 CurVer=''
 Progrm=${0##*/}
 
-Usage(){
+Usage() {
 	while read; do
 		printf '%s\n' "$REPLY"
 	done <<-EOF
@@ -25,14 +25,14 @@ Usage(){
 	EOF
 }
 
-Err(){
+Err() {
 	printf 'Err: %s\n' "$2" 1>&2
 	(( $1 > 0 )) && exit $1
 }
 
-while [ -n "$1" ]; do
+while [[ -n $1 ]]; do
 	case $1 in
-		--help|-h|-\?)
+		--help|-h)
 			Usage; exit 0 ;;
 		--version|-v)
 			printf '%s\n' "$CurVer"; exit 0 ;;
@@ -50,7 +50,7 @@ DepCount=0
 for Dep in :; do
 	if ! type -P "$Dep" &> /dev/null; then
 		Err 0 "Dependency '$Dep' not met."
-		let DepCount++
+		(( DepCount++ ))
 	fi
 done
 

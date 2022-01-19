@@ -1,10 +1,10 @@
-Usage(){
-	while read -r CurLine; do
-		printf '%b\n' "$CurLine"
+Usage() {
+	while read; do
+		printf '%s\n' "$REPLY"
 	done <<-EOF
-		\rUsage: $Progrm [OPTS]
+		Usage: $Progrm [OPTS]
 
-		\r  -h, --help               - Display this help information.
-		\r  -v, --version            - Output the version datestamp.
+		  -h, --help               - Display this help information.
+		  -v, --version            - Output the version datestamp.
 	EOF
 }

@@ -13,7 +13,6 @@
 
 use strict;
 use warnings;
-use autodie;
 
 #no warnings 'uninitialized';
 

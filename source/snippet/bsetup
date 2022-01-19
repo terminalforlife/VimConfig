@@ -14,7 +14,7 @@
 CurVer=''
 Progrm=${0##*/}
 
-Usage(){
+Usage() {
 	while read -r CurLine; do
 		printf '%b\n' "$CurLine"
 	done <<-EOF
@@ -25,7 +25,7 @@ Usage(){
 	EOF
 }
 
-Err(){
+Err() {
 	printf 'Err: %s\n' "$2" 1>&2
 	[ $1 -eq 1 ] && exit 1
 }

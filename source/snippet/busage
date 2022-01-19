@@ -1,0 +1,10 @@
+Usage() {
+	while read -r CurLine; do
+		printf '%b\n' "$CurLine"
+	done <<-EOF
+		\rUsage: $Progrm [OPTS]
+
+		\r  -h, --help               - Display this help information.
+		\r  -v, --version            - Output the version datestamp.
+	EOF
+}
