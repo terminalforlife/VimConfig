@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  2 Aug 12:34:41 BST 2021
+" Last Change       - Sun 10 Apr 23:07:29 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -31,17 +31,17 @@ func! TFL_HeadUp(action)
 		elseif (a:action == 'update')
 			if (search("^[#/\"]* Last Change\\s*- ", 'ep') > 0)
 				exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
+
+				" Update version string, for Shell and PERL.
 				if (search('^_VERSION_="', 'ep') > 0)
-					" Shell syntax support. (pre: 2019-11-29)
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
 				elseif (search("^CurVer='", 'ep') > 0)
-					" Alternative shell syntax support. (post: 2019-11-29)
 					exe "silent normal! di'\"=strftime(\"%F\")\<CR>P"
 				elseif (search('^my $CurVer = "', 'ep') > 0)
-					" Perl syntax support.
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
 				elseif (search("^my $CurVer = '", 'ep') > 0)
-					" Alternative Perl syntax support. (post: 2020-02-02)
+					exe "silent normal! di'\"=strftime('%F')\<CR>P"
+				elseif (search("^use constant VERSION => '", 'ep') > 0)
 					exe "silent normal! di'\"=strftime('%F')\<CR>P"
 				endif
 			endif
