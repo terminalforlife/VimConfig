@@ -8,19 +8,20 @@
 #
 # Dependencies:
 #
-#   perl (>= 5.22.1-9)
+#   perl (>= 5.10)
 #------------------------------------------------------------------------------
 
+use feature 'say';
 use strict;
 use warnings;
 
 #no warnings 'uninitialized';
 
-my $CurVer = '';
-my $Progrm = ($0 =~ m{(?:.*/)?([^/].*)})[0];
+use constant VERSION => '';
+use constant PROGRAM => ($0 =~ m{(?:.*/)?([^/].*)})[0];
 
-sub Usage {
-	print(qq{Usage: $Progrm [OPTS]
+sub Usage() {
+	print(qq{Usage: ${\PROGRAM} [OPTS]
 
 		  -h, --help               - Display this help information.
 		  -v, --version            - Output the version datestamp.
@@ -31,16 +32,16 @@ while (defined($ARGV[0])) {
 	if ($ARGV[0] =~ '^(--help|-h)$') {
 		Usage(); exit(0)
 	} elsif ($ARGV[0] =~ '^(--version|-v)$') {
-		print("$CurVer\n"); exit(0)
+		say(VERSION); exit(0)
 	#} elsif ($ARGV[0] =~ '^-') {
-	#	die("Incorrect option(s) specified")
+	#	die("Err: Incorrect option(s) specified.\n")
 	#} else {
-	#	last
+	#	last()
 	} else {
-		die("Incorrect option(s) specified")
+		die("Err: Incorrect option(s) specified.\n")
 	}
 
 	shift()
 }
 
-#$< == 0 or die("Root access is required");
+#$< == 0 or die("Err: Root access is required.\n");
