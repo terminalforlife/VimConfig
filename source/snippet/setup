@@ -15,14 +15,14 @@ CurVer=''
 Progrm=${0##*/}
 
 Usage() {
-	while read; do
-		printf '%s\n' "$REPLY"
-	done <<-EOF
+	read -d '' <<-EOF
 		Usage: $Progrm [OPTS]
 
 		  -h, --help               - Display this help information.
 		  -v, --version            - Output the version datestamp.
 	EOF
+
+	printf '%s' "$REPLY"
 }
 
 Err() {
@@ -46,7 +46,6 @@ while [[ -n $1 ]]; do
 	shift
 done
 
-DepCount=0
 for Dep in :; do
 	if ! type -P "$Dep" &> /dev/null; then
 		Err 0 "Dependency '$Dep' not met."
