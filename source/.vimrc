@@ -128,6 +128,16 @@ set shortmess+=o " overwrite file-written messages
 set shortmess+=t " truncate file messages at start
 "
 
+" see :help undo and :help undo-persistence
+if exists("&undodir")
+	set undolevels=5000
+	set undodir=~/.vim/undo//
+	set undofile
+	if ! isdirectory('&undodir')
+		call mkdir(&undodir, 'p')
+	endif
+endif
+
 " Center-, right-, or left-align one or more lines.
 noremap <silent> <leader>ac :center<CR>
 noremap <silent> <leader>ar :right<CR>
