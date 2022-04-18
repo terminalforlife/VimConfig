@@ -1,13 +1,19 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Fri 14 Jan 19:20:12 GMT 2022
+" Last Change       - Mon 18 Apr 15:28:59 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
 
 " Don't load all plugins; I do this more specifically below.
 set noloadplugins
+
+" Vim can ignore or make more concise various messages, which `shortmess`
+" handles. The original values are `filnxtToO`, with the ones below being
+" appended to that list of single-character flags. These two disable Vim's
+" splash screen and terms like 'readonly' are instead the shorthand 'RO'.
+set shortmess+=Ia
 
 " I know `<SPACE>` is probably more common, but I find a comma more convenient.
 let mapleader=','
@@ -36,7 +42,7 @@ cnoremap <C-B> <Left>
 cnoremap <C-E> <End>
 cnoremap <C-A> <Home>
 
-if !has('gui_running')
+if ! has('gui_running')
 	colorscheme tfl-subtle
 	set ttyfast
 endif
@@ -47,13 +53,13 @@ if has('syntax')
 endif
 
 " The plugins I wish to source.
-source $HOME/.vim/plugin/gcmsg/gcmsg.vim
-source $HOME/.vim/plugin/moredoc/moredoc.vim
-source $HOME/.vim/plugin/comtog.vim
-source $HOME/.vim/plugin/headup.vim
-source $HOME/.vim/plugin/textwidth.vim
-source $HOME/.vim/plugin/tflsnips.vim
-source $HOME/.vim/plugin/virtedit.vim
+source ~/.vim/plugin/gcmsg/gcmsg.vim
+source ~/.vim/plugin/moredoc/moredoc.vim
+source ~/.vim/plugin/comtog.vim
+source ~/.vim/plugin/headup.vim
+source ~/.vim/plugin/textwidth.vim
+source ~/.vim/plugin/tflsnips.vim
+source ~/.vim/plugin/virtedit.vim
 
 " Miscellaneous settings.
 set ttimeout
@@ -68,6 +74,16 @@ set cmdheight=1
 set t_Co=256
 set path+=**
 set nomore
+
+" Undo persistence. Disabled for security/privacy.
+"if has('persistent_undo')
+"	set undofile
+"	set undodir=~/.vim/undo
+"
+"	if ! isdirectory(&undodir)
+"		call mkdir(&undodir, '', 0700)
+"	endif
+"endif
 
 " I disable this to begin with, but More Mode ('modedoc.vim') uses it. Note
 " that it's possible to set multiple columns. IE: `set colorcolumn=80,82,84`
@@ -131,7 +147,7 @@ noremap <silent> <leader>hl :set hlsearch!<CR>
 noremap <silent> <SPACE> :noh<CR>
 
 " Source this file again.
-noremap <silent> <leader>rc :source $HOME/.vimrc<CR>
+noremap <silent> <leader>rc :source ~/.vimrc<CR>
 
 " Underline the current line, based on its length.
 noremap <silent> <leader>ul mmyypVr-<Esc>`m
