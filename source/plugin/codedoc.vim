@@ -1,11 +1,9 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/codedoc.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon 25 Apr 17:29:42 BST 2022
+" Last Change       - Mon 25 Apr 18:07:39 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
-"------------------------------------------------------------------------------
-" For information, refer to 'readme.txt' in this directory.
 "------------------------------------------------------------------------------
 
 func! TFL_DocMode() abort

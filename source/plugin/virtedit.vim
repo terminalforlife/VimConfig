@@ -1,29 +1,20 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/virtedit.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  2 Aug 17:30:14 BST 2021
+" Last Change       - Mon 25 Apr 18:14:57 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
-" Toggle virtual editing functionality. Use with: <leader>virt
-"------------------------------------------------------------------------------
 
 func! TFL_VirtualEdit()
-	if !has("virtualedit")
-		echo "ERROR: Unable to toggle virtual editing."
-		return
-	endif
-
-	if(exists("g:virtualeditstate") == 0)
-		set virtualedit=all
-
-		let g:virtualeditstate="true"
-		echo "Virtual editing is enabled."
-	elseif(g:virtualeditstate == "true")
-		set virtualedit=
-
-		unlet g:virtualeditstate
-		echo "Virtual editing is disabled."
+	if has('virtualedit')
+		if &virtualedit == ''
+			set virtualedit=all
+		elseif &virtualedit == 'all'
+			set virtualedit=
+		endif
+	else
+		echo "Err: Virtual editing unavailable."
 	endif
 endfunc
 

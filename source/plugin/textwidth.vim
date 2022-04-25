@@ -1,24 +1,20 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/textwidth.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Mon  2 Aug 17:33:57 BST 2021
+" Last Change       - Mon 25 Apr 18:11:42 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
-" Toggle between textwidth 84 and textwidth 0, with <leader>tw keys.
+" Toggles `textwidth` setting between 80 and 0, to help you keep your output
+" consistent and tidy. This is especially nice when writing text files and
+" command-line tools.
 "------------------------------------------------------------------------------
 
 func! TFL_TextWidth() abort
-	if ! (exists("s:TextWidthMode"))
-		set textwidth=80
-
-		let s:TextWidthMode='true'
-		echo 'Parameter `textwidth` set to `80`.'
-	else
+	if &textwidth == 80
 		set textwidth=0
-
-		unlet s:TextWidthMode
-		echo 'Parameter `textwidth` disabled.'
+	elseif &textwidth == 0
+		set textwidth=80
 	endif
 endfunc
 
