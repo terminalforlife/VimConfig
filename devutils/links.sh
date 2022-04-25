@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - VimConfig/devutils/links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Mon 25 Apr 17:34:19 BST 2022
+# Last Change       - Mon 25 Apr 18:21:43 BST 2022
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -17,23 +17,15 @@ if cd "$HOME/GitHub/terminalforlife/Personal/VimConfig/source"; then
 	mkdir -pv "$HOME/.vim/snippet"
 	mkdir -pv "$HOME/.vim/colors"
 
-	mkdir -pv "$HOME/.vim/plugin/gcmsg"
-	mkdir -pv "$HOME/.vim/plugin/codedoc"
+	for File in plugin/*.vim; do
+		ln -vf "$File" $HOME/.vim/plugin/${File##*/}
+	done
 
-	if command -v vim 1> /dev/null; then
-		for FILE in plugin/*.vim; do
-			ln -vf "$FILE" $HOME/.vim/plugin/${FILE##*/}
-		done
+	for File in snippet/*; do
+		ln -vf "$File" $HOME/.vim/snippet/${File##*/}
+	done
 
-		ln -vf plugin/codedoc/codedoc.vim "$HOME/.vim/plugin/codedoc/"
-		ln -vf plugin/gcmsg/gcmsg.vim "$HOME/.vim/plugin/gcmsg/"
-
-		for FILE in snippet/*; do
-			ln -vf "$FILE" $HOME/.vim/snippet/${FILE##*/}
-		done
-
-		ln -vf colors/tfl.vim $HOME/.vim/colors/
-		ln -vf colors/tfl-subtle.vim $HOME/.vim/colors/
-		ln -vf .vimrc $HOME/
-	fi
+	ln -vf colors/tfl.vim $HOME/.vim/colors/
+	ln -vf colors/tfl-subtle.vim $HOME/.vim/colors/
+	ln -vf .vimrc $HOME/
 fi
