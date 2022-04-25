@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Sun 10 Apr 23:07:29 BST 2022
+" Last Change       - Tue 26 Apr 00:54:27 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -16,8 +16,8 @@
 " aforementioned variable's value, if it's found at the very start of a line.
 "------------------------------------------------------------------------------
 
-func! TFL_HeadUp(action)
-	if (exists("*strftime") == 1)
+func! TFL_HeadUp(action) abort
+	if exists('*strftime')
 		exe 'silent normal! mc'
 
 		if (a:action == "place")
@@ -29,19 +29,19 @@ func! TFL_HeadUp(action)
 			exe "silent normal! i# Author GitHub     - https://github.com/terminalforlife\<CR>"
 			exe "silent normal! i#\<Esc>78a-\<Esc>0o"
 		elseif (a:action == 'update')
-			if (search("^[#/\"]* Last Change\\s*- ", 'ep') > 0)
+			if search("^[#/\"]* Last Change\\s*- ", 'ep')
 				exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
 
 				" Update version string, for Shell and PERL.
-				if (search('^_VERSION_="', 'ep') > 0)
+				if search('^_VERSION_="', 'ep')
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
-				elseif (search("^CurVer='", 'ep') > 0)
+				elseif search("^CurVer='", 'ep')
 					exe "silent normal! di'\"=strftime(\"%F\")\<CR>P"
-				elseif (search('^my $CurVer = "', 'ep') > 0)
+				elseif search('^my $CurVer = "', 'ep')
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
-				elseif (search("^my $CurVer = '", 'ep') > 0)
+				elseif search("^my $CurVer = '", 'ep')
 					exe "silent normal! di'\"=strftime('%F')\<CR>P"
-				elseif (search("^use constant VERSION => '", 'ep') > 0)
+				elseif search("^use constant VERSION => '", 'ep')
 					exe "silent normal! di'\"=strftime('%F')\<CR>P"
 				endif
 			endif
@@ -49,7 +49,7 @@ func! TFL_HeadUp(action)
 
 		exe "silent normal! `c"
 	else
-		echo "ERROR: Unable to find strftime() builtin."
+		echo 'Err: Unable to find `strftime()` builtin.'
 	endif
 endfunc
 
