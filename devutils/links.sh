@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - VimConfig/devutils/links.sh
 # Started On        - Sun 22 Oct 00:15:02 BST 2017
-# Last Change       - Mon  2 Aug 17:22:35 BST 2021
+# Last Change       - Mon 25 Apr 17:34:19 BST 2022
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -18,14 +18,14 @@ if cd "$HOME/GitHub/terminalforlife/Personal/VimConfig/source"; then
 	mkdir -pv "$HOME/.vim/colors"
 
 	mkdir -pv "$HOME/.vim/plugin/gcmsg"
-	mkdir -pv "$HOME/.vim/plugin/moredoc"
+	mkdir -pv "$HOME/.vim/plugin/codedoc"
 
 	if command -v vim 1> /dev/null; then
 		for FILE in plugin/*.vim; do
 			ln -vf "$FILE" $HOME/.vim/plugin/${FILE##*/}
 		done
 
-		ln -vf plugin/moredoc/moredoc.vim "$HOME/.vim/plugin/moredoc/"
+		ln -vf plugin/codedoc/codedoc.vim "$HOME/.vim/plugin/codedoc/"
 		ln -vf plugin/gcmsg/gcmsg.vim "$HOME/.vim/plugin/gcmsg/"
 
 		for FILE in snippet/*; do
