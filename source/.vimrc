@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/.vimrc
 " Started On        - Wed 20 Sep 09:36:54 BST 2017
-" Last Change       - Mon 18 Apr 15:28:59 BST 2022
+" Last Change       - Mon 25 Apr 19:58:10 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -17,9 +17,6 @@ set shortmess+=Ia
 
 " I know `<SPACE>` is probably more common, but I find a comma more convenient.
 let mapleader=','
-
-" Set the goofy animation from the `moredoc.vim` plugin.
-let g:MoreDoc_Animate = 1
 
 " I prefer 'jkl;' VS 'hjkl', because it's the touch-typing standard.
 noremap j h
@@ -52,14 +49,15 @@ if has('syntax')
 	syntax on
 endif
 
-" The plugins I wish to source.
-source ~/.vim/plugin/gcmsg/gcmsg.vim
-source ~/.vim/plugin/moredoc/moredoc.vim
-source ~/.vim/plugin/comtog.vim
-source ~/.vim/plugin/headup.vim
-source ~/.vim/plugin/textwidth.vim
-source ~/.vim/plugin/tflsnips.vim
-source ~/.vim/plugin/virtedit.vim
+if isdirectory($HOME . '/.vim/plugin')
+	source ~/.vim/plugin/codedoc.vim
+	source ~/.vim/plugin/comtog.vim
+	source ~/.vim/plugin/gcmsg.vim
+	source ~/.vim/plugin/headup.vim
+	source ~/.vim/plugin/textwidth.vim
+	source ~/.vim/plugin/tflsnips.vim
+	source ~/.vim/plugin/virtedit.vim
+endif
 
 " Miscellaneous settings.
 set ttimeout
@@ -74,16 +72,6 @@ set cmdheight=1
 set t_Co=256
 set path+=**
 set nomore
-
-" Undo persistence. Disabled for security/privacy.
-"if has('persistent_undo')
-"	set undofile
-"	set undodir=~/.vim/undo
-"
-"	if ! isdirectory(&undodir)
-"		call mkdir(&undodir, '', 0700)
-"	endif
-"endif
 
 " I disable this to begin with, but More Mode ('modedoc.vim') uses it. Note
 " that it's possible to set multiple columns. IE: `set colorcolumn=80,82,84`
@@ -240,6 +228,16 @@ autocmd BufWritePre * exe "silent normal! mc:%s/[\\t ]*$//\<CR>`c"
 
 " A line I always want to go to when I open this file to add to my notes.
 autocmd BufReadPost Useful_Commands call search('#END', 'bep')
+
+" Undo persistence. Disabled for security/privacy.
+"if has('persistent_undo')
+"	set undofile
+"	set undodir=~/.vim/undo
+"
+"	if ! isdirectory(&undodir)
+"		call mkdir(&undodir, '', 0700)
+"	endif
+"endif
 
 " Prohibit certain unsecure VimScript.
 set secure

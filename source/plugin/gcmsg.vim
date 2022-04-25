@@ -1,14 +1,14 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/gcmsg/gcmsg.vim
 " Started On        - Tue  5 Nov 17:44:41 GMT 2019
-" Last Change       - Mon 25 Apr 18:07:25 BST 2022
+" Last Change       - Mon 25 Apr 19:41:51 BST 2022
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
 
 func! TFL_GCMSG() abort
 	if &ft == 'gitcommit'
-		func! TFL_GCMSG_CursorMoved() abort
+		func! s:TFL_GCMSG_CursorMoved() abort
 			let l:Position = getcurpos()
 			let l:Subject = getline('.')
 
@@ -36,7 +36,7 @@ func! TFL_GCMSG() abort
 		exe "silent normal! i# Enter subject in under fifty characters:\<Enter>\<Enter>"
 		exe "silent normal! i\<Enter># Enter main body of Markdown text:\<Enter>\<Esc>2G"
 
-		autocmd CursorMoved * call TFL_GCMSG_CursorMoved()
+		autocmd CursorMoved * call s:TFL_GCMSG_CursorMoved()
 	endif
 endfunc
 
