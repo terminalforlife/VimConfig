@@ -1,3 +1,28 @@
+Skip=
+Args=()
+while [[ -n $1 ]]; do
+	case $1 in
+		--)
+			Args+=(--)
+			Skip='True' ;;
+		-[^-]*)
+			if [[ $Skip == True ]]; then
+				Args+=("$1")
+			else
+				Str=${1#-}
+				Len=${#Str}
+				for (( Index = 0; Index < Len; Index++ )); {
+					Args+=(-"${Str:Index:1}")
+				}
+			fi ;;
+		*)
+			Args+=("$1") ;;
+	esac
+	shift
+done
+
+set -- "${Args[@]}"
+
 while [[ -n $1 ]]; do
 	case $1 in
 		--help|-h)
