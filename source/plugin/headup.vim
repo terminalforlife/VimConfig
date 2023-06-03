@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Tue 26 Apr 00:54:27 BST 2022
+" Last Change       - Tue 30 May 16:59:35 BST 2023
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ func! TFL_HeadUp(action) abort
 	if exists('*strftime')
 		exe 'silent normal! mc'
 
-		if (a:action == "place")
+		if (a:action ==# "place")
 			exe "silent normal! i#\<Esc>78a-\<Esc>o"
 			exe "silent normal! i# Project Name      - \<CR>"
 			exe "silent normal! i# Started On        - \<Esc>\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>po"
@@ -28,7 +28,7 @@ func! TFL_HeadUp(action) abort
 			exe "silent normal! i# Author E-Mail     - terminalforlife@yahoo.com\<CR>"
 			exe "silent normal! i# Author GitHub     - https://github.com/terminalforlife\<CR>"
 			exe "silent normal! i#\<Esc>78a-\<Esc>0o"
-		elseif (a:action == 'update')
+		elseif (a:action ==# 'update')
 			if search("^[#/\"]* Last Change\\s*- ", 'ep')
 				exe "silent normal! ld$\"_\"=strftime(\"%a %_d %b %T %Z %Y\")\<CR>p"
 
