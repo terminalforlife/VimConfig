@@ -8,7 +8,7 @@
 #
 # Dependencies:
 #
-#   bash (>= 4.4.20)
+#   bash (>= 4.0)
 #------------------------------------------------------------------------------
 
 CurVer=''
@@ -30,15 +30,23 @@ Err() {
 	(( $1 > 0 )) && exit $1
 }
 
+Skip=
 Args=()
 while [[ -n $1 ]]; do
 	case $1 in
+		--)
+			Args+=(--)
+			Skip='True' ;;
 		-[^-]*)
-			Str=${1#-}
-			Len=${#Str}
-			for (( Index = 0; Index < Len; Index++ )); {
-				Args+=(-"${Str:Index:1}")
-			} ;;
+			if [[ $Skip == True ]]; then
+				Args+=("$1")
+			else
+				Str=${1#-}
+				Len=${#Str}
+				for (( Index = 0; Index < Len; Index++ )); {
+					Args+=(-"${Str:Index:1}")
+				}
+			fi ;;
 		*)
 			Args+=("$1") ;;
 	esac
