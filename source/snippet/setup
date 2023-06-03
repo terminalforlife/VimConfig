@@ -30,6 +30,23 @@ Err() {
 	(( $1 > 0 )) && exit $1
 }
 
+Args=()
+while [[ -n $1 ]]; do
+	case $1 in
+		-[^-]*)
+			Str=${1#-}
+			Len=${#Str}
+			for (( Index = 0; Index < Len; Index++ )); {
+				Args+=(-"${Str:Index:1}")
+			} ;;
+		*)
+			Args+=("$1") ;;
+	esac
+	shift
+done
+
+set -- "${Args[@]}"
+
 while [[ -n $1 ]]; do
 	case $1 in
 		--help|-h)
