@@ -71,6 +71,7 @@ while [[ -n $1 ]]; do
 	shift
 done
 
+DepCount=0
 for Dep in :; do
 	if ! type -P "$Dep" &> /dev/null; then
 		Err 0 "Dependency '$Dep' not met."
