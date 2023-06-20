@@ -44,4 +44,4 @@ while (defined($ARGV[0])) {
 	shift()
 }
 
-#$< == 0 or die("Err: Root access is required.\n");
+#$< == 0 or die("Err: Permission denied -- are you 'root'?\n");

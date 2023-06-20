@@ -81,4 +81,4 @@ done
 
 (( DepCount > 0 )) && exit 1
 
-#(( UID == 0 )) || Err 1 'Root access is required.'
+#(( UID == 0 )) || Err 1 "Permission denied -- are you 'root'?"
