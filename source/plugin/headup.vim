@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Project Name      - VimConfig/source/plugin/headup.vim
 " Started On        - Mon  5 Mar 17:21:01 GMT 2018
-" Last Change       - Tue 30 May 16:59:35 BST 2023
+" Last Change       - Thu 13 Jul 15:47:28 BST 2023
 " Author E-Mail     - terminalforlife@yahoo.com
 " Author GitHub     - https://github.com/terminalforlife
 "------------------------------------------------------------------------------
@@ -36,6 +36,8 @@ func! TFL_HeadUp(action) abort
 				if search('^_VERSION_="', 'ep')
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
 				elseif search("^CurVer='", 'ep')
+					exe "silent normal! di'\"=strftime(\"%F\")\<CR>P"
+				elseif search("^CurVer = '", 'ep')
 					exe "silent normal! di'\"=strftime(\"%F\")\<CR>P"
 				elseif search('^my $CurVer = "', 'ep')
 					exe "silent normal! di\"\"=strftime(\"%F\")\<CR>P"
